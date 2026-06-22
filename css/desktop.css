@@ -1,0 +1,259 @@
+@media (min-width: 821px) {
+  .site-header {
+    height: 61px;
+    gap: 28px;
+  }
+
+  .brand img {
+    width: 133px;
+  }
+
+  .desktop-nav {
+    font-size: 11px;
+    gap: 13px;
+    justify-content: flex-end;
+  }
+
+  .phone-link {
+    font-size: 11px;
+  }
+
+  .trade-chip {
+    font-size: 10px;
+    min-height: 22px;
+    padding-inline: 14px;
+  }
+
+  .hero {
+    height: 723px;
+    min-height: 723px;
+  }
+
+  .hero-inner {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 806px 480px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: none;
+    min-height: 723px;
+    padding: 0 max(24px, calc((100vw - 1324px) / 2));
+  }
+
+  .eyebrow {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 76px;
+    margin-bottom: 16px;
+    width: 511px;
+  }
+
+  .hero-copy > p:not(.eyebrow) {
+    font-size: 21px;
+    line-height: 27px;
+  }
+
+  .hero-actions {
+    gap: 21px;
+    margin-top: 58px;
+  }
+
+  .button {
+    font-size: 20px;
+    min-height: 54px;
+  }
+
+  .solution-mosaic {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 480px;
+  }
+
+  .solution-card.tall .solution-media {
+    height: 327px;
+    width: 230px;
+  }
+
+  .solution-card.wide {
+    grid-column: 1 / -1;
+  }
+
+  .solution-card.wide .solution-media {
+    height: 166px;
+    width: 480px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(6, 1fr);
+    min-height: 90px;
+    padding: 16px max(24px, calc((100vw - 1324px) / 2));
+  }
+
+  .metrics strong {
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  .metrics p {
+    font-size: 12px;
+  }
+
+  .pillars {
+    padding: 56px max(24px, calc((100vw - 1324px) / 2)) 96px;
+  }
+
+  .pillars h2 {
+    font-size: 36px;
+    margin-bottom: 45px;
+  }
+
+  .pillar-grid {
+    gap: 32px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0 auto;
+    max-width: 1324px;
+  }
+
+  .distribution {
+    padding: 40px max(24px, calc((100vw - 1324px) / 2)) 92px;
+  }
+
+  .distribution-inner {
+    max-width: 1324px;
+  }
+
+  .section-copy h2 {
+    font-size: 36px;
+    margin-bottom: 4px;
+  }
+
+  .section-copy p {
+    font-size: 16px;
+  }
+
+  .distribution-layout {
+    display: grid;
+    gap: 88px;
+    grid-template-columns: 480px 1fr;
+    margin-top: 54px;
+    min-height: 548px;
+  }
+
+  .photo-large {
+    height: 520px;
+    width: 350px;
+    object-position: 43% 50%;
+  }
+
+  .photo-small {
+    height: 400px;
+    left: 188px;
+    top: 155px;
+    width: 280px;
+    object-position: 54% 50%;
+  }
+
+  .reach-stats {
+    align-content: start;
+    gap: 38px 78px;
+    grid-template-columns: repeat(2, 255px);
+    justify-content: start;
+    padding-top: 34px;
+  }
+
+  .reach-stats div {
+    width: 255px;
+  }
+
+  .reach-stats strong {
+    font-size: 48px;
+  }
+
+  .reach-stats p {
+    font-size: 14px;
+  }
+
+  .hand-home {
+    bottom: -92px;
+    right: calc(-1 * max(24px, calc((100vw - 1324px) / 2)));
+    width: 548px;
+  }
+
+  .news {
+    padding: 40px max(24px, calc((100vw - 1324px) / 2)) 80px;
+  }
+
+  .news h2 {
+    font-size: 36px;
+    margin: 0 auto 24px;
+    max-width: 1324px;
+  }
+
+  .news-grid {
+    gap: 28px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0 auto;
+    max-width: 1324px;
+  }
+
+  .news article p {
+    font-size: 11.5px;
+    margin-top: 0;
+  }
+
+  .news article h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+  }
+
+  .news article span,
+  .news article a {
+    font-size: 12px;
+  }
+
+  .news-content {
+    padding: 10px 0 0;
+  }
+
+  .site-footer {
+    padding-top: 38px;
+  }
+
+  .footer-grid {
+    gap: 62px;
+    grid-template-columns: 1.05fr 1.08fr 0.92fr 1.2fr;
+    margin: 0 auto;
+    max-width: 1324px;
+    padding: 0 0 30px;
+  }
+
+  .footer-grid h3 {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .footer-grid a,
+  .footer-grid p {
+    font-size: 9px;
+    margin-bottom: 5px;
+  }
+
+  .footer-grid h4 {
+    font-size: 9px;
+  }
+
+  .legal {
+    font-size: 9px;
+    gap: 3rem;
+    min-height: 42px;
+    padding: 0 max(24px, calc((100vw - 1324px) / 2));
+  }
+
+  .legal p {
+    margin-right: auto;
+  }
+}
