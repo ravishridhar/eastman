@@ -1,0 +1,90 @@
+/* Shared footer component styles. Desktop/mobile breakpoint refinements remain
+   in desktop.css and mobile.css. */
+
+.site-footer {
+  background: var(--footer);
+  color: #383a40;
+}
+
+.footer-grid {
+  display: grid;
+  min-width: 0;
+}
+
+.footer-brand {
+  display: inline-flex;
+  margin-bottom: 14px;
+}
+
+.footer-brand img {
+  height: auto;
+  width: 132px;
+}
+
+.footer-about {
+  max-width: 265px;
+}
+
+.footer-group {
+  margin: 0 0 18px;
+}
+
+.footer-grid h3 {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.footer-grid h4 {
+  color: #070707;
+  font-size: inherit;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+.footer-grid a,
+.footer-grid p {
+  color: #383a40;
+  display: block;
+  line-height: 1.55;
+}
+
+.contact-row {
+  align-items: flex-start;
+  display: flex !important;
+  gap: 8px;
+}
+
+.contact-row img {
+  flex: 0 0 14px;
+  height: 14px;
+  margin-top: 3px;
+  width: 14px;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials a {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #18408c;
+  border-radius: 50%;
+  display: inline-flex;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.socials img {
+  height: 14px;
+  width: 14px;
+}
+
+.legal {
+  align-items: center;
+  background: var(--blue);
+  color: #f1f5fb;
+  display: flex;
+}
