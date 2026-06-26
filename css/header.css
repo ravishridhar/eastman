@@ -1,0 +1,201 @@
+/* Shared header and navigation component styles. Desktop/mobile breakpoint
+   refinements remain in desktop.css and mobile.css. */
+
+.site-header,
+.site-header * {
+  box-sizing: border-box;
+}
+
+.site-header {
+  align-items: center;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0 max(24px, calc((100vw - 1324px) / 2));
+  position: fixed;
+  top: 0;
+  transition:
+    background-color 180ms ease,
+    height 180ms ease,
+    padding 180ms ease,
+    box-shadow 180ms ease;
+  width: 100%;
+  z-index: 30;
+}
+
+.site-header.is-scrolled {
+  background: rgba(24, 64, 140, 0.96);
+  box-shadow: 0 8px 24px rgba(15, 48, 119, 0.2);
+  color: #fff;
+}
+
+.brand {
+  align-items: center;
+  display: inline-flex;
+}
+
+.brand img {
+  height: auto;
+  transition: width 180ms ease;
+  width: 133px;
+}
+
+.header-nav-stack {
+  align-items: flex-end;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+  transition: gap 180ms ease;
+}
+
+.utility-nav,
+.desktop-nav {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.utility-nav {
+  color: #edeff3;
+  font-size: 10.45px;
+  gap: 15px;
+  line-height: 1.25;
+}
+
+.utility-nav a:first-child {
+  color: #fff;
+  font-weight: 600;
+}
+
+.desktop-nav {
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  gap: 1rem;
+}
+
+.desktop-nav a,
+.desktop-nav button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  gap: 5px;
+  line-height: 1.2;
+  min-width: 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.nav-chevron {
+  flex: 0 0 auto;
+  height: 5px;
+  margin-top: 1px;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), filter 180ms ease;
+  width: 8px;
+}
+
+.desktop-nav button::after,
+.desktop-nav a::after {
+  background: currentColor;
+  border-radius: 999px;
+  bottom: -10px;
+  content: "";
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  width: calc(100% - 6px);
+}
+
+.desktop-nav button:hover::after,
+.desktop-nav button:focus-visible::after,
+.desktop-nav button.is-active::after,
+.desktop-nav a:hover::after,
+.desktop-nav a:focus-visible::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.desktop-nav button.is-active .nav-chevron,
+.desktop-nav button:hover .nav-chevron,
+.desktop-nav button:focus-visible .nav-chevron {
+  transform: rotate(180deg);
+}
+
+.header-actions {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 12px;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.phone-link {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  font-size: 10px;
+  font-weight: 700;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.phone-icon {
+  height: 14px;
+  width: 14px;
+}
+
+.trade-chip {
+  align-items: center;
+  background: var(--yellow);
+  border-radius: 999px;
+  color: var(--blue);
+  display: inline-flex;
+  font-size: 0.7rem;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 22px;
+  padding: 0 11px;
+  transition:
+    background-color 220ms ease,
+    color 220ms ease;
+  white-space: nowrap;
+}
+
+.menu-toggle {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  height: 24px;
+  justify-content: center;
+  padding: 0;
+  width: 24px;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.desktop-mega-menu {
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
