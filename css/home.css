@@ -1,7 +1,0 @@
-/* Home-page styles. The legacy base rules still live in style.css during this
-   split; this file is now the explicit page stylesheet for home-only work. */
-
-.home-page .hero,
-body:not(.about-page) .hero {
-  background: var(--blue-dark);
-}
