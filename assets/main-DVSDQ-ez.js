@@ -40,8 +40,8 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
         <a class="is-current" href="${O(`about.html`)}">Overview &amp; Group Companies</a>
         <a href="${O(`about.html`)}">About EAPL</a>
         <a href="${O(`corporate-history.html`)}">Corporate History</a>
-        <a href="${O(`about.html`)}">Corporate Governance</a>
-        <a href="${O(`about.html`)}">Shareholder Information</a>
+        <a href="${O(`corporate-governance.html`)}">Corporate Governance</a>
+        <a href="${O(`disclosures.html`)}">Shareholder Information</a>
         <a href="${O(`about.html`)}">CSR</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="research" aria-label="Research and Development submenu">
@@ -95,8 +95,8 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
           <a href="${O(`about.html`)}">Our Values</a>
           <h3>Governance</h3>
           <a href="${O(`corporate-history.html`)}">Corporate History</a>
-          <a href="${O(`about.html`)}">Corporate Governance</a>
-          <a href="${O(`about.html`)}">Shareholders Information</a>
+          <a href="${O(`corporate-governance.html`)}">Corporate Governance</a>
+          <a href="${O(`disclosures.html`)}">Shareholders Information</a>
         </div>
       </div>
       <div class="mobile-nav-item">
@@ -166,8 +166,8 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
           <a href="${O(`about.html`)}">Our Values</a>
           <a href="${O(`eapl-in-numbers.html`)}">Eastman Auto &amp; Power in Numbers</a>
           <a href="${O(`corporate-history.html`)}">Corporate History</a>
-          <a href="${O(`about.html`)}">Corporate Governance</a>
-          <a href="${O(`about.html`)}">Shareholder Information</a>
+          <a href="${O(`corporate-governance.html`)}">Corporate Governance</a>
+          <a href="${O(`disclosures.html`)}">Shareholder Information</a>
         </section>
       </div>
       <div class="footer-column">
