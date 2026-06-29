@@ -44,8 +44,8 @@ const headerMarkup = `
         <a class="is-current" href="${pagePath('about.html')}">Overview &amp; Group Companies</a>
         <a href="${pagePath('about.html')}">About EAPL</a>
         <a href="${pagePath('corporate-history.html')}">Corporate History</a>
-        <a href="${pagePath('about.html')}">Corporate Governance</a>
-        <a href="${pagePath('about.html')}">Shareholder Information</a>
+        <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
+        <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
         <a href="${pagePath('about.html')}">CSR</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="research" aria-label="Research and Development submenu">
@@ -99,8 +99,8 @@ const headerMarkup = `
           <a href="${pagePath('about.html')}">Our Values</a>
           <h3>Governance</h3>
           <a href="${pagePath('corporate-history.html')}">Corporate History</a>
-          <a href="${pagePath('about.html')}">Corporate Governance</a>
-          <a href="${pagePath('about.html')}">Shareholders Information</a>
+          <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
+          <a href="${pagePath('disclosures.html')}">Shareholders Information</a>
         </div>
       </div>
       <div class="mobile-nav-item">
@@ -172,8 +172,8 @@ const footerMarkup = `
           <a href="${pagePath('about.html')}">Our Values</a>
           <a href="${pagePath('eapl-in-numbers.html')}">Eastman Auto &amp; Power in Numbers</a>
           <a href="${pagePath('corporate-history.html')}">Corporate History</a>
-          <a href="${pagePath('about.html')}">Corporate Governance</a>
-          <a href="${pagePath('about.html')}">Shareholder Information</a>
+          <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
+          <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
         </section>
       </div>
       <div class="footer-column">
