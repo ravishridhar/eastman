@@ -21,6 +21,14 @@
   content: "";
   inset: 0;
   position: absolute;
+  transform: scale(1);
+  transform-origin: center;
+  transition: filter 650ms ease, transform 650ms ease;
+}
+
+.about-hero:hover::before {
+  filter: saturate(1.08) contrast(1.03);
+  transform: scale(1.025);
 }
 
 .about-hero--numbers::before {
@@ -783,6 +791,11 @@ z-index: 1;
   margin: 0;
 }
 
+.governance-heading > p {
+  border-left: 3px solid var(--yellow);
+  padding-left: 12px;
+}
+
 .governance-heading > div > p {
   color: #fff;
   font-size: 12px;
@@ -810,7 +823,10 @@ z-index: 1;
 }
 
 .profile-grid--leadership {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 32px;
+  grid-auto-flow: row;
+  row-gap: 32px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .profile-card {
@@ -819,20 +835,63 @@ z-index: 1;
   box-shadow: 0 16px 28px rgba(0, 0, 0, 0.18);
   color: #fff;
   display: flex;
+  min-width: 0;
   min-height: 280px;
   overflow: hidden;
   position: relative;
+  transform: translateY(0);
+  transition: box-shadow 260ms ease, transform 260ms ease;
 }
 
 .profile-card--large {
-  aspect-ratio: 1.78 / 1;
-  grid-column: span 3;
-  min-height: 400px;
+  aspect-ratio: 1.62 / 1;
+  grid-column: span 6;
+  min-height: 0;
 }
 
 .profile-grid--leadership .profile-card:not(.profile-card--large) {
-  grid-column: span 2;
-  min-height: 270px;
+  grid-column: span 3;
+  min-height: 300px;
+}
+
+.profile-grid--leadership .profile-card:nth-child(1) {
+  grid-column: 1 / span 6;
+  grid-row: 1;
+}
+
+.profile-grid--leadership .profile-card:nth-child(2) {
+  grid-column: 7 / span 6;
+  grid-row: 1;
+}
+
+.profile-grid--leadership .profile-card:nth-child(3) {
+  grid-column: 4 / span 3;
+  grid-row: 2;
+}
+
+.profile-grid--leadership .profile-card:nth-child(4) {
+  grid-column: 7 / span 3;
+  grid-row: 2;
+}
+
+.profile-grid--leadership .profile-card:nth-child(5) {
+  grid-column: 10 / span 3;
+  grid-row: 2;
+}
+
+.profile-grid--leadership .profile-card:nth-child(6) {
+  grid-column: 4 / span 3;
+  grid-row: 3;
+}
+
+.profile-grid--leadership .profile-card:nth-child(7) {
+  grid-column: 7 / span 3;
+  grid-row: 3;
+}
+
+.profile-grid--leadership .profile-card:nth-child(8) {
+  grid-column: 10 / span 3;
+  grid-row: 3;
 }
 
 .profile-card::after {
@@ -846,7 +905,19 @@ z-index: 1;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transform: scale(1);
+  transition: filter 320ms ease, transform 420ms ease;
   width: 100%;
+}
+
+.profile-card:hover {
+  box-shadow: 0 22px 36px rgba(0, 0, 0, 0.28);
+  transform: translateY(-5px);
+}
+
+.profile-card:hover img {
+  filter: saturate(1.08) contrast(1.05);
+  transform: scale(1.06);
 }
 
 .profile-content {
@@ -896,8 +967,15 @@ z-index: 1;
   justify-content: center;
   position: absolute;
   right: 20px;
+  transition: background-color 220ms ease, color 220ms ease, transform 220ms ease;
   width: 27px;
   z-index: 1;
+}
+
+.profile-card:hover > span {
+  background: #fff;
+  color: #f36f21;
+  transform: rotate(45deg) scale(1.08);
 }
 
 .profile-card--large > span {
@@ -956,10 +1034,18 @@ z-index: 1;
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 12px 22px rgba(15, 23, 42, 0.08);
+  transform: translateY(0);
+  transition: box-shadow 240ms ease, outline-color 240ms ease, transform 240ms ease;
 }
 
 .document-row[open] {
   outline: 1px solid #f36f21;
+}
+
+.document-row:hover {
+  box-shadow: 0 16px 28px rgba(15, 23, 42, 0.14);
+  outline: 1px solid rgba(243, 111, 33, 0.45);
+  transform: translateY(-2px);
 }
 
 .document-row summary {
@@ -991,8 +1077,14 @@ z-index: 1;
 .document-row summary span::before {
   content: "";
   background: url("/images/about/document-pdf.svg") center / contain no-repeat;
+  flex: 0 0 auto;
   height: 16px;
+  transition: transform 220ms ease;
   width: 16px;
+}
+
+.document-row:hover summary span::before {
+  transform: scale(1.12);
 }
 
 .document-row summary a {
@@ -1015,7 +1107,14 @@ z-index: 1;
   font-size: 9px;
   height: 17px;
   justify-content: center;
+  transition: background-color 220ms ease, color 220ms ease, transform 220ms ease;
   width: 17px;
+}
+
+.document-row:hover summary a::after {
+  background: var(--yellow);
+  color: #123b86;
+  transform: rotate(45deg);
 }
 
 .history-market {
@@ -1533,6 +1632,18 @@ z-index: 1;
     aspect-ratio: 1.4 / 1;
     grid-column: auto;
     min-height: 220px;
+  }
+
+  .profile-grid--leadership .profile-card:nth-child(1),
+  .profile-grid--leadership .profile-card:nth-child(2),
+  .profile-grid--leadership .profile-card:nth-child(3),
+  .profile-grid--leadership .profile-card:nth-child(4),
+  .profile-grid--leadership .profile-card:nth-child(5),
+  .profile-grid--leadership .profile-card:nth-child(6),
+  .profile-grid--leadership .profile-card:nth-child(7),
+  .profile-grid--leadership .profile-card:nth-child(8) {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .profile-content,
