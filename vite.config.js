@@ -18,6 +18,8 @@ module.exports = defineConfig({
         governance: resolve(__dirname, 'corporate-governance.html'),
         policies: resolve(__dirname, 'policies.html'),
         disclosures: resolve(__dirname, 'disclosures.html'),
+        business: resolve(__dirname, 'business.html'),
+        lastMileEMobility: resolve(__dirname, 'last-mile-e-mobility-solutions.html'),
       },
     },
   },

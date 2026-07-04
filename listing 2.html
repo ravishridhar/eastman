@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Listing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    a {
+      color: #0b57d0;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Website Pages</h1>
+
+<ul id="pages">
+  <li>Loading...</li>
+</ul>
+
+<script>
+const owner = "ravishridhar";
+const repo = "eastman";
+const branch = "main";
+
+const api = `https://api.github.com/repos/ravishridhar/eastman/git/trees/main?recursive=1`;
+
+fetch(api)
+  .then(r => r.json())
+  .then(data => {
+    const ul = document.getElementById("pages");
+    ul.innerHTML = "";
+
+    data.tree
+      .filter(file =>
+        file.path.endsWith(".html") &&
+        !file.path.startsWith(".git") &&
+        file.path !== "listing.html"
+      )
+      .sort((a, b) => a.path.localeCompare(b.path))
+      .forEach(file => {
+
+        const li = document.createElement("li");
+
+        const a = document.createElement("a");
+        a.href = file.path;
+        a.textContent = file.path;
+
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+
+    if (!ul.children.length) {
+      ul.innerHTML = "<li>No HTML pages found.</li>";
+    }
+  });
+</script>
+
+</body>
+</html>

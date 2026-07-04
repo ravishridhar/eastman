@@ -144,12 +144,13 @@
   justify-content: center;
   margin: 0 auto;
   max-width: 1220px;
-  overflow-x: auto;
+  overflow-x: clip;
   padding:0.5rem 0;
   width: min(calc(100% - 220px), 1220px);
 }
 
 .about-tabs a {
+  box-sizing: border-box;
   color: #777983;
   flex: 0 0 auto;
   font-size: 13px;
@@ -169,12 +170,14 @@
 }
 
 .about-tabs--governance .about-tabs-inner {
-  max-width: 720px;
-  width: min(calc(100% - 220px), 720px);
+  max-width: 840px;
+  width: min(calc(100% - 220px), 840px);
 }
 
 .about-tabs--governance a {
-  min-width: 160px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding-inline: 18px;
 }
 
 .about-intro {
@@ -1182,10 +1185,12 @@ z-index: 1;
 
   .about-tabs-inner {
     align-items: center;
+    box-sizing: border-box;
     flex-direction: column;
     gap: 0;
     justify-content: center;
     padding-block: 8px;
+    width: 100%;
   }
 
   .about-tabs a {
@@ -1194,11 +1199,11 @@ z-index: 1;
     min-height: 38px;
     min-width: 0;
     padding: 11px 16px;
-    width: 315px;
+    width: min(100%, 315px);
   }
 
   .about-tabs--governance .about-tabs-inner {
-    width: auto;
+    width: 100%;
   }
 
   .about-breadcrumbs {

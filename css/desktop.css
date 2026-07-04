@@ -1,37 +1,41 @@
 @media (min-width: 821px) {
   .site-header {
     background: transparent;
-    height: 119px;
+    box-shadow: none;
+    color: #fff;
     gap: 24px;
+    height: 119px;
+    justify-content: space-between;
     padding: 8px max(58px, calc((100vw - 1324px) / 2));
     position: absolute;
   }
 
   .site-header.is-scrolled {
-    height: 82px;
-    padding-block: 8px;
+    -webkit-backdrop-filter: blur(22px) saturate(1.22);
+    backdrop-filter: blur(22px) saturate(1.22);
+    background: rgba(255, 207, 0, 0.68);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+    box-shadow: 0 12px 28px rgba(34, 43, 25, 0.18);
+    color: var(--blue-dark);
+    gap: clamp(28px, 4.4vw, 68px);
+    height: 90px;
+    justify-content: flex-start;
+    padding-block: 0;
     position: fixed;
+  }
+
+  .brand {
+    flex: 0 0 auto;
   }
 
   .brand img {
     filter: none;
+    height: auto;
     width: 200.656px;
   }
 
   .site-header.is-scrolled .brand img {
-    width: 130px;
-  }
-
-  /* .site-header.is-scrolled .brand {
-    background: rgba(255, 255, 255, 0.96);
-  } */
-
-  .site-header.is-scrolled .header-nav-stack {
-    gap: 8px;
-  }
-
-  .site-header.is-scrolled .utility-nav {
-    display: flex;
+    width: 155px;
   }
 
   .header-nav-stack {
@@ -39,13 +43,24 @@
     flex: 1;
     flex-direction: column;
     gap: 24px;
+    justify-content: flex-end;
     margin-left: auto;
+  }
+
+  .site-header.is-scrolled .header-nav-stack {
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
   }
 
   .utility-nav {
     display: flex;
     font-size: 10.45px;
     gap: 14.932px;
+  }
+
+  .site-header.is-scrolled .utility-nav {
+    display: none;
   }
 
   .desktop-nav {
@@ -57,6 +72,13 @@
     line-height: 1.5;
   }
 
+  .site-header.is-scrolled .desktop-nav {
+    font-size: 14px;
+    font-weight: 600;
+    gap: 21px;
+    line-height: 1.45;
+  }
+
   .desktop-nav a,
   .desktop-nav button {
     flex: 0 0 auto;
@@ -64,10 +86,27 @@
     max-width: none;
   }
 
+  .site-header.is-scrolled .desktop-nav a,
+  .site-header.is-scrolled .desktop-nav button {
+    gap: 6px;
+  }
+
+  .desktop-nav button::after,
+  .desktop-nav a::after {
+    bottom: -12px;
+    height: 2px;
+  }
+
   .nav-chevron {
     height: 12px;
     margin-top: 0;
     width: 12px;
+  }
+
+  .site-header.is-scrolled .nav-chevron {
+    content: url("/images/nav-chevron_black.svg");
+    height: 5px;
+    width: 8px;
   }
 
   .desktop-nav button:hover,
@@ -87,7 +126,7 @@
   .site-header.is-scrolled .desktop-nav a:focus-visible,
   .site-header.is-scrolled .phone-link:hover,
   .site-header.is-scrolled .phone-link:focus-visible {
-    color: var(--yellow);
+    color: var(--blue);
   }
 
   .phone-link {
@@ -177,9 +216,18 @@
       width: 150px;
     }
 
+    .site-header.is-scrolled .brand img {
+      width: 132px;
+    }
+
     .desktop-nav {
       font-size: 12px;
       gap: 8px;
+    }
+
+    .site-header.is-scrolled .desktop-nav {
+      font-size: 12px;
+      gap: 10px;
     }
 
     .nav-chevron {
@@ -187,7 +235,13 @@
       width: 13px;
     }
 
+    .site-header.is-scrolled .nav-chevron {
+      height: 5px;
+      width: 8px;
+    }
+
     .utility-nav {
+      display: flex;
       font-size: 10px;
       gap: 10px;
     }
@@ -198,14 +252,28 @@
       width: 128px;
     }
 
+    .site-header.is-scrolled .brand img {
+      width: 110px;
+    }
+
     .desktop-nav {
       font-size: 10px;
       gap: 4px;
     }
 
+    .site-header.is-scrolled .desktop-nav {
+      font-size: 10px;
+      gap: 5px;
+    }
+
     .nav-chevron {
       height: 11px;
       width: 11px;
+    }
+
+    .site-header.is-scrolled .nav-chevron {
+      height: 5px;
+      width: 8px;
     }
 
     .trade-chip {

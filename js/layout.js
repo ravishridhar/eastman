@@ -64,11 +64,11 @@ const headerMarkup = `
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="businesses" aria-label="Our Businesses submenu">
         <h2>Our Businesses</h2>
-        <a href="${pagePath('#businesses')}">Last Mile E-Mobility Solutions</a>
-        <a href="${pagePath('#businesses')}">Residential Solar With Storage</a>
-        <a href="${pagePath('#businesses')}">Continued Energy Solutions</a>
-        <a href="${pagePath('#businesses')}">Advanced Electronics Manufacturing</a>
-        <a href="${pagePath('#businesses')}">Global Business</a>
+        <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
+        <a href="${pagePath('business.html#residential-solar')}">Residential Solar With Storage</a>
+        <a href="${pagePath('business.html#continued-energy')}">Continued Energy Solutions</a>
+        <a href="${pagePath('business.html#advanced-electronics')}">Advanced Electronics Manufacturing</a>
+        <a href="${pagePath('business.html#businesses')}">Global Business</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="resources" aria-label="Resources submenu">
         <h2>Resources</h2>
@@ -125,10 +125,10 @@ const headerMarkup = `
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Our Businesses<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
-          <a href="${pagePath('#businesses')}">Last Mile E-Mobility Solutions</a>
-          <a href="${pagePath('#businesses')}">Solar Solutions</a>
-          <a href="${pagePath('#businesses')}">Continued Energy Solutions</a>
-          <a href="${pagePath('#businesses')}">Global Businesses</a>
+          <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
+          <a href="${pagePath('business.html#residential-solar')}">Solar Solutions</a>
+          <a href="${pagePath('business.html#continued-energy')}">Continued Energy Solutions</a>
+          <a href="${pagePath('business.html#businesses')}">Global Businesses</a>
         </div>
       </div>
       <div class="mobile-nav-item">
@@ -197,11 +197,11 @@ const footerMarkup = `
       <div class="footer-column">
         <section class="footer-group">
           <h3>Our Businesses</h3>
-          <a href="${pagePath('#businesses')}">Last Mile E-Mobility Solutions</a>
-          <a href="${pagePath('#businesses')}">Residential Solar with Storage</a>
-          <a href="${pagePath('#businesses')}">Continued Energy Solutions</a>
-          <a href="${pagePath('#businesses')}">Advanced Electronics Manufacturing</a>
-          <a href="${pagePath('#businesses')}">Global Business</a>
+          <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
+          <a href="${pagePath('business.html#residential-solar')}">Residential Solar with Storage</a>
+          <a href="${pagePath('business.html#continued-energy')}">Continued Energy Solutions</a>
+          <a href="${pagePath('business.html#advanced-electronics')}">Advanced Electronics Manufacturing</a>
+          <a href="${pagePath('business.html#businesses')}">Global Business</a>
         </section>
         <section class="footer-group">
           <h3>Resources</h3>

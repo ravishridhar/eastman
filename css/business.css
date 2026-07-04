@@ -1,0 +1,974 @@
+.business-page {
+  background: #fff;
+  color: #25324b;
+}
+
+.business-hero {
+  background:
+    linear-gradient(90deg, #071a3e 0%, rgba(8, 31, 72, 0.96) 34%, rgba(8, 31, 72, 0.6) 64%, rgba(8, 31, 72, 0.25) 100%),
+    #071a3e;
+  color: #fff;
+  min-height: 545px;
+  overflow: hidden;
+  padding: 160px 56px 112px;
+  position: relative;
+}
+
+.business-hero-art {
+  background: url("/images/business/business-hero-bg.png") center / cover no-repeat;
+  inset: 0 0 0 34%;
+  opacity: 0.9;
+  position: absolute;
+}
+
+.business-hero::after {
+  background:
+    radial-gradient(circle at 18% 34%, rgba(255, 214, 10, 0.08), transparent 11rem),
+    linear-gradient(90deg, rgba(5, 18, 45, 0.92) 0%, rgba(5, 18, 45, 0.58) 46%, transparent 78%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.business-hero-inner {
+  margin: 0 auto;
+  max-width: 1328px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.business-pill {
+  align-items: center;
+  border: 1.5px solid #ffd60a;
+  border-radius: 999px;
+  color: #ffd60a;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 800;
+  gap: 12px;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  margin-bottom: 34px;
+  padding: 11px 24px;
+}
+
+.business-pill::before {
+  background: #ffd60a;
+  border-radius: 50%;
+  content: "";
+  height: 8px;
+  width: 8px;
+}
+
+.business-hero h1 {
+  color: #fff;
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.08;
+  margin: 0;
+  max-width: 820px;
+}
+
+.business-hero h1 span {
+  color: #ffd60a;
+}
+
+.business-breadcrumbs {
+  align-items: center;
+  color: #777983;
+  display: flex;
+  font-size: 12px;
+  font-weight: 600;
+  gap: 9px;
+  line-height: 16px;
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: 52px;
+  padding: 0 max(56px, calc((100vw - 1328px) / 2));
+  width: 100%;
+}
+
+.business-breadcrumbs span:last-child {
+  color: #18408c;
+  font-weight: 700;
+}
+
+.business-overview {
+  padding: 72px max(56px, calc((100vw - 1328px) / 2)) 54px;
+}
+
+.business-card-grid {
+  display: grid;
+  gap: 21px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1328px;
+}
+
+.business-card {
+  background: transparent;
+  border-radius: 5px;
+  box-shadow: 0 14px 32px rgba(15, 48, 119, 0.12);
+  display: block;
+  aspect-ratio: 318 / 438;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.business-card::after {
+  content: none;
+}
+
+.business-card:hover,
+.business-card:focus-visible {
+  box-shadow: 0 22px 42px rgba(15, 48, 119, 0.2);
+  transform: translateY(-4px);
+}
+
+.business-card > img {
+  height: 100%;
+  object-fit: fill;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  width: 100%;
+}
+
+.business-card:hover > img,
+.business-card:focus-visible > img {
+  transform: scale(1.045);
+}
+
+.business-card-icon {
+  align-items: center;
+  background: #ffd60a;
+  border-radius: 50%;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  left: 18px;
+  position: absolute;
+  top: 18px;
+  width: 40px;
+  z-index: 2;
+}
+
+.business-card-icon img {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(60%) saturate(1887%) hue-rotate(204deg) brightness(86%) contrast(98%);
+  height: 18px;
+  object-fit: contain;
+  width: 18px;
+}
+
+.business-card-copy {
+  bottom: 24px;
+  color: #fff;
+  display: grid;
+  gap: 7px;
+  left: 20px;
+  position: absolute;
+  right: 18px;
+  z-index: 2;
+}
+
+.business-card-copy strong {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.business-card-copy em {
+  align-items: center;
+  display: inline-flex;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 800;
+  gap: 7px;
+}
+
+.business-card-copy em span {
+  background: #ffd60a;
+  border-radius: 50%;
+  display: inline-flex;
+  height: 15px;
+  position: relative;
+  width: 15px;
+}
+
+.business-card-copy em span::after {
+  border-right: 2px solid #18408c;
+  border-top: 2px solid #18408c;
+  content: "";
+  height: 5px;
+  left: 4px;
+  position: absolute;
+  top: 4px;
+  transform: rotate(45deg);
+  width: 5px;
+}
+
+.business-detail {
+  align-items: center;
+  background: #fff;
+  display: grid;
+  gap: 80px;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(420px, 1.18fr);
+  min-height: 566px;
+  overflow: hidden;
+  padding: 68px max(56px, calc((100vw - 1328px) / 2));
+  position: relative;
+}
+
+.business-detail--alt {
+  background: #f4f7fb;
+  grid-template-columns: minmax(420px, 1.18fr) minmax(300px, 0.9fr);
+}
+
+.business-detail-copy {
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+.business-detail-copy h2 {
+  color: #18408c;
+  font-size: clamp(36px, 3.8vw, 50px);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.04;
+  margin: 0 0 28px;
+}
+
+.business-detail-copy h2 span {
+  color: #f36f21;
+}
+
+.business-detail-copy p {
+  color: #5e6879;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 0 0 28px;
+  max-width: 580px;
+}
+
+.business-tags {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.business-tags span {
+  background: #fff;
+  border: 1px solid #dbe4f0;
+  border-radius: 3px;
+  color: #18408c;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  min-width: 196px;
+  padding: 9px 12px;
+}
+
+.business-detail-media {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.business-detail-media::before {
+  background-image:
+    linear-gradient(#c9efd0 1px, transparent 1px),
+    linear-gradient(90deg, #c9efd0 1px, transparent 1px);
+  background-size: 24px 24px;
+  content: "";
+  inset: -31px -30px -31px 210px;
+  opacity: 0.75;
+  position: absolute;
+  z-index: -1;
+}
+
+.business-detail--alt .business-detail-media::before {
+  inset: -31px 210px -31px -30px;
+}
+
+.business-detail-media img {
+  border-radius: 7px;
+  box-shadow: 0 18px 34px rgba(19, 44, 85, 0.12);
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.last-mile-page {
+  color: #16315f;
+  overflow-x: hidden;
+}
+
+.last-mile-page main {
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.last-mile-page main h1,
+.last-mile-page main h2,
+.last-mile-page main h3,
+.last-mile-page main p,
+.last-mile-page main strong,
+.last-mile-page main em {
+  white-space: normal;
+}
+
+.last-mile-hero {
+  min-height: 518px;
+  padding-bottom: 132px;
+  padding-top: 164px;
+}
+
+.last-mile-hero-art {
+  background-image: url("/images/business/last-mile-hero.png");
+  inset: 0;
+  opacity: 1;
+}
+
+.last-mile-hero::after {
+  background: linear-gradient(90deg, rgba(5, 18, 45, 0.96) 0%, rgba(5, 18, 45, 0.83) 46%, rgba(8, 31, 72, 0.45) 78%, rgba(8, 31, 72, 0.1) 100%);
+}
+
+.last-mile-hero h1 {
+  max-width: 590px;
+}
+
+.last-mile-hero p {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 22px 0 0;
+}
+
+.last-mile-section-inner,
+.last-mile-intro {
+  margin: 0 auto;
+  max-width: 1328px;
+  min-width: 0;
+  width: 100%;
+}
+
+.section-kicker {
+  color: #5b5d65;
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.last-mile-intro {
+  align-items: center;
+  display: grid;
+  gap: 84px;
+  grid-template-columns: minmax(420px, 638px) minmax(360px, 1fr);
+  min-height: 554px;
+  padding: 72px 56px 86px;
+}
+
+.last-mile-intro-media {
+  margin: 0;
+  position: relative;
+}
+
+.last-mile-intro-media::before {
+  background-image:
+    linear-gradient(#c9efd0 1px, transparent 1px),
+    linear-gradient(90deg, #c9efd0 1px, transparent 1px);
+  background-size: 24px 24px;
+  content: "";
+  inset: -24px 34% -24px -22px;
+  opacity: 0.7;
+  position: absolute;
+  z-index: -1;
+}
+
+.last-mile-intro-media img {
+  aspect-ratio: 638 / 386;
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+  object-position: right center;
+  width: 100%;
+}
+
+.last-mile-intro-copy,
+.last-mile-feature-card,
+.last-mile-product-card,
+.last-mile-metrics article {
+  min-width: 0;
+}
+
+.last-mile-intro-copy h2,
+.last-mile-expertise h2,
+.last-mile-products h2 {
+  color: #18408c;
+  font-size: clamp(34px, 4.1vw, 54px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.02;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.last-mile-intro-copy h2 span,
+.last-mile-expertise h2 span,
+.last-mile-products h2 span {
+  color: #f36f21;
+}
+
+.last-mile-intro-copy p {
+  color: #5f6470;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.28;
+  margin: 30px 0 0;
+  max-width: 555px;
+}
+
+.last-mile-intro-copy strong {
+  color: #30394d;
+  font-weight: 900;
+}
+
+.last-mile-intro-copy em {
+  color: #f36f21;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.last-mile-scale {
+  background: #1c4996;
+  color: #fff;
+  padding: 70px 56px 78px;
+}
+
+.last-mile-scale .section-kicker {
+  color: #ffd60a;
+}
+
+.last-mile-scale h2 {
+  color: #fff;
+  font-size: clamp(27px, 2.55vw, 36px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.15;
+  margin: 0 0 28px;
+}
+
+.last-mile-metrics {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  overflow: hidden;
+}
+
+.last-mile-metrics article {
+  background: #153a80;
+  border-right: 1px solid rgba(255, 255, 255, 0.11);
+  min-height: 112px;
+  padding: 24px 32px;
+}
+
+.last-mile-metrics article:last-child {
+  border-right: 0;
+}
+
+.last-mile-metrics strong {
+  color: #ffd60a;
+  display: block;
+  font-size: clamp(31px, 3.1vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.last-mile-metrics span {
+  color: #d8e1f2;
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.last-mile-expertise {
+  background: #eef1f5;
+  padding: 78px 56px 82px;
+}
+
+.last-mile-expertise h2 {
+  margin-bottom: 34px;
+}
+
+.last-mile-feature-grid {
+  display: grid;
+  gap: 24px 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.last-mile-feature-card {
+  background: #123a7f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  min-height: 198px;
+  padding: 24px;
+  transition: transform 240ms ease, box-shadow 240ms ease, background 240ms ease;
+}
+
+.last-mile-feature-card:hover {
+  background: #0e2f6f;
+  box-shadow: 0 18px 32px rgba(15, 48, 119, 0.18);
+  transform: translateY(-3px);
+}
+
+.last-mile-feature-card > span {
+  align-items: center;
+  background: #18408c;
+  border-radius: 12px;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  margin-bottom: 28px;
+  width: 48px;
+}
+
+.last-mile-feature-card img {
+  height: 20px;
+  width: 20px;
+}
+
+.last-mile-feature-card h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.16;
+  margin: 0 0 16px;
+  overflow-wrap: anywhere;
+}
+
+.last-mile-feature-card p {
+  color: #f5f7fa;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.22;
+  margin: 0;
+}
+
+.last-mile-products {
+  background:
+    radial-gradient(circle, rgba(24, 64, 140, 0.05) 1px, transparent 1.5px),
+    #fff;
+  background-size: 28px 28px;
+  padding: 82px 56px 176px;
+}
+
+.last-mile-products h2 {
+  margin-bottom: 34px;
+}
+
+.last-mile-product-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.last-mile-product-card {
+  background: #edeff3;
+  border: 1px solid #e3e8ef;
+  border-radius: 8px;
+  box-shadow: 0 25px 18px rgba(53, 53, 54, 0.08), 0 6px 10px rgba(53, 53, 54, 0.1);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 308px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
+
+.last-mile-product-card:hover,
+.last-mile-product-card:focus-visible {
+  box-shadow: 0 32px 36px rgba(24, 56, 119, 0.18);
+  transform: translateY(-5px);
+}
+
+.product-arrow {
+  align-items: center;
+  background: #18408c;
+  border-radius: 50%;
+  display: inline-flex;
+  height: 28px;
+  justify-content: center;
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  width: 28px;
+  z-index: 2;
+}
+
+.is-featured .product-arrow {
+  background: #ffd60a;
+}
+
+.product-arrow img {
+  height: 16px;
+  width: 16px;
+}
+
+.product-image {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  height: 221px;
+  justify-content: center;
+  padding: 28px 18px;
+}
+
+.product-image img {
+  max-height: 170px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-copy {
+  background: #18408c;
+  display: grid;
+  gap: 8px;
+  min-height: 88px;
+  padding: 16px;
+}
+
+.is-featured .product-copy {
+  background: #0e2f6f;
+}
+
+.product-copy strong {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.14;
+}
+
+.product-copy em {
+  color: #ffd60a;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+@media (max-width: 1180px) {
+  .business-overview {
+    padding-block: 60px 54px;
+  }
+
+  .business-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .business-detail,
+  .business-detail--alt {
+    gap: 42px;
+    grid-template-columns: 1fr 1fr;
+    min-height: auto;
+    padding-block: 62px;
+  }
+
+  .business-card-copy strong {
+    font-size: 19px;
+  }
+
+  .last-mile-intro {
+    gap: 46px;
+    grid-template-columns: 1fr 0.92fr;
+  }
+
+  .last-mile-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .last-mile-metrics article:nth-child(3) {
+    border-right: 0;
+  }
+
+  .last-mile-metrics article:nth-child(n + 4) {
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .last-mile-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .last-mile-product-grid {
+    gap: 22px;
+    grid-auto-columns: 238px;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding-bottom: 18px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .last-mile-product-card {
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 820px) {
+  .business-hero {
+    min-height: 430px;
+    padding: 122px 22px 72px;
+  }
+
+  .business-hero-art {
+    inset: 0;
+    opacity: 0.65;
+  }
+
+  .business-hero::after {
+    background: linear-gradient(90deg, rgba(5, 18, 45, 0.96) 0%, rgba(5, 18, 45, 0.78) 58%, rgba(5, 18, 45, 0.45) 100%);
+  }
+
+  .business-pill {
+    font-size: 10px;
+    margin-bottom: 24px;
+    padding: 10px 18px;
+  }
+
+  .business-hero h1 {
+    font-size: 30px;
+    max-width: 560px;
+  }
+
+  .business-hero h1 > span {
+    display: block;
+  }
+
+  .business-breadcrumbs {
+    overflow-x: auto;
+    padding: 0 22px;
+    white-space: nowrap;
+  }
+
+  .business-overview {
+    padding: 46px 22px 44px;
+  }
+
+  .business-card-grid {
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  .business-detail,
+  .business-detail--alt {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 22px;
+  }
+
+  .business-detail--alt .business-detail-media {
+    order: 2;
+  }
+
+  .business-detail--alt .business-detail-copy {
+    order: 1;
+  }
+
+  .business-detail-copy,
+  .business-detail-copy p {
+    max-width: none;
+  }
+
+  .business-detail-copy h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+  }
+
+  .business-detail-media::before,
+  .business-detail--alt .business-detail-media::before {
+    inset: -18px 18% -18px -18px;
+  }
+
+  .business-tags span {
+    min-width: min(100%, 250px);
+  }
+
+  .last-mile-hero {
+    min-height: 440px;
+    padding-bottom: 78px;
+    padding-top: 132px;
+  }
+
+  .last-mile-hero-art {
+    background-position: 58% center;
+  }
+
+  .last-mile-hero p {
+    font-size: 13px;
+    max-width: 270px;
+  }
+
+  .last-mile-hero h1 > span {
+    display: inline;
+  }
+
+  .last-mile-intro,
+  .last-mile-scale,
+  .last-mile-expertise,
+  .last-mile-products {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .last-mile-section-inner,
+  .last-mile-intro-copy,
+  .last-mile-intro-media,
+  .last-mile-feature-card,
+  .last-mile-feature-grid,
+  .last-mile-metrics,
+  .last-mile-products h2,
+  .last-mile-expertise h2 {
+    max-width: calc(100vw - 44px);
+    width: 100%;
+  }
+
+  .last-mile-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-height: auto;
+    padding-bottom: 58px;
+    padding-top: 58px;
+  }
+
+  .last-mile-intro-copy h2,
+  .last-mile-expertise h2,
+  .last-mile-products h2 {
+    font-size: 30px;
+  }
+
+  .last-mile-intro-copy p {
+    max-width: none;
+  }
+
+  .last-mile-scale {
+    padding-bottom: 56px;
+    padding-top: 56px;
+  }
+
+  .last-mile-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .last-mile-metrics article,
+  .last-mile-metrics article:nth-child(3) {
+    border-right: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .last-mile-metrics article:nth-child(even),
+  .last-mile-metrics article:last-child {
+    border-right: 0;
+  }
+
+  .last-mile-metrics article:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .last-mile-metrics article {
+    min-height: 104px;
+    padding: 22px 20px;
+  }
+
+  .last-mile-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .last-mile-feature-card {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .last-mile-feature-card h3 {
+    font-size: 16px;
+    word-break: break-word;
+  }
+
+  .last-mile-feature-card p {
+    font-size: 12px;
+    word-break: break-word;
+  }
+
+  .last-mile-products {
+    padding-bottom: 80px;
+    padding-top: 58px;
+  }
+}
+
+@media (max-width: 460px) {
+  .business-hero {
+    min-height: 390px;
+  }
+
+  .business-hero h1 {
+    font-size: 28px;
+  }
+
+  .last-mile-hero h1 {
+    font-size: 32px;
+  }
+
+  .last-mile-intro-copy h2,
+  .last-mile-expertise h2,
+  .last-mile-products h2 {
+    font-size: 25px;
+  }
+
+  .last-mile-scale h2 {
+    font-size: 23px;
+  }
+
+  .last-mile-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .last-mile-metrics article,
+  .last-mile-metrics article:nth-child(3),
+  .last-mile-metrics article:nth-child(even) {
+    border-right: 0;
+  }
+
+  .last-mile-metrics article + article {
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .last-mile-product-grid {
+    display: grid;
+    gap: 18px;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .last-mile-product-card {
+    min-height: 292px;
+  }
+}

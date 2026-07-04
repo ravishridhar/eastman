@@ -4,6 +4,7 @@ import '../css/header.css';
 import '../css/footer.css';
 import '../css/home.css';
 import '../css/about.css';
+import '../css/business.css';
 import '../css/desktop.css';
 import '../css/mobile.css';
 import { setupLayout } from './layout.js';
