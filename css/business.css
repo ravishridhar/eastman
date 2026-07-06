@@ -305,6 +305,31 @@
   width: 100%;
 }
 
+.business-page:not(.last-mile-page) .business-pill,
+.business-page:not(.last-mile-page) .business-hero h1,
+.business-page:not(.last-mile-page) .business-detail-copy h2,
+.business-page:not(.last-mile-page) .business-breadcrumbs span:last-child {
+  font-weight: 700;
+}
+
+.business-page:not(.last-mile-page) .business-breadcrumbs {
+  font-weight: 400;
+}
+
+.business-page:not(.last-mile-page) .business-detail-copy p {
+  font-weight: 400;
+}
+
+.business-page:not(.last-mile-page) .business-tags span {
+  font-weight: 500;
+}
+
+.business-footer-art {
+  background: #fff url("/images/overview-bg-bottom.png") right bottom / 838px 97px no-repeat;
+  height: 144px;
+  position: relative;
+}
+
 .last-mile-page {
   color: #16315f;
   overflow-x: hidden;
@@ -364,7 +389,7 @@
   color: #5b5d65;
   display: block;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.2;
   margin-bottom: 14px;
 }
@@ -415,8 +440,8 @@
 .last-mile-expertise h2,
 .last-mile-products h2 {
   color: #18408c;
-  font-size: clamp(34px, 4.1vw, 54px);
-  font-weight: 900;
+  font-size: clamp(34px, 4.1vw, 44px);
+  font-weight: 800;
   letter-spacing: 0;
   line-height: 1.02;
   margin: 0;
@@ -432,7 +457,7 @@
 .last-mile-intro-copy p {
   color: #5f6470;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.28;
   margin: 30px 0 0;
   max-width: 555px;
@@ -440,13 +465,13 @@
 
 .last-mile-intro-copy strong {
   color: #30394d;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .last-mile-intro-copy em {
   color: #f36f21;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .last-mile-scale {
@@ -491,7 +516,7 @@
   color: #ffd60a;
   display: block;
   font-size: clamp(31px, 3.1vw, 48px);
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 1;
   margin-bottom: 12px;
@@ -501,7 +526,7 @@
   color: #d8e1f2;
   display: block;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -555,7 +580,7 @@
 .last-mile-feature-card h3 {
   color: #fff;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 1.16;
   margin: 0 0 16px;
@@ -592,19 +617,19 @@
   background: #edeff3;
   border: 1px solid #e3e8ef;
   border-radius: 8px;
-  box-shadow: 0 25px 18px rgba(53, 53, 54, 0.08), 0 6px 10px rgba(53, 53, 54, 0.1);
+  box-shadow: 0 18px 18px rgba(53, 53, 54, 0.06), 0 6px 10px rgba(53, 53, 54, 0.08);
   color: #fff;
   display: flex;
   flex-direction: column;
   min-height: 308px;
   overflow: hidden;
   position: relative;
-  transition: transform 260ms ease, box-shadow 260ms ease;
+  transition: box-shadow 260ms ease, transform 260ms ease;
 }
 
 .last-mile-product-card:hover,
 .last-mile-product-card:focus-visible {
-  box-shadow: 0 32px 36px rgba(24, 56, 119, 0.18);
+  box-shadow: 0 32px 38px rgba(53, 53, 54, 0.16), 0 10px 18px rgba(24, 56, 119, 0.16);
   transform: translateY(-5px);
 }
 
@@ -618,17 +643,42 @@
   position: absolute;
   right: 9px;
   top: 9px;
+  transition: background-color 220ms ease;
   width: 28px;
   z-index: 2;
 }
 
-.is-featured .product-arrow {
+.last-mile-product-card:hover .product-arrow,
+.last-mile-product-card:focus-visible .product-arrow {
   background: #ffd60a;
 }
 
 .product-arrow img {
   height: 16px;
+  transition: opacity 180ms ease;
   width: 16px;
+}
+
+.product-arrow::after {
+  background: #0e2f6f;
+  content: "";
+  height: 16px;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 180ms ease;
+  width: 16px;
+  -webkit-mask: url("/images/business/last-mile-product-arrow-active.svg") center / contain no-repeat;
+  mask: url("/images/business/last-mile-product-arrow-active.svg") center / contain no-repeat;
+}
+
+.last-mile-product-card:hover .product-arrow img,
+.last-mile-product-card:focus-visible .product-arrow img {
+  opacity: 0;
+}
+
+.last-mile-product-card:hover .product-arrow::after,
+.last-mile-product-card:focus-visible .product-arrow::after {
+  opacity: 1;
 }
 
 .product-image {
@@ -654,7 +704,8 @@
   padding: 16px;
 }
 
-.is-featured .product-copy {
+.last-mile-product-card:hover .product-copy,
+.last-mile-product-card:focus-visible .product-copy {
   background: #0e2f6f;
 }
 
@@ -809,6 +860,11 @@
 
   .business-tags span {
     min-width: min(100%, 250px);
+  }
+
+  .business-footer-art {
+    background-size: min(838px, 92vw) auto;
+    height: 112px;
   }
 
   .last-mile-hero {

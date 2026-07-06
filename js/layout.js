@@ -32,11 +32,12 @@ const headerMarkup = `
         1800 419 8610
       </a>
       <a class="trade-chip" href="#contact">Trade Enquiry</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>
-        <img src="${assetPath('images/menu-icon.svg')}" alt="" />
-        <span></span><span></span><span></span>
-      </button>
     </div>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>
+      <img src="${assetPath('images/menu-icon.svg')}" alt="" />
+      <span></span><span></span><span></span>
+    </button>
 
     <div class="desktop-mega-menu" data-desktop-menu>
       <section class="mega-panel mega-panel--card" data-desktop-panel="about" aria-label="About Us submenu">
