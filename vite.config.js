@@ -17,6 +17,7 @@ module.exports = defineConfig({
         leadership: resolve(__dirname, 'leadership.html'),
         governance: resolve(__dirname, 'corporate-governance.html'),
         policies: resolve(__dirname, 'policies.html'),
+        listing: resolve(__dirname, 'listing.html'),
         disclosures: resolve(__dirname, 'disclosures.html'),
         business: resolve(__dirname, 'business.html'),
         lastMileEMobility: resolve(__dirname, 'last-mile-e-mobility-solutions.html'),
