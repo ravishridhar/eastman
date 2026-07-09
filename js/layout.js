@@ -41,30 +41,31 @@ const headerMarkup = `
 
     <div class="desktop-mega-menu" data-desktop-menu>
       <section class="mega-panel mega-panel--card" data-desktop-panel="about" aria-label="About Us submenu">
-        <h2>Company</h2>
-        <a class="is-current" href="${pagePath('about.html')}">Overview &amp; Group Companies</a>
-        <a href="${pagePath('about.html')}">About EAPL</a>
+        <!-- <h2>Company</h2> -->
+        <!--<a class="is-current" href="${pagePath('about.html')}">Overview &amp; Group Companies</a>-->
+        <a href="${pagePath('about.html')}">Overview &amp; Group Companies</a>
+        <a href="${pagePath('about.html')}">Eastman Auto &amp; Power in Nos.</a>
         <a href="${pagePath('corporate-history.html')}">Corporate History</a>
         <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
         <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
         <a href="${pagePath('about.html')}">CSR</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="research" aria-label="Research and Development submenu">
-        <h2>Research &amp; Development</h2>
+        <!-- <h2>Research &amp; Development</h2> -->
         <a href="${pagePath('#research')}">Overview</a>
         <a href="${pagePath('#research')}">Conventional Tubular Batteries</a>
         <a href="${pagePath('#research')}">Power Electronics</a>
         <a href="${pagePath('#research')}">Lithium-ion Batteries Solar Panels</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="manufacturing" aria-label="Manufacturing Infrastructure submenu">
-        <h2>Manufacturing &amp; Infrastructure</h2>
+        <!-- <h2>Manufacturing &amp; Infrastructure</h2> -->
         <a href="${pagePath('#manufacturing')}">Overview</a>
         <a href="${pagePath('#manufacturing')}">Conventional Tubular Batteries</a>
         <a href="${pagePath('#manufacturing')}">Power Electronics</a>
         <a href="${pagePath('#manufacturing')}">Lithium-ion Batteries Solar Panels</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="businesses" aria-label="Our Businesses submenu">
-        <h2>Our Businesses</h2>
+        <!-- <h2>Our Businesses</h2> -->
         <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
         <a href="${pagePath('business.html#residential-solar')}">Residential Solar With Storage</a>
         <a href="${pagePath('business.html#continued-energy')}">Continued Energy Solutions</a>
@@ -72,7 +73,7 @@ const headerMarkup = `
         <a href="${pagePath('business.html#businesses')}">Global Business</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="resources" aria-label="Resources submenu">
-        <h2>Resources</h2>
+        <!-- <h2>Resources</h2> -->
         <a href="${pagePath('#resources')}">Overview</a>
         <a href="${pagePath('#resources')}">Blogs</a>
         <a href="${pagePath('#resources')}">Whitepaper</a>
@@ -81,7 +82,7 @@ const headerMarkup = `
         <a href="${pagePath('#resources')}">Videos</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="life" aria-label="Life at Eastman submenu">
-        <h2>Life @ Eastman</h2>
+        <!-- <h2>Life @ Eastman</h2> -->
         <a href="${pagePath('#life')}">Great Place to Work</a>
         <a href="${pagePath('#life')}">Careers</a>
       </section>
@@ -165,7 +166,7 @@ const footerMarkup = `
         <a class="footer-brand" href="${pagePath()}" aria-label="Eastman home">
           <img src="${assetPath('images/footer_logo.svg')}" alt="Eastman" />
         </a>
-        <p class="footer-about">Eastman Auto &amp; Power Limited (EAPL) is one of India&apos;s leading energy transition companies. For over 3 decades, we have been committed to power, progress and people.</p>
+        <!-- <p class="footer-about">Eastman Auto &amp; Power Limited (EAPL) is one of India&apos;s leading energy transition companies. For over 3 decades, we have been committed to power, progress and people.</p> -->
         <section class="footer-group">
           <h3>About Us</h3>
           <a href="${pagePath('about.html')}">About JRS Eastman</a>

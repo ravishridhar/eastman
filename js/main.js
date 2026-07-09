@@ -181,6 +181,12 @@ function setHeaderState() {
   header?.classList.toggle('is-scrolled', window.scrollY > 12);
 }
 
+function getAnchorOffset() {
+  if (!header) return 0;
+  if (window.matchMedia('(min-width: 821px)').matches) return -86;
+  return -header.offsetHeight;
+}
+
 function setupAnchorScroll() {
   document.addEventListener('click', (event) => {
     if (!(event.target instanceof Element)) return;
@@ -196,7 +202,7 @@ function setupAnchorScroll() {
 
     event.preventDefault();
     closeMenu();
-    lenis?.scrollTo(target, { offset: -(header?.offsetHeight || 0) });
+    lenis?.scrollTo(target, { offset: getAnchorOffset() });
   });
 }
 
@@ -231,7 +237,7 @@ async function loadPage(url, { push = true } = {}) {
   setupDynamicContent();
 
   const target = window.location.hash ? document.querySelector(window.location.hash) : null;
-  if (target) lenis?.scrollTo(target, { offset: -(header?.offsetHeight || 0), immediate: true });
+  if (target) lenis?.scrollTo(target, { offset: getAnchorOffset(), immediate: true });
   else lenis?.scrollTo(0, { immediate: true });
 }
 
@@ -266,6 +272,9 @@ function formatCounter(value, decimals, suffix) {
 }
 
 function animateCounter(counter) {
+  if (counter.dataset.animated === 'true') return;
+  counter.dataset.animated = 'true';
+
   const target = Number(counter.dataset.value || 0);
   const decimals = Number(counter.dataset.decimals || 0);
   const suffix = counter.dataset.suffix || '';
@@ -317,8 +326,18 @@ function setupCounters() {
 
   groups.forEach((groupCounters, section) => {
     groupCounters.forEach((counter) => {
+      counter.dataset.animated = 'false';
       counter.innerHTML = formatCounter(0, Number(counter.dataset.decimals || 0), counter.dataset.suffix || '');
     });
+
+    const rect = section.getBoundingClientRect();
+    const isInitiallyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (isInitiallyVisible) {
+      requestAnimationFrame(() => groupCounters.forEach((counter) => animateCounter(counter)));
+      return;
+    }
+
     observer.observe(section);
   });
 }
@@ -361,7 +380,7 @@ function positionFloatingSolutionLabel() {
   const isWide = activeSolutionCard.classList.contains('wide');
   floatingSolutionLabel.textContent = label.textContent || '';
   floatingSolutionLabel.style.left = `${rect.left + rect.width / 2}px`;
-  floatingSolutionLabel.style.top = `${isWide ? rect.bottom + 50 : rect.top - 35}px`;
+  floatingSolutionLabel.style.top = `${isWide ? rect.bottom + 34 : rect.top - 24}px`;
 }
 
 function hideFloatingSolutionLabel() {

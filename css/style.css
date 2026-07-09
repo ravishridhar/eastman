@@ -665,7 +665,7 @@ p {
 }
 
 .solution-card-3 .solution-label {
-  bottom: -50px;
+  bottom: -32px;
   left: 50%;
   top: auto;
   transform: translate(-50%, -8px) scale(0.96);
@@ -1135,7 +1135,7 @@ p {
 
 .footer-brand img {
   height: auto;
-  width: 132px;
+  width: 202px;
 }
 
 .footer-about {
@@ -1170,6 +1170,11 @@ p {
 .reveal-section.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.metrics.reveal-section {
+  opacity: 1;
+  transform: none;
 }
 
 .footer-grid a,

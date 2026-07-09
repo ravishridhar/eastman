@@ -8,19 +8,28 @@
     justify-content: space-between;
     padding: 8px max(58px, calc((100vw - 1324px) / 2));
     position: absolute;
+    transition:
+      backdrop-filter 260ms ease,
+      background-color 260ms ease,
+      border-color 260ms ease,
+      box-shadow 260ms ease,
+      color 260ms ease,
+      gap 260ms ease,
+      height 260ms ease,
+      padding 260ms ease;
   }
 
   .site-header.is-scrolled {
     -webkit-backdrop-filter: blur(22px) saturate(1.22);
     backdrop-filter: blur(22px) saturate(1.22);
-    background: rgba(255, 207, 0, 0.68);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.32);
-    box-shadow: 0 12px 28px rgba(34, 43, 25, 0.18);
-    color: var(--blue-dark);
-    gap: clamp(28px, 4.4vw, 68px);
-    height: 90px;
-    justify-content: flex-start;
-    padding-block: 0;
+    background: rgba(24, 64, 140, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 8px 22px rgba(15, 48, 119, 0.18);
+    color: #fff;
+    gap: 24px;
+    height: 86px;
+    justify-content: space-between;
+    padding-block: 8px;
     position: fixed;
   }
 
@@ -31,11 +40,18 @@
   .brand img {
     filter: none;
     height: auto;
+    max-width: none;
+    transition:
+      height 260ms ease,
+      max-width 260ms ease,
+      width 260ms ease;
     width: 200.656px;
   }
 
   .site-header.is-scrolled .brand img {
-    width: 155px;
+    height: 62px;
+    max-width: 122px;
+    width: auto;
   }
 
   .header-nav-stack {
@@ -45,22 +61,38 @@
     gap: 24px;
     justify-content: flex-end;
     margin-left: auto;
+    transition:
+      gap 260ms ease,
+      transform 260ms ease;
   }
 
   .site-header.is-scrolled .header-nav-stack {
-    align-items: center;
-    flex-direction: row;
-    gap: 0;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
   }
 
   .utility-nav {
     display: flex;
     font-size: 10.45px;
     gap: 14.932px;
+    max-height: 18px;
+    opacity: 1;
+    overflow: hidden;
+    transform: translateY(0);
+    transition:
+      max-height 260ms ease,
+      opacity 200ms ease,
+      transform 260ms ease;
   }
 
   .site-header.is-scrolled .utility-nav {
-    display: none;
+    display: flex;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
   }
 
   .desktop-nav {
@@ -70,13 +102,17 @@
     justify-content: flex-end;
     letter-spacing: 0;
     line-height: 1.5;
+    transition:
+      font-size 260ms ease,
+      gap 260ms ease,
+      line-height 260ms ease;
   }
 
   .site-header.is-scrolled .desktop-nav {
-    font-size: 14px;
-    font-weight: 600;
-    gap: 21px;
-    line-height: 1.45;
+    font-size: 13.94px;
+    font-weight: 500;
+    gap: 14.932px;
+    line-height: 1.5;
   }
 
   .desktop-nav a,
@@ -88,7 +124,7 @@
 
   .site-header.is-scrolled .desktop-nav a,
   .site-header.is-scrolled .desktop-nav button {
-    gap: 6px;
+    gap: 5px;
   }
 
   .desktop-nav button::after,
@@ -104,9 +140,8 @@
   }
 
   .site-header.is-scrolled .nav-chevron {
-    content: url("/images/nav-chevron_black.svg");
-    height: 5px;
-    width: 8px;
+    height: 12px;
+    width: 12px;
   }
 
   .desktop-nav button:hover,
@@ -126,7 +161,7 @@
   .site-header.is-scrolled .desktop-nav a:focus-visible,
   .site-header.is-scrolled .phone-link:hover,
   .site-header.is-scrolled .phone-link:focus-visible {
-    color: var(--blue);
+    color: var(--yellow);
   }
 
   .phone-link {
@@ -209,7 +244,9 @@
     }
 
     .site-header.is-scrolled .brand img {
-      width: 132px;
+      height: 56px;
+      max-width: 110px;
+      width: auto;
     }
 
     .desktop-nav {
@@ -219,7 +256,7 @@
 
     .site-header.is-scrolled .desktop-nav {
       font-size: 12px;
-      gap: 10px;
+      gap: 8px;
     }
 
     .nav-chevron {
@@ -228,8 +265,8 @@
     }
 
     .site-header.is-scrolled .nav-chevron {
-      height: 5px;
-      width: 8px;
+      height: 13px;
+      width: 13px;
     }
 
     .utility-nav {
@@ -245,7 +282,9 @@
     }
 
     .site-header.is-scrolled .brand img {
-      width: 110px;
+      height: 52px;
+      max-width: 102px;
+      width: auto;
     }
 
     .desktop-nav {
@@ -255,7 +294,7 @@
 
     .site-header.is-scrolled .desktop-nav {
       font-size: 10px;
-      gap: 5px;
+      gap: 4px;
     }
 
     .nav-chevron {
@@ -264,8 +303,8 @@
     }
 
     .site-header.is-scrolled .nav-chevron {
-      height: 5px;
-      width: 8px;
+      height: 11px;
+      width: 11px;
     }
 
     .trade-chip {
@@ -276,8 +315,8 @@
   }
 
   .hero {
-    height: 723px;
-    min-height: 723px;
+    height: calc(100svh - 90px);
+    min-height: 610px;
   }
 
   .hero-inner {
@@ -287,8 +326,8 @@
     grid-template-columns: minmax(0, 1fr) minmax(360px, 36.25%);
     margin: 0 auto;
     max-width: 1440px;
-    min-height: 723px;
-    padding: 0 max(24px, calc((100vw - 1324px) / 2));
+    min-height: 100%;
+    padding: 0 max(58px, calc((100vw - 1324px) / 2));
     width: 100%;
     z-index: auto;
   }
@@ -328,8 +367,8 @@
     flex-direction: column;
     gap: clamp(14px, 1.4vw, 20px);
     justify-self: end;
-    margin-top: 64px;
-    max-width: 480px;
+    margin-top: clamp(40px, 8.4svh, 64px);
+    max-width: min(480px, calc((100svh - 160px) * 0.82));
     min-width: 0;
     position: relative;
     width: 100%;
@@ -342,7 +381,7 @@
   }
 
   .solution-card.tall .solution-media {
-    aspect-ratio: 230 / 327;
+    aspect-ratio: 230 / 300;
     height: auto;
     width: 100%;
   }
@@ -352,13 +391,13 @@
   }
 
   .solution-card.wide .solution-media {
-    aspect-ratio: 480 / 166;
+    aspect-ratio: 480 / 150;
     height: auto;
     width: 100%;
   }
 
   .solution-card.tall .solution-label {
-    top: -35px;
+    top: -24px;
     transform: translate(-50%, calc(-50% + 8px)) scale(0.96);
   }
 
@@ -401,6 +440,7 @@
   @media (max-width: 1180px) {
     .hero-inner {
       grid-template-columns: minmax(0, 1fr) minmax(340px, 39%);
+      padding-inline: 32px;
     }
 
     .hero h1 {
@@ -409,6 +449,31 @@
 
     .eyebrow {
       font-size: clamp(23px, 2.5vw, 28px);
+    }
+  }
+
+  @media (max-height: 720px) {
+    .hero {
+      min-height: calc(100svh - 90px);
+    }
+
+    .eyebrow {
+      font-size: clamp(22px, 3.7svh, 30px);
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(56px, 10svh, 76px);
+      margin-bottom: 12px;
+    }
+
+    .hero-actions {
+      margin-top: clamp(28px, 6svh, 58px);
+    }
+
+    .button {
+      min-height: 50px;
+      padding-block: 10px;
     }
   }
 
@@ -428,7 +493,7 @@
   }
 
   .pillars {
-    padding: 56px max(24px, calc((100vw - 1324px) / 2)) 96px;
+    padding: clamp(44px, 7svh, 56px) max(24px, calc((100vw - 1324px) / 2)) clamp(70px, 10svh, 96px);
   }
 
   .pillars h2 {
@@ -444,11 +509,15 @@
   }
 
   .distribution {
-    padding: 40px max(24px, calc((100vw - 1324px) / 2)) 92px;
+    align-items: center;
+    display: flex;
+    min-height: 100svh;
+    padding: clamp(32px, 5.2svh, 40px) max(24px, calc((100vw - 1324px) / 2)) clamp(44px, 7svh, 64px);
   }
 
   .distribution-inner {
     max-width: 1324px;
+    width: 100%;
   }
 
   .section-copy h2 {
@@ -464,30 +533,30 @@
     display: grid;
     gap: 88px;
     grid-template-columns: 480px 1fr;
-    margin-top: 54px;
-    min-height: 548px;
+    margin-top: clamp(28px, 4.2svh, 46px);
+    min-height: clamp(456px, 62svh, 548px);
   }
 
   .photo-large {
-    height: 520px;
+    height: clamp(430px, 59svh, 520px);
     width: 350px;
     object-position: 43% 50%;
   }
 
   .photo-small {
-    height: 400px;
+    height: clamp(320px, 45svh, 400px);
     left: 188px;
-    top: 155px;
+    top: clamp(116px, 18svh, 155px);
     width: 280px;
     object-position: 54% 50%;
   }
 
   .reach-stats {
     align-content: start;
-    gap: 38px 78px;
+    gap: clamp(24px, 4.2svh, 38px) 78px;
     grid-template-columns: repeat(2, 255px);
     justify-content: start;
-    padding-top: 34px;
+    padding-top: clamp(16px, 3.4svh, 34px);
   }
 
   .reach-stats div {
@@ -503,9 +572,44 @@
   }
 
   .hand-home {
-    bottom: -92px;
+    bottom: -64px;
     right: calc(-1 * max(24px, calc((100vw - 1324px) / 2)));
     width: 548px;
+  }
+
+  @media (max-height: 720px) {
+    .distribution {
+      padding-block: 24px 28px;
+    }
+
+    .distribution-layout {
+      gap: 64px;
+      margin-top: 18px;
+    }
+
+    .section-copy p {
+      line-height: 1.4;
+    }
+
+    .distribution-layout {
+      min-height: 360px;
+    }
+
+    .photo-large {
+      height: 340px;
+      width: 320px;
+    }
+
+    .photo-small {
+      height: 250px;
+      left: 168px;
+      top: 96px;
+      width: 240px;
+    }
+
+    .reach-stats strong {
+      font-size: 42px;
+    }
   }
 
   .news {
