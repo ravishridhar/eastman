@@ -41,6 +41,7 @@
   margin: 0 0 5px;
 }
 
+.footer-grid a.footer-brand{margin-bottom: 30px;}
 .footer-grid a,
 .footer-grid p {
   color: #383a40;
