@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.BASE_URL || '/';
+const BASE_URL = import.meta.env.BASE_URL || './';
 const assetPath = (path) => `${BASE_URL}${path}`;
 const pagePath = (path = '') => `${BASE_URL}${path}`;
 
@@ -169,13 +169,12 @@ const footerMarkup = `
         <!-- <p class="footer-about">Eastman Auto &amp; Power Limited (EAPL) is one of India&apos;s leading energy transition companies. For over 3 decades, we have been committed to power, progress and people.</p> -->
         <section class="footer-group">
           <h3>About Us</h3>
-          <a href="${pagePath('about.html')}">About JRS Eastman</a>
-          <a href="${pagePath('about.html')}">EAPL &amp; Group Companies</a>
-          <a href="${pagePath('about.html')}">Our Values</a>
-          <a href="${pagePath('eapl-in-numbers.html')}">Eastman Auto &amp; Power in Numbers</a>
+          <a href="${pagePath('about.html')}">Overview &amp; Group Companies</a>
+          <a href="${pagePath('eapl-in-numbers.html')}">Eastman Auto &amp; Power in Nos.</a>
           <a href="${pagePath('corporate-history.html')}">Corporate History</a>
           <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
           <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
+          <a href="${pagePath('about.html')}">CSR</a>
         </section>
       </div>
       <div class="footer-column">

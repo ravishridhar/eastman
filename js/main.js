@@ -211,7 +211,20 @@ function isRoutableLink(link) {
   if (link.target || link.hasAttribute('download')) return false;
   if (!link.href || link.protocol !== window.location.protocol || link.origin !== window.location.origin) return false;
   if (link.pathname === window.location.pathname && link.hash) return false;
-  return link.pathname.startsWith('/eastman/');
+
+  const pageName = link.pathname.split('/').pop() || 'index.html';
+  return [
+    'index.html',
+    'about.html',
+    'eapl-in-numbers.html',
+    'corporate-history.html',
+    'leadership.html',
+    'corporate-governance.html',
+    'policies.html',
+    'disclosures.html',
+    'business.html',
+    'last-mile-e-mobility-solutions.html',
+  ].includes(pageName);
 }
 
 async function loadPage(url, { push = true } = {}) {

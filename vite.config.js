@@ -3,7 +3,7 @@ const tailwindcss = require('@tailwindcss/vite').default;
 const { resolve } = require('path');
 
 module.exports = defineConfig({
-  base: '/eastman/',
+  base: './',
   plugins: [tailwindcss()],
   build: {
     outDir: 'dist',
