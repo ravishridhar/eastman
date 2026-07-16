@@ -557,8 +557,10 @@
 
 .last-mile-feature-card:hover {
   background: #0e2f6f;
-  box-shadow: 0 18px 32px rgba(15, 48, 119, 0.18);
-  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: none;
+  transform: none;
 }
 
 .last-mile-feature-card > span {
@@ -629,8 +631,12 @@
 
 .last-mile-product-card:hover,
 .last-mile-product-card:focus-visible {
-  box-shadow: 0 32px 38px rgba(53, 53, 54, 0.16), 0 10px 18px rgba(24, 56, 119, 0.16);
-  transform: translateY(-5px);
+  box-shadow:
+    0 6px 12px rgba(24, 56, 119, 0.1),
+    2px 22px 22px rgba(24, 56, 119, 0.09),
+    3px 50px 30px rgba(24, 56, 119, 0.05),
+    6px 88px 35px rgba(24, 56, 119, 0.01);
+  transform: none;
 }
 
 .product-arrow {
@@ -706,7 +712,14 @@
 
 .last-mile-product-card:hover .product-copy,
 .last-mile-product-card:focus-visible .product-copy {
-  background: #0e2f6f;
+  background: var(--yellow);
+}
+
+.last-mile-product-card:hover .product-copy strong,
+.last-mile-product-card:focus-visible .product-copy strong,
+.last-mile-product-card:hover .product-copy em,
+.last-mile-product-card:focus-visible .product-copy em {
+  color: var(--blue-dark);
 }
 
 .product-copy strong {

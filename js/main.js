@@ -5,6 +5,7 @@ import '../css/footer.css';
 import '../css/home.css';
 import '../css/about.css';
 import '../css/business.css';
+import '../css/manufacturing.css';
 import '../css/desktop.css';
 import '../css/mobile.css';
 import { setupLayout } from './layout.js';
@@ -141,7 +142,8 @@ function openDesktopMenu(key) {
 }
 
 function scheduleDesktopClose() {
-  closeDesktopTimer = window.setTimeout(closeDesktopMenu, 130);
+  window.clearTimeout(closeDesktopTimer);
+  closeDesktopTimer = window.setTimeout(closeDesktopMenu, 260);
 }
 
 function setupDesktopMenu() {
@@ -153,9 +155,10 @@ function setupDesktopMenu() {
       if (trigger.getAttribute('aria-expanded') === 'true') closeDesktopMenu();
       else openDesktopMenu(key);
     });
-    trigger.addEventListener('mouseleave', scheduleDesktopClose);
   });
 
+  header?.addEventListener('mouseenter', () => window.clearTimeout(closeDesktopTimer));
+  header?.addEventListener('mouseleave', scheduleDesktopClose);
   desktopMenu?.addEventListener('mouseenter', () => window.clearTimeout(closeDesktopTimer));
   desktopMenu?.addEventListener('mouseleave', scheduleDesktopClose);
 
@@ -224,6 +227,11 @@ function isRoutableLink(link) {
     'disclosures.html',
     'business.html',
     'last-mile-e-mobility-solutions.html',
+    'manufacturing-infrastructure.html',
+    'lithium-batteries.html',
+    'power-electronics.html',
+    'solar-panels.html',
+    'conventional-tubular-batteries.html',
   ].includes(pageName);
 }
 

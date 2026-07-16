@@ -199,3 +199,16 @@
   right: 0;
   top: 100%;
 }
+
+.desktop-mega-menu.is-open {
+  pointer-events: auto;
+}
+
+.desktop-mega-menu::before {
+  content: "";
+  height: 24px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -18px;
+}

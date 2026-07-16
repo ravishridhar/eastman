@@ -59,10 +59,11 @@ const headerMarkup = `
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="manufacturing" aria-label="Manufacturing Infrastructure submenu">
         <!-- <h2>Manufacturing &amp; Infrastructure</h2> -->
-        <a href="${pagePath('#manufacturing')}">Overview</a>
-        <a href="${pagePath('#manufacturing')}">Conventional Tubular Batteries</a>
-        <a href="${pagePath('#manufacturing')}">Power Electronics</a>
-        <a href="${pagePath('#manufacturing')}">Lithium-ion Batteries Solar Panels</a>
+        <a href="${pagePath('manufacturing-infrastructure.html')}">Overview</a>
+        <a href="${pagePath('conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
+        <a href="${pagePath('power-electronics.html')}">Power Electronics</a>
+        <a href="${pagePath('lithium-batteries.html')}">Lithium-ion Batteries</a>
+        <a href="${pagePath('solar-panels.html')}">Solar Panels</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="businesses" aria-label="Our Businesses submenu">
         <!-- <h2>Our Businesses</h2> -->
@@ -117,11 +118,11 @@ const headerMarkup = `
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Manufacturing Infrastructure<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
-          <a href="${pagePath('#manufacturing')}">Overview</a>
-          <a href="${pagePath('#manufacturing')}">Conventional Tubular Batteries</a>
-          <a href="${pagePath('#manufacturing')}">Lithium-ion Batteries</a>
-          <a href="${pagePath('#manufacturing')}">Power Electronics</a>
-          <a href="${pagePath('#manufacturing')}">Solar Panels</a>
+          <a href="${pagePath('manufacturing-infrastructure.html')}">Overview</a>
+          <a href="${pagePath('conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
+          <a href="${pagePath('lithium-batteries.html')}">Lithium-ion Batteries</a>
+          <a href="${pagePath('power-electronics.html')}">Power Electronics</a>
+          <a href="${pagePath('solar-panels.html')}">Solar Panels</a>
         </div>
       </div>
       <div class="mobile-nav-item">
@@ -188,11 +189,11 @@ const footerMarkup = `
         </section>
         <section class="footer-group">
           <h3>Manufacturing Infrastructure</h3>
-          <a href="${pagePath('#manufacturing')}">Overview</a>
-          <a href="${pagePath('#manufacturing')}">Conventional Tubular Batteries</a>
-          <a href="${pagePath('#manufacturing')}">Power Electronics</a>
-          <a href="${pagePath('#manufacturing')}">Lithium-ion Batteries</a>
-          <a href="${pagePath('#manufacturing')}">Solar Panels</a>
+          <a href="${pagePath('manufacturing-infrastructure.html')}">Overview</a>
+          <a href="${pagePath('conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
+          <a href="${pagePath('power-electronics.html')}">Power Electronics</a>
+          <a href="${pagePath('lithium-batteries.html')}">Lithium-ion Batteries</a>
+          <a href="${pagePath('solar-panels.html')}">Solar Panels</a>
         </section>
       </div>
       <div class="footer-column">
