@@ -865,6 +865,29 @@
   content: "‹";
 }
 
+/* Keep each division's introduction visible in the first desktop viewport. */
+@media (min-width: 821px) {
+  .manufacturing-page:not(.manufacturing-overview-page) .manufacturing-hero {
+    min-height: 360px;
+    padding-bottom: 48px;
+    padding-top: 136px;
+  }
+
+  .manufacturing-page:not(.manufacturing-overview-page) .manufacturing-breadcrumbs {
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+
+  .tubular-batteries-page .manufacturing-hero--tubular {
+    min-height: 360px;
+    padding-top: 136px;
+  }
+
+  .tubular-batteries-page .manufacturing-detail {
+    padding-top: 0;
+  }
+}
+
 @media (max-width: 1024px) {
   .manufacturing-detail,
   .manufacturing-location-grid {
