@@ -12,6 +12,10 @@ import { setupLayout } from './layout.js';
 
 setupLayout();
 
+if ('scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
 const toggle = document.querySelector('[data-menu-toggle]');
 const menu = document.querySelector('[data-mobile-menu]');
 const header = document.querySelector('[data-header]');
@@ -259,7 +263,10 @@ async function loadPage(url, { push = true } = {}) {
 
   const target = window.location.hash ? document.querySelector(window.location.hash) : null;
   if (target) lenis?.scrollTo(target, { offset: getAnchorOffset(), immediate: true });
-  else lenis?.scrollTo(0, { immediate: true });
+  else {
+    window.scrollTo(0, 0);
+    lenis?.scrollTo(0, { immediate: true });
+  }
 }
 
 function setupPageTransitions() {
