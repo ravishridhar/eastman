@@ -45,16 +45,16 @@
 }
 
 .manufacturing-hero--lithium {
-  background-image: url("/images/manufacturing/overview-lithium.png");
+  background-image: url("/images/manufacturing/lithium_battries.jpg");
   background-position: top center;
 }
 
 .manufacturing-hero--power {
-  background-image: url("/images/manufacturing/power-intro.png");
+  background-image: url("/images/manufacturing/power_electronics.png");
 }
 
 .manufacturing-hero--solar {
-  background-image: url("/images/manufacturing/solar-intro.png");
+  background-image: url("/images/manufacturing/solar_panels.jpg");
   background-position: center top;
 }
 
@@ -116,6 +116,14 @@
   color: #6f7684;
 }
 
+.manufacturing-breadcrumbs .breadcrumb-separator {
+  display: inline-block;
+  height: 8px;
+  margin: 0 9px;
+  vertical-align: middle;
+  width: 4px;
+}
+
 .manufacturing-breadcrumbs span:last-child {
   color: var(--blue);
   font-weight: 700;
@@ -136,7 +144,7 @@
 
 .manufacturing-page .manufacturing-breadcrumbs + .manufacturing-section,
 .manufacturing-page .manufacturing-breadcrumbs + .manufacturing-detail {
-  padding-top: 0;
+  padding-top: 32px;
 }
 
 .manufacturing-section h2,
@@ -164,6 +172,12 @@
   background-image: none;
   min-height: 476px;
   padding: 168px max(58px, calc((100vw - 1324px) / 2)) 96px;
+}
+
+.manufacturing-overview-page .manufacturing-hero.reveal-section {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
 }
 
 .manufacturing-overview-page .manufacturing-hero::before {
@@ -468,22 +482,16 @@
 }
 
 .division-card__arrow {
-  align-items: center;
-  background: var(--yellow);
-  border-radius: 50%;
-  color: var(--blue);
-  display: inline-flex;
+  display: block;
   flex: 0 0 30px;
-  font-weight: 800;
   height: 30px;
-  justify-content: center;
   justify-self: end;
-  transition: background-color 180ms ease, color 180ms ease;
+  transition: filter 180ms ease;
   width: 30px;
 }
 
-.division-card:hover img,
-.division-card:focus-visible img {
+.division-card:hover .division-card__media > img,
+.division-card:focus-visible .division-card__media > img {
   transform: scale(1.09);
 }
 
@@ -500,8 +508,7 @@
 
 .division-card:hover .division-card__arrow,
 .division-card:focus-visible .division-card__arrow {
-  background: var(--blue-dark);
-  color: var(--yellow);
+  filter: brightness(0) saturate(100%) invert(22%) sepia(35%) saturate(3115%) hue-rotate(192deg) brightness(91%) contrast(96%);
 }
 
 .manufacturing-detail {
@@ -514,9 +521,9 @@
 }
 
 .manufacturing-detail__media {
-  background:
+  /* background:
     linear-gradient(#d8efda 1px, transparent 1px),
-    linear-gradient(90deg, #d8efda 1px, transparent 1px);
+    linear-gradient(90deg, #d8efda 1px, transparent 1px); */
   background-size: 28px 28px;
   padding: 28px 24px 24px;
 }
@@ -683,7 +690,7 @@
 }
 
 .tubular-batteries-page .manufacturing-hero--tubular {
-  background-image: url("/images/manufacturing/tubular-hero.png");
+  background-image: url("/images/manufacturing/conventional_tublar_batteries.jpg");
   background-position: center top;
   min-height: 430px;
   padding-top: 142px;
@@ -803,10 +810,12 @@
   align-items: center;
   background: var(--blue-dark);
   border-radius: 4px;
+  box-shadow: 0 0 0 0 rgba(14, 47, 111, 0.2);
   display: inline-flex;
   flex: 0 0 40px;
   height: 40px;
   justify-content: center;
+  transition: box-shadow 240ms ease, transform 240ms ease;
   width: 40px;
 }
 
@@ -819,6 +828,45 @@
   content: "";
   height: 24px;
   width: 24px;
+}
+
+.cert-card:hover .cert-icon {
+  box-shadow: 0 0 0 5px rgba(14, 47, 111, 0.16);
+  transform: translateY(-2px) rotate(-4deg) scale(1.06);
+}
+
+.cert-card:hover .cert-icon::before {
+  animation: cert-check-pop 420ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cert-check-pop {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.55);
+  }
+
+  70% {
+    transform: scale(1.18);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cert-icon {
+    transition: none;
+  }
+
+  .cert-card:hover .cert-icon {
+    transform: none;
+  }
+
+  .cert-card:hover .cert-icon::before {
+    animation: none;
+  }
 }
 
 .manufacturing-nav-band {
@@ -869,23 +917,22 @@
 
 .manufacturing-next strong::after,
 .manufacturing-back::before {
-  align-items: center;
-  background: #f37021;
-  border-radius: 50%;
-  color: #fff;
-  content: "›";
-  display: inline-flex;
-  flex: 0 0 22px;
-  height: 22px;
-  justify-content: center;
-  line-height: 1;
-  width: 22px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  display: block;
+  flex: 0 0 25px;
+  height: 25px;
+  width: 25px;
+}
+
+.manufacturing-next strong::after {
+  background-image: url("/images/right_orange_arrow.svg");
 }
 
 .manufacturing-back::before {
-  background: #fff;
-  color: var(--blue);
-  content: "‹";
+  background-image: url("/images/left_white_arrow.svg");
 }
 
 /* Keep each division's introduction visible in the first desktop viewport. */
@@ -1000,6 +1047,11 @@
     line-height: 1.25;
     padding: 15px 16px 14px;
     width: 100%;
+  }
+
+  .manufacturing-page .manufacturing-breadcrumbs + .manufacturing-section,
+  .manufacturing-page .manufacturing-breadcrumbs + .manufacturing-detail {
+    padding-top: 24px;
   }
 
   .manufacturing-section,

@@ -1,6 +1,13 @@
 const BASE_URL = import.meta.env.BASE_URL || './';
 const assetPath = (path) => `${BASE_URL}${path}`;
 const pagePath = (path = '') => `${BASE_URL}${path}`;
+const socialIcons = {
+  facebook: new URL('../images/social_icons/facebook.svg', import.meta.url).href,
+  instagram: new URL('../images/social_icons/instagram.svg', import.meta.url).href,
+  linkedin: new URL('../images/social_icons/linkedin_icn.svg', import.meta.url).href,
+  twitter: new URL('../images/social_icons/twitter.svg', import.meta.url).href,
+  youtube: new URL('../images/social_icons/youtube_icn.svg', import.meta.url).href,
+};
 
 const headerMarkup = `
   <header class="site-header" data-header>
@@ -229,11 +236,11 @@ const footerMarkup = `
         <section class="footer-group social-group">
           <h4>Social</h4>
           <div class="socials">
-            <a href="#" aria-label="Facebook"><img src="${assetPath('images/social-facebook.svg')}" alt="" /></a>
-            <a href="#" aria-label="LinkedIn"><img src="${assetPath('images/social-linkedin.svg')}" alt="" /></a>
-            <a href="#" aria-label="Instagram"><img src="${assetPath('images/social-instagram.svg')}" alt="" /></a>
-            <a href="#" aria-label="YouTube"><img src="${assetPath('images/social-youtube.svg')}" alt="" /></a>
-            <a href="#" aria-label="X"><img src="${assetPath('images/social-x.svg')}" alt="" /></a>
+            <a href="#" aria-label="Facebook"><img src="${socialIcons.facebook}" alt="" /></a>
+            <a href="#" aria-label="LinkedIn"><img src="${socialIcons.linkedin}" alt="" /></a>
+            <a href="#" aria-label="Instagram"><img src="${socialIcons.instagram}" alt="" /></a>
+            <a href="#" aria-label="YouTube"><img src="${socialIcons.youtube}" alt="" /></a>
+            <a href="#" aria-label="X"><img src="${socialIcons.twitter}" alt="" /></a>
           </div>
         </section>
       </div>

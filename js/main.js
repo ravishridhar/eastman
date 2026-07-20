@@ -378,8 +378,6 @@ function setupSectionReveals() {
     return;
   }
 
-  sections.forEach((section) => section.classList.add('reveal-section'));
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -395,7 +393,19 @@ function setupSectionReveals() {
     },
   );
 
-  sections.forEach((section) => observer.observe(section));
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const isInitiallyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+    section.classList.add('reveal-section');
+
+    if (isInitiallyVisible) {
+      section.classList.add('is-visible');
+      return;
+    }
+
+    observer.observe(section);
+  });
 }
 
 function positionFloatingSolutionLabel() {

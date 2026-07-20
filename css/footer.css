@@ -75,12 +75,31 @@
   display: inline-flex;
   height: 28px;
   justify-content: center;
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
   width: 28px;
 }
 
 .socials img {
   height: 14px;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
   width: 14px;
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  box-shadow: 0 7px 16px rgba(14, 47, 111, 0.2);
+  transform: translateY(-3px);
+}
+
+.socials a:hover img,
+.socials a:focus-visible img {
+  transform: scale(1.12) rotate(-5deg);
 }
 
 .legal {

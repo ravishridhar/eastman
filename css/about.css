@@ -46,28 +46,28 @@
 .about-hero--leadership::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 46%, rgba(10, 39, 87, 0.26) 100%),
-    url("/images/about/leadership-hero-art.png") right center / auto 100% no-repeat,
+    url("../images/about/leadership.jpg") right center / auto 100% no-repeat,
     #051531;
 }
 
 .about-hero--governance::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.88) 46%, rgba(10, 39, 87, 0.2) 100%),
-    url("/images/about/governance-hero-art.png") right center / auto 100% no-repeat,
+    url("/images/about/corporate-governance.jpg") right center / auto 100% no-repeat,
     #051531;
 }
 
 .about-hero--documents::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 48%, rgba(10, 39, 87, 0.28) 100%),
-    url("/images/about/policies-hero-art.png") right center / auto 100% no-repeat,
+    url("/images/about/policies.jpg") right center / auto 100% no-repeat,
     #051531;
 }
 
 .about-hero--disclosures::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 48%, rgba(10, 39, 87, 0.24) 100%),
-    url("/images/about/disclosures-hero-art.png") right center / auto 100% no-repeat,
+    url("/images/about/disclosure.jpg") right center / auto 100% no-repeat,
     #051531;
 }
 
@@ -132,6 +132,13 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 16px;
+}
+
+.about-breadcrumbs .breadcrumb-separator {
+  display: block;
+  flex: 0 0 4px;
+  height: 8px;
+  width: 4px;
 }
 
 .about-tabs {
@@ -1080,7 +1087,7 @@ z-index: 1;
 
 .document-row summary span::before {
   content: "";
-  background: url("/images/about/document-pdf.svg") center / contain no-repeat;
+  background: url("../images/pdf_icn.svg") center / contain no-repeat;
   flex: 0 0 auto;
   height: 16px;
   transition: transform 220ms ease;
@@ -1102,23 +1109,17 @@ z-index: 1;
 }
 
 .document-row summary a::after {
-  align-items: center;
-  background: #f36f21;
-  border-radius: 50%;
-  color: #fff;
-  content: "\2197";
-  display: inline-flex;
-  font-size: 9px;
-  height: 17px;
-  justify-content: center;
-  transition: background-color 220ms ease, color 220ms ease, transform 220ms ease;
-  width: 17px;
+  background: url("../images/right_arrow.svg") center / contain no-repeat;
+  content: "";
+  display: block;
+  flex: 0 0 24px;
+  height: 24px;
+  transition: transform 220ms ease;
+  width: 24px;
 }
 
 .document-row:hover summary a::after {
-  background: var(--yellow);
-  color: #123b86;
-  transform: rotate(45deg);
+  transform: translate(2px, -2px) scale(1.06);
 }
 
 .history-market {

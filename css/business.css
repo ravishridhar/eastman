@@ -96,6 +96,13 @@
   font-weight: 700;
 }
 
+.business-breadcrumbs .breadcrumb-separator {
+  display: block;
+  flex: 0 0 4px;
+  height: 8px;
+  width: 4px;
+}
+
 .business-overview {
   padding: 72px max(56px, calc((100vw - 1328px) / 2)) 54px;
 }
@@ -117,28 +124,56 @@
   isolation: isolate;
   overflow: hidden;
   position: relative;
+  transition:
+    box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .business-card::after {
-  content: none;
+  background: linear-gradient(115deg, transparent 28%, rgba(255, 255, 255, 0.2) 48%, transparent 68%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-125%);
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
 }
 
 .business-card:hover,
 .business-card:focus-visible {
   box-shadow: 0 22px 42px rgba(15, 48, 119, 0.2);
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+}
+
+.business-card:hover::after,
+.business-card:focus-visible::after {
+  transform: translateX(125%);
 }
 
 .business-card > img {
   height: 100%;
   object-fit: fill;
-  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: filter 260ms ease;
   width: 100%;
 }
 
 .business-card:hover > img,
 .business-card:focus-visible > img {
-  transform: scale(1.045);
+  filter: saturate(1.04) contrast(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .business-card,
+  .business-card::after,
+  .business-card > img {
+    transition: none;
+  }
+
+  .business-card:hover,
+  .business-card:focus-visible {
+    transform: none;
+  }
 }
 
 .business-card-icon {
@@ -356,7 +391,7 @@
 }
 
 .last-mile-hero-art {
-  background-image: url("/images/business/last-mile-hero.png");
+  background-image: url("/images/business/last-e-mobility.jpg");
   inset: 0;
   opacity: 1;
 }
@@ -785,8 +820,9 @@
     grid-auto-columns: 238px;
     grid-auto-flow: column;
     grid-template-columns: none;
+    margin: -18px -16px -92px;
     overflow-x: auto;
-    padding-bottom: 18px;
+    padding: 18px 16px 110px;
     scroll-snap-type: x mandatory;
   }
 
