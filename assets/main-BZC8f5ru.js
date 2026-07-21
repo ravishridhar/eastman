@@ -68,7 +68,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
         <a href="${M(`residential-solar-with-storage.html`)}">Residential Solar With Storage</a>
         <a href="${M(`continued-energy-solutions.html`)}">Continued Energy Solutions</a>
         <a href="${M(`advanced-electronics-manufacturing.html`)}">Advanced Electronics Manufacturing</a>
-        <a href="${M(`business.html#businesses`)}">Global Business</a>
+        <!--<a href="${M(`business.html#businesses`)}">Global Business</a>-->
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="resources" aria-label="Resources submenu">
         <!-- <h2>Resources</h2> -->
