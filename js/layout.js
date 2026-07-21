@@ -17,8 +17,8 @@ const headerMarkup = `
 
     <div class="header-nav-stack">
       <nav class="utility-nav" aria-label="Utility navigation">
-        <a href="${pagePath('#assure')}">Eastman Assure Service</a>
-        <a href="${pagePath('about.html')}">About JRS Eastman Group</a>
+        <a href="https://www.eastmanassure.com" target="_blank" rel="noopener noreferrer" aria-label="Eastman Assure Service">Eastman Assure Service</a>
+        <a href="https://jrseastman.com" target="_blank" rel="noopener noreferrer" aria-label="About JRS Eastman Group">About JRS Eastman Group</a>
         <a href="${pagePath('#contact')}">Partner With Us</a>
         <a href="#contact">Contact us</a>
       </nav>
@@ -76,9 +76,9 @@ const headerMarkup = `
         <!-- <h2>Our Businesses</h2> -->
           <a href="${pagePath('business.html')}">Overview</a>
         <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
-        <a href="${pagePath('business.html#residential-solar')}">Residential Solar With Storage</a>
-        <a href="${pagePath('business.html#continued-energy')}">Continued Energy Solutions</a>
-        <a href="${pagePath('business.html#advanced-electronics')}">Advanced Electronics Manufacturing</a>
+        <a href="${pagePath('residential-solar-with-storage.html')}">Residential Solar With Storage</a>
+        <a href="${pagePath('continued-energy-solutions.html')}">Continued Energy Solutions</a>
+        <a href="${pagePath('advanced-electronics-manufacturing.html')}">Advanced Electronics Manufacturing</a>
         <a href="${pagePath('business.html#businesses')}">Global Business</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="resources" aria-label="Resources submenu">
@@ -138,8 +138,9 @@ const headerMarkup = `
         <div class="mobile-submenu">
           <a href="${pagePath('business.html')}">Overview</a>
           <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
-          <a href="${pagePath('business.html#residential-solar')}">Solar Solutions</a>
-          <a href="${pagePath('business.html#continued-energy')}">Continued Energy Solutions</a>
+          <a href="${pagePath('residential-solar-with-storage.html')}">Solar Solutions</a>
+          <a href="${pagePath('continued-energy-solutions.html')}">Continued Energy Solutions</a>
+          <a href="${pagePath('advanced-electronics-manufacturing.html')}">Advanced Electronics Manufacturing</a>
           <a href="${pagePath('business.html#businesses')}">Global Businesses</a>
         </div>
       </div>
@@ -210,9 +211,9 @@ const footerMarkup = `
           <h3>Our Businesses</h3>
           <a href="${pagePath('business.html')}">Overview</a>
           <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
-          <a href="${pagePath('business.html#residential-solar')}">Residential Solar with Storage</a>
-          <a href="${pagePath('business.html#continued-energy')}">Continued Energy Solutions</a>
-          <a href="${pagePath('business.html#advanced-electronics')}">Advanced Electronics Manufacturing</a>
+          <a href="${pagePath('residential-solar-with-storage.html')}">Residential Solar with Storage</a>
+          <a href="${pagePath('continued-energy-solutions.html')}">Continued Energy Solutions</a>
+          <a href="${pagePath('advanced-electronics-manufacturing.html')}">Advanced Electronics Manufacturing</a>
           <a href="${pagePath('business.html#businesses')}">Global Business</a>
         </section>
         <section class="footer-group">
