@@ -19,8 +19,8 @@ const headerMarkup = `
       <nav class="utility-nav" aria-label="Utility navigation">
         <a href="https://www.eastmanassure.com" target="_blank" rel="noopener noreferrer" aria-label="Eastman Assure Service">Eastman Assure Service</a>
         <a href="https://jrseastman.com" target="_blank" rel="noopener noreferrer" aria-label="About JRS Eastman Group">About JRS Eastman Group</a>
-        <a href="${pagePath('#contact')}">Partner With Us</a>
-        <a href="#contact">Contact us</a>
+        <a href="${pagePath('partner-with-us.html')}">Partner With Us</a>
+        <a href="${pagePath('contact-us.html')}">Contact us</a>
       </nav>
 
       <nav class="desktop-nav" aria-label="Primary navigation">
@@ -38,7 +38,7 @@ const headerMarkup = `
         <img src="${assetPath('images/phone-icon.svg')}" alt="" class="phone-icon" />
         1800 419 8610
       </a>
-      <a class="trade-chip" href="#contact">Trade Enquiry</a>
+      <a class="trade-chip" href="${pagePath('contact-us.html')}">Trade Enquiry</a>
     </div>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>
@@ -163,8 +163,9 @@ const headerMarkup = `
         </div>
       </div>
       <div class="mobile-menu-actions">
+        <a class="trade-chip" href="${pagePath('partner-with-us.html')}">Partner With Us</a>
         <a class="phone-link" href="tel:18004198610"><img src="${assetPath('images/phone-icon.svg')}" alt="" />1800 419 8610</a>
-        <a class="trade-chip" href="#contact">Trade Enquiry</a>
+        <a class="trade-chip" href="${pagePath('contact-us.html')}">Trade Enquiry</a>
       </div>
     </div>
   </nav>
@@ -227,6 +228,10 @@ const footerMarkup = `
         </section>
       </div>
       <div class="footer-column contact-col">
+        <section class="footer-group">
+          <h3>Partner With Us</h3>
+          <a href="${pagePath('partner-with-us.html')}">Become a Channel Partner</a>
+        </section>
         <section class="footer-group">
           <h3>Contact Us</h3>
           <h4>INDIA - Corporate</h4>

@@ -6,6 +6,8 @@ import '../css/home.css';
 import '../css/about.css';
 import '../css/business.css';
 import '../css/manufacturing.css';
+import '../css/partner.css';
+import '../css/contact.css';
 import '../css/desktop.css';
 import '../css/mobile.css';
 import { setupLayout } from './layout.js';
@@ -227,6 +229,7 @@ function isRoutableLink(link) {
     'corporate-history.html',
     'leadership.html',
     'corporate-governance.html',
+    'board-committees.html',
     'policies.html',
     'disclosures.html',
     'business.html',
@@ -234,6 +237,8 @@ function isRoutableLink(link) {
     'residential-solar-with-storage.html',
     'continued-energy-solutions.html',
     'advanced-electronics-manufacturing.html',
+    'partner-with-us.html',
+    'contact-us.html',
     'manufacturing-infrastructure.html',
     'lithium-batteries.html',
     'power-electronics.html',
@@ -459,8 +464,86 @@ function setupSolutionLabels() {
   window.addEventListener('scroll', positionFloatingSolutionLabel, { passive: true });
 }
 
+function setupPartnerVideoSlider() {
+  const slider = document.querySelector('[data-partner-video-slider]');
+  const track = slider?.querySelector('[data-partner-video-track]');
+  const previous = slider?.querySelector('[data-partner-video-prev]');
+  const next = slider?.querySelector('[data-partner-video-next]');
+  if (!track || !previous || !next) return;
+
+  const scrollByCard = (direction) => {
+    const card = track.querySelector('.partner-video-card');
+    if (!card) return;
+    const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
+    track.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
+  };
+
+  previous.addEventListener('click', () => scrollByCard(-1));
+  next.addEventListener('click', () => scrollByCard(1));
+}
+
+function setupDirectorDialog() {
+  const dialogs = [...document.querySelectorAll('[data-director-dialog]')];
+
+  dialogs.forEach((dialog) => {
+    if (!(dialog instanceof HTMLDialogElement)) return;
+    const dialogId = dialog.dataset.directorDialog;
+    const openButton = document.querySelector(`[data-director-open="${dialogId}"]`);
+    const closeButton = dialog.querySelector('[data-director-close]');
+    const positions = dialog.querySelector('.director-positions');
+    const positionsSummary = positions?.querySelector('summary');
+    if (!openButton || !closeButton) return;
+
+    const closeDialog = () => {
+      dialog.close();
+      document.body.classList.remove('has-open-dialog');
+    };
+
+    openButton.addEventListener('click', () => {
+      dialog.showModal();
+      document.body.classList.add('has-open-dialog');
+    });
+    closeButton.addEventListener('click', closeDialog);
+    dialog.addEventListener('cancel', () => document.body.classList.remove('has-open-dialog'));
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) closeDialog();
+    });
+
+    positionsSummary?.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (!(positions instanceof HTMLDetailsElement)) return;
+
+      if (positions.open) {
+        positions.classList.remove('is-open');
+        window.setTimeout(() => {
+          positions.open = false;
+        }, 360);
+        return;
+      }
+
+      positions.open = true;
+      requestAnimationFrame(() => positions.classList.add('is-open'));
+    });
+  });
+}
+
+function setupDirectorCardActions() {
+  document.querySelectorAll('.profile-card--board').forEach((card) => {
+    const action = card.querySelector('[data-director-open]');
+    if (!action) return;
+
+    card.addEventListener('click', (event) => {
+      if (event.target instanceof Node && action.contains(event.target)) return;
+      action.click();
+    });
+  });
+}
+
 function setupDynamicContent() {
   setupSolutionLabels();
+  setupPartnerVideoSlider();
+  setupDirectorDialog();
+  setupDirectorCardActions();
   setupSectionReveals();
   setupCounters();
   setHeaderState();
