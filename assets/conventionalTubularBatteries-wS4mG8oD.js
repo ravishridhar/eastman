@@ -1,0 +1,1 @@
+import{t as e}from"./main-Bn4nTply.js";e();
