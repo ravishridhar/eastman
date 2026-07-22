@@ -79,7 +79,7 @@ const headerMarkup = `
         <a href="${pagePath('residential-solar-with-storage.html')}">Residential Solar With Storage</a>
         <a href="${pagePath('continued-energy-solutions.html')}">Continued Energy Solutions</a>
         <a href="${pagePath('advanced-electronics-manufacturing.html')}">Advanced Electronics Manufacturing</a>
-        <a href="${pagePath('business.html#businesses')}">Global Business</a>
+        <!--<a href="${pagePath('business.html#businesses')}">Global Business</a>-->
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="resources" aria-label="Resources submenu">
         <!-- <h2>Resources</h2> -->
