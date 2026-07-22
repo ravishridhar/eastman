@@ -596,7 +596,7 @@ body.has-open-dialog {
 .about-hero::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.82) 53%, rgba(15, 54, 119, 0.18) 100%),
-    url("/images/about-hero.png") center / cover;
+    url("/images/about-hero.webp") center / cover;
   content: "";
   inset: 0;
   position: absolute;
@@ -613,46 +613,46 @@ body.has-open-dialog {
 .about-hero--numbers::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.86) 48%, rgba(15, 54, 119, 0.2) 100%),
-    url("/images/eapl-in-numbers.jpg") center / cover;
+    url("/images/eapl-in-numbers.webp") center / cover;
 }
 
 .about-hero--history::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.88) 50%, rgba(15, 54, 119, 0.28) 100%),
-    url("/images/corporate-history.jpg") center / cover;
+    url("/images/corporate-history.webp") center / cover;
 }
 
 .about-hero--leadership::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 46%, rgba(10, 39, 87, 0.26) 100%),
-    url("../images/about/leadership.jpg") right center / auto 100% no-repeat,
+    url("../images/about/leadership.webp") right center / auto 100% no-repeat,
     #051531;
 }
 
 .about-hero--governance::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.88) 46%, rgba(10, 39, 87, 0.2) 100%),
-    url("/images/about/corporate-governance.jpg") right center / auto 100% no-repeat,
+    url("/images/about/corporate-governance.webp") right center / auto 100% no-repeat,
     #051531;
 }
 
 .about-hero--committees::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.78) 50%, rgba(15, 54, 119, 0.14) 100%),
-    url("/images/about/board-committees.jpg") center / cover no-repeat;
+    url("/images/about/board-committees.webp") center / cover no-repeat;
 }
 
 .about-hero--documents::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 48%, rgba(10, 39, 87, 0.28) 100%),
-    url("/images/about/policies.jpg") right center / auto 100% no-repeat,
+    url("/images/about/policies.webp") right center / auto 100% no-repeat,
     #051531;
 }
 
 .about-hero--disclosures::before {
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 48%, rgba(10, 39, 87, 0.24) 100%),
-    url("/images/about/disclosure.jpg") right center / auto 100% no-repeat,
+    url("/images/about/disclosure.webp") right center / auto 100% no-repeat,
     #051531;
 }
 
@@ -783,7 +783,7 @@ body.has-open-dialog {
   width: min(calc(100% - 220px), 1220px);
 }
 .about-intro-copy{
-  background: url(/images/overview-bg-bottom.png) no-repeat bottom right / contain;
+  background: url(/images/overview-bg-bottom.webp) no-repeat bottom right / contain;
   padding-bottom: 80px;
 }
 
@@ -1072,7 +1072,7 @@ z-index: 1;
 }
 .market-banner img{width: 100%;}
 /* .market-banner::after {
-  background: url("/images/about-intro.png") right bottom / 760px auto no-repeat;
+  background: url("/images/about-intro.webp") right bottom / 760px auto no-repeat;
   content: "";
   inset: 0;
   opacity: 0.34;
@@ -1658,7 +1658,7 @@ z-index: 1;
 .committee-card--featured {
   background:
     linear-gradient(90deg, rgba(4, 25, 63, 0.94), rgba(12, 56, 123, 0.82)),
-    url("/images/about/board-committees.jpg") center / cover;
+    url("/images/about/board-committees.webp") center / cover;
   grid-column: span 3;
   min-height: 350px;
   padding: 36px;
@@ -1817,7 +1817,7 @@ z-index: 1;
 }
 
 .documents-section::after {
-  background: url("/images/overview-bg-bottom.png") center bottom / 560px auto no-repeat;
+  background: url("/images/overview-bg-bottom.webp") center bottom / 560px auto no-repeat;
   bottom: 0;
   content: "";
   height: 180px;

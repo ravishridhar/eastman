@@ -549,7 +549,7 @@ p {
 }
 
 .hero-bg {
-  background: url("/images/header-bg.jpg") center / cover;
+  background: url("/images/header-bg.webp") center / cover;
   inset: 0;
   position: absolute;
 }
@@ -983,7 +983,7 @@ p {
 }
 
 .distribution-bg {
-  background: url("/images/distribution-bg.png") center / cover;
+  background: url("/images/distribution-bg.webp") center / cover;
   inset: 0;
   opacity: 0.24;
   position: absolute;

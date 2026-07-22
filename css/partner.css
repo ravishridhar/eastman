@@ -49,7 +49,7 @@
 .partner-benefit-grid { display: grid; gap: 22px; grid-template-columns: repeat(4, 1fr); }
 .partner-benefit-grid article { border-top: 3px solid #ffd60a; padding: 28px 18px 10px 0; }
 .partner-benefit-grid article > span { color: #b5bfcc; display: block; font-size: 13px; font-weight: 800; margin-bottom: 32px; }
-.partner-cta { background: #0e2f6f url('/images/header-bg.jpg') center / cover no-repeat; color: #fff; padding: 78px 56px; }
+.partner-cta { background: #0e2f6f url('/images/header-bg.webp') center / cover no-repeat; color: #fff; padding: 78px 56px; }
 .partner-cta__inner { align-items: center; display: flex; gap: 60px; justify-content: space-between; }.partner-cta .partner-kicker { color: #ffd60a; }.partner-cta h2 { color: #fff; }.partner-cta p { color: #dce5f5; line-height: 1.6; max-width: 760px; }
 .partner-stories { background: #f5f7fa; }
 .partner-video-slider { overflow: hidden; }
