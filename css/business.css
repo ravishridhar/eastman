@@ -223,8 +223,8 @@
 }
 
 .business-card-copy strong {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 600;
   letter-spacing: 0;
   line-height: 1.1;
 }
@@ -232,9 +232,9 @@
 .business-card-copy em {
   align-items: center;
   display: inline-flex;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 500;
   gap: 7px;
 }
 
@@ -336,18 +336,15 @@
 }
 
 .business-detail-media::before {
-  background-image:
-    linear-gradient(#c9efd0 1px, transparent 1px),
-    linear-gradient(90deg, #c9efd0 1px, transparent 1px);
-  background-size: 24px 24px;
+  background: url("/images/business/image-bg-business.webp") right center / contain no-repeat;
   content: "";
   inset: -31px -30px -31px 210px;
-  opacity: 0.75;
   position: absolute;
   z-index: -1;
 }
 
 .business-detail--alt .business-detail-media::before {
+  background-position: left center;
   inset: -31px 210px -31px -30px;
 }
 
@@ -425,7 +422,7 @@
 
 .last-mile-hero p {
   color: #fff;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 800;
   line-height: 1.2;
   margin: 22px 0 0;
@@ -1171,7 +1168,7 @@
 }
 
 .solar-business-hero p {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   margin: 24px 0 0;
 }
@@ -1400,7 +1397,7 @@
 
 .solar-metrics--four {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  max-width: 960px;
+  /* max-width: 960px; */
 }
 
 .continued-energy-page .solar-business-hero > img {
@@ -1473,10 +1470,10 @@
   width: 50%;
 }
 
-.solar-product-image--panel img {
+/* .solar-product-image--panel img {
   max-height: 220px;
   transform: rotate(-7deg);
-}
+} */
 
 .solar-product-image--balance {
   gap: 8px;

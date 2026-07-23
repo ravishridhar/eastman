@@ -587,7 +587,7 @@ body.has-open-dialog {
   background: #0f2d6b;
   color: #fff;
   display: flex;
-  min-height: 550px;
+  min-height: 518px;
   overflow: hidden;
   padding: 128px 56px 80px;
   position: relative;
@@ -1056,8 +1056,8 @@ z-index: 1;
 }
 
 .number-card strong span {
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .market-banner {
@@ -1969,7 +1969,7 @@ z-index: 1;
   }
 
   .about-hero {
-    min-height: 150px;
+    min-height: 430px;
     padding: 72px 16px 18px;
   }
 
@@ -2531,5 +2531,11 @@ z-index: 1;
 
   .document-row summary a {
     font-size: 10px;
+  }
+}
+
+@media (max-width: 460px) {
+  .about-hero {
+    min-height: 390px;
   }
 }

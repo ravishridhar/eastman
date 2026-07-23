@@ -246,7 +246,7 @@ const footerMarkup = `
             <a href="#" aria-label="LinkedIn"><img src="${socialIcons.linkedin}" alt="" /></a>
             <a href="#" aria-label="Instagram"><img src="${socialIcons.instagram}" alt="" /></a>
             <a href="#" aria-label="YouTube"><img src="${socialIcons.youtube}" alt="" /></a>
-            <a href="#" aria-label="X"><img src="${socialIcons.twitter}" alt="" /></a>
+            <!--<a href="#" aria-label="X"><img src="${socialIcons.twitter}" alt="" /></a>-->
           </div>
         </section>
       </div>

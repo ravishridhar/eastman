@@ -422,6 +422,16 @@ p {
   visibility: visible;
 }
 
+@media (min-width: 821px) {
+  .mega-panel.is-active,
+  .mega-panel.is-leaving {
+    border: 1px solid rgba(15, 48, 119, 0.08);
+    box-shadow:
+      0 16px 38px rgba(4, 24, 58, 0.2),
+      0 4px 12px rgba(4, 24, 58, 0.1);
+  }
+}
+
 .mega-panel--wide {
   min-width: 290px;
 }
