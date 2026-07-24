@@ -58,11 +58,10 @@ const headerMarkup = `
         <a href="${pagePath('about.html')}">CSR</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="research" aria-label="Research and Development submenu">
-        <!-- <h2>Research &amp; Development</h2> -->
-        <a href="${pagePath('#research')}">Overview</a>
-        <a href="${pagePath('#research')}">Conventional Tubular Batteries</a>
-        <a href="${pagePath('#research')}">Power Electronics</a>
-        <a href="${pagePath('#research')}">Lithium-ion Batteries Solar Panels</a>
+        <a href="${pagePath('research-conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
+        <a href="${pagePath('research-power-electronics.html')}">Power Electronics</a>
+        <a href="${pagePath('research-lithium-batteries.html')}">Lithium-ion Batteries</a>
+        <a href="${pagePath('research-solar-panels.html')}">Solar Panels</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="manufacturing" aria-label="Manufacturing Infrastructure submenu">
         <!-- <h2>Manufacturing &amp; Infrastructure</h2> -->
@@ -117,10 +116,10 @@ const headerMarkup = `
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Research &amp; Development<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
-          <a href="${pagePath('#research')}">Overview</a>
-          <a href="${pagePath('#research')}">Conventional Energy Storage</a>
-          <a href="${pagePath('#research')}">Power Electronics</a>
-          <a href="${pagePath('#research')}">Lithium-Ion Battery Pack</a>
+          <a href="${pagePath('research-conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
+          <a href="${pagePath('research-power-electronics.html')}">Power Electronics</a>
+          <a href="${pagePath('research-lithium-batteries.html')}">Lithium-Ion Batteries</a>
+          <a href="${pagePath('research-solar-panels.html')}">Solar Panels</a>
         </div>
       </div>
       <div class="mobile-nav-item">

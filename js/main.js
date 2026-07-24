@@ -8,6 +8,7 @@ import '../css/business.css';
 import '../css/manufacturing.css';
 import '../css/partner.css';
 import '../css/contact.css';
+import '../css/research-development.css';
 import '../css/desktop.css';
 import '../css/mobile.css';
 import { setupLayout } from './layout.js';
@@ -294,17 +295,21 @@ function setupPageTransitions() {
   });
 }
 
-function formatCounter(value, decimals, suffix) {
-  const formatted = value.toLocaleString('en-IN', {
+function formatCounter(value, decimals, suffix, prefix = '', pad = 0, wrapSuffix = false) {
+  let formatted = value.toLocaleString('en-IN', {
     maximumFractionDigits: decimals,
     minimumFractionDigits: decimals,
   });
 
-  if (suffix === 'GWh') {
-    return `${formatted}<span>GWh</span>`;
+  if (pad > 0 && decimals === 0) {
+    formatted = formatted.padStart(pad, '0');
   }
 
-  return `${formatted}${suffix}`;
+  if (suffix === 'GWh') {
+    return `${prefix}${formatted}<span>GWh</span>`;
+  }
+
+  return `${prefix}${formatted}${wrapSuffix && suffix ? ` <span>${suffix}</span>` : suffix}`;
 }
 
 function animateCounter(counter) {
@@ -314,6 +319,9 @@ function animateCounter(counter) {
   const target = Number(counter.dataset.value || 0);
   const decimals = Number(counter.dataset.decimals || 0);
   const suffix = counter.dataset.suffix || '';
+  const prefix = counter.dataset.prefix || '';
+  const pad = Number(counter.dataset.pad || 0);
+  const wrapSuffix = counter.hasAttribute('data-wrap-suffix');
   const duration = 1400;
   const startTime = performance.now();
 
@@ -323,12 +331,12 @@ function animateCounter(counter) {
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = target * eased;
 
-    counter.innerHTML = formatCounter(current, decimals, suffix);
+    counter.innerHTML = formatCounter(current, decimals, suffix, prefix, pad, wrapSuffix);
 
     if (progress < 1) {
       requestAnimationFrame(tick);
     } else {
-      counter.innerHTML = formatCounter(target, decimals, suffix);
+      counter.innerHTML = formatCounter(target, decimals, suffix, prefix, pad, wrapSuffix);
     }
   }
 
@@ -363,7 +371,14 @@ function setupCounters() {
   groups.forEach((groupCounters, section) => {
     groupCounters.forEach((counter) => {
       counter.dataset.animated = 'false';
-      counter.innerHTML = formatCounter(0, Number(counter.dataset.decimals || 0), counter.dataset.suffix || '');
+      counter.innerHTML = formatCounter(
+        0,
+        Number(counter.dataset.decimals || 0),
+        counter.dataset.suffix || '',
+        counter.dataset.prefix || '',
+        Number(counter.dataset.pad || 0),
+        counter.hasAttribute('data-wrap-suffix'),
+      );
     });
 
     const rect = section.getBoundingClientRect();
