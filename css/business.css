@@ -341,6 +341,7 @@
   inset: -31px -30px -31px 210px;
   position: absolute;
   z-index: -1;
+  visibility: hidden;
 }
 
 .business-detail--alt .business-detail-media::before {
@@ -466,6 +467,7 @@
   opacity: 0.7;
   position: absolute;
   z-index: -1;
+  visibility: hidden;
 }
 
 .last-mile-intro-media img {
@@ -1198,6 +1200,7 @@
   position: absolute;
   width: 44%;
   z-index: 0;
+  visibility: hidden;
 }
 
 .solar-intro__media img {

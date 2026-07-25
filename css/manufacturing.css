@@ -45,21 +45,17 @@
 }
 
 .manufacturing-hero--lithium {
-  background-image: url("/images/manufacturing/lithium_battries.webp");
+  background-image: url("../images/manufacturing/lithium_battries.jpg");
   background-position: top center;
 }
 
 .manufacturing-hero--power {
-  background-image: url("/images/manufacturing/power_electronics.webp");
+  background-image: url("../images/manufacturing/power_electronics.png");
 }
 
 .manufacturing-hero--solar {
-  background-image: url("/images/manufacturing/solar_panels.webp");
+  background-image: url("../images/manufacturing/solar_panels.jpg");
   background-position: center top;
-}
-
-.manufacturing-hero--tubular {
-  background-image: url("/images/manufacturing/tubular-intro.webp");
 }
 
 .manufacturing-hero__content {
@@ -524,8 +520,8 @@
   /* background:
     linear-gradient(#d8efda 1px, transparent 1px),
     linear-gradient(90deg, #d8efda 1px, transparent 1px); */
-  background-size: 28px 28px;
-  padding: 28px 24px 24px;
+  /* background-size: 28px 28px; */
+  /* padding: 28px 24px 24px; */
 }
 
 .manufacturing-detail__media img {
@@ -723,8 +719,9 @@
 }
 
 .tubular-batteries-page .manufacturing-detail__media img {
-  aspect-ratio: 333 / 256;
+  aspect-ratio: 333 / 300;
   height: auto;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -1268,9 +1265,10 @@
   }
 
   .tubular-batteries-page .manufacturing-detail__media img {
-    aspect-ratio: 333 / 256;
+    aspect-ratio: 333 / 300;
     border-radius: 0;
     height: auto;
+    object-fit: cover;
     object-position: center;
   }
 

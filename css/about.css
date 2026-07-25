@@ -1638,6 +1638,21 @@ z-index: 1;
   grid-row: 4;
 }
 
+@media (min-width: 1051px) and (max-width: 1400px) {
+  .profile-grid--leadership .profile-card:nth-child(n + 3) {
+    grid-column: span 4;
+    grid-row: auto;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1050px) {
+  .profile-grid--leadership .profile-card--large,
+  .profile-grid--leadership .profile-card:nth-child(n + 3) {
+    grid-column: span 6;
+    grid-row: auto;
+  }
+}
+
 .profile-card::after {
   background: linear-gradient(180deg, rgba(1, 27, 53, 0) 34%, rgba(1, 27, 53, 0.78) 100%);
   content: "";
