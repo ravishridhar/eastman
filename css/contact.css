@@ -21,11 +21,12 @@
 }
 
 .contact-hero > img {
-  height: 100%;
-  inset: 0;
+  height: 646px;
+  left: 0;
   object-fit: cover;
   object-position: center;
   position: absolute;
+  top: -3px;
   width: 100%;
 }
 
@@ -392,6 +393,8 @@
   }
 
   .contact-hero > img {
+    height: 100%;
+    top: 0;
     object-position: 62% center;
   }
 
