@@ -1,4 +1,11 @@
 const pageKey = document.querySelector('[data-research-page]')?.dataset.researchPage || 'lithium';
+const researchImages = {
+  breadcrumb: new URL('../images/breadcrumb_arrow.svg', import.meta.url).href,
+  consumerApplication: new URL('../images/rnd_svg_icn1.svg', import.meta.url).href,
+  valueForMoney: new URL('../images/rnd_svg_icn2.svg', import.meta.url).href,
+  designQuality: new URL('../images/rnd_svg_icn3.svg', import.meta.url).href,
+  warranty: new URL('../images/rnd_svg_icn4.svg', import.meta.url).href,
+};
 
 const streams = {
   lithium: {
@@ -66,7 +73,7 @@ if (main && data) {
     </section>
     <nav class="research-breadcrumbs" aria-label="Breadcrumb">
       <a href="${streamLinks[0][2]}">Research &amp; Development</a>
-      <img src="/images/breadcrumb_arrow.svg" alt="" />
+      <img src="${researchImages.breadcrumb}" alt="" />
       <span>${streamLinks.find(([key]) => key === pageKey)[1]}</span>
     </nav>
     <section class="research-intro">
@@ -77,10 +84,10 @@ if (main && data) {
           <a class="research-explore" href="#focus-areas">Explore More</a>
         </div>
         <div class="research-values">
-          <article class="research-value"><img class="research-value__icon" src="/images/rnd_svg_icn1.svg" alt="" /><strong>Crafted with consumer application in mind</strong></article>
-          <article class="research-value"><img class="research-value__icon" src="/images/rnd_svg_icn2.svg" alt="" /><strong>Maximum value for money</strong></article>
-          <article class="research-value"><img class="research-value__icon" src="/images/rnd_svg_icn3.svg" alt="" /><strong>Quality at design stage</strong></article>
-          <article class="research-value"><img class="research-value__icon" src="/images/rnd_svg_icn4.svg" alt="" /><strong>Best-in-class warranty</strong></article>
+          <article class="research-value"><img class="research-value__icon" src="${researchImages.consumerApplication}" alt="" /><strong>Crafted with consumer application in mind</strong></article>
+          <article class="research-value"><img class="research-value__icon" src="${researchImages.valueForMoney}" alt="" /><strong>Maximum value for money</strong></article>
+          <article class="research-value"><img class="research-value__icon" src="${researchImages.designQuality}" alt="" /><strong>Quality at design stage</strong></article>
+          <article class="research-value"><img class="research-value__icon" src="${researchImages.warranty}" alt="" /><strong>Best-in-class warranty</strong></article>
         </div>
       </div>
       <div class="research-stats">
