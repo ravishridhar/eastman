@@ -29,7 +29,7 @@ const headerMarkup = `
         <button type="button" data-desktop-trigger="manufacturing" aria-expanded="false">Manufacturing Infrastructure<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="businesses" aria-expanded="false">Our Businesses<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="resources" aria-expanded="false">Resources<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
-        <button type="button" data-desktop-trigger="life" aria-expanded="false">Life@Eastman<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
+        <a href="${pagePath('life-at-eastman.html')}">Life@Eastman</a>
       </nav>
     </div>
 
@@ -55,7 +55,7 @@ const headerMarkup = `
         <a href="${pagePath('corporate-history.html')}">Corporate History</a>
         <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
         <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
-        <a href="${pagePath('about.html')}">CSR</a>
+        <a href="${pagePath('board-committees.html')}">CSR</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="research" aria-label="Research and Development submenu">
         <a href="${pagePath('research-conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
@@ -91,8 +91,8 @@ const headerMarkup = `
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="life" aria-label="Life at Eastman submenu">
         <!-- <h2>Life @ Eastman</h2> -->
-        <a href="${pagePath('#life')}">Great Place to Work</a>
-        <a href="${pagePath('#life')}">Careers</a>
+        <!-- <a href="${pagePath('#life')}">Great Place to Work</a>
+        <a href="${pagePath('#life')}">Careers</a> -->
       </section>
     </div>
   </header>
@@ -155,11 +155,11 @@ const headerMarkup = `
         </div>
       </div>
       <div class="mobile-nav-item">
-        <button type="button" class="mobile-nav-trigger" aria-expanded="false">Life@Eastman<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
-        <div class="mobile-submenu">
+        <a class="mobile-direct-link mobile-direct-link--no-arrow" href="${pagePath('life-at-eastman.html')}">Life@Eastman</a>
+        <!-- <div class="mobile-submenu">
           <a href="${pagePath('#life')}">Great Place to Work</a>
           <a href="${pagePath('#life')}">Careers</a>
-        </div>
+        </div> -->
       </div>
       <div class="mobile-menu-actions">
         <a class="trade-chip" href="${pagePath('partner-with-us.html')}">Partner With Us</a>
@@ -185,7 +185,7 @@ const footerMarkup = `
           <a href="${pagePath('corporate-history.html')}">Corporate History</a>
           <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
           <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
-          <a href="${pagePath('about.html')}">CSR</a>
+          <a href="${pagePath('board-committees.html')}">CSR</a>
         </section>
       </div>
       <div class="footer-column">

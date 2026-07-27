@@ -381,14 +381,6 @@ function setupCounters() {
       );
     });
 
-    const rect = section.getBoundingClientRect();
-    const isInitiallyVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-    if (isInitiallyVisible) {
-      requestAnimationFrame(() => groupCounters.forEach((counter) => animateCounter(counter)));
-      return;
-    }
-
     observer.observe(section);
   });
 }

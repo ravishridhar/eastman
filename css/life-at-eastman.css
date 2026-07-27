@@ -1,0 +1,586 @@
+.life-page {
+  color: #131417;
+}
+
+.life-hero {
+  align-items: center;
+  background:
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.8) 53%, rgba(15, 54, 119, 0.1) 100%),
+    url("/images/life-at-eastman/hero-mobile.png") center / cover no-repeat;
+  color: #fff;
+  display: flex;
+  height: 550px;
+  padding: 82px max(56px, calc((100vw - 1328px) / 2)) 0;
+}
+
+.life-hero-copy h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 15px;
+}
+
+.life-hero-copy h1 span,
+.life-workplace h2 span,
+.life-certified h2 span {
+  color: #ef7b23;
+}
+
+.life-hero-copy h1 span {
+  color: #ffd60a;
+}
+
+.life-hero-copy p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 650px;
+}
+
+.life-breadcrumb {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  height: 47px;
+  padding: 0 56px;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.life-breadcrumb span {
+  color: #777983;
+}
+
+.life-breadcrumb strong {
+  color: #18408c;
+  font-weight: 600;
+}
+
+.life-breadcrumb img {
+  height: 8px;
+  width: 4px;
+}
+
+.life-workplace {
+  align-items: center;
+  display: grid;
+  gap: 56px;
+  grid-template-columns: 1fr 548px;
+  margin: auto;
+  max-width: 1280px;
+  min-height: 473px;
+  padding: 56px 24px;
+}
+
+.life-workplace h2,
+.life-certified h2,
+.life-join h2 {
+  color: #0e2f6f;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+.life-workplace-copy > p {
+  font-size: 15px;
+  line-height: 1.625;
+  margin: 24px 0 0;
+  max-width: 576px;
+}
+
+.life-values {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.life-values article {
+  align-items: flex-start;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  display: flex;
+  gap: 20px;
+  min-height: 111px;
+  padding: 17px;
+}
+
+.life-values article > span {
+  align-items: center;
+  background: rgba(234, 108, 10, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 48px;
+  height: 48px;
+  justify-content: center;
+}
+
+.life-values img {
+  height: 22px;
+  width: 22px;
+}
+
+.life-values h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.life-values p {
+  color: #737373;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 4px 0 0;
+}
+
+.life-stats {
+  background: #0e2f6f;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 56px;
+  overflow: hidden;
+}
+
+.life-stats article {
+  display: flex;
+  flex-direction: column;
+  height: 136px;
+  justify-content: center;
+  padding: 26px 32px;
+}
+
+.life-stats article + article {
+  border-left: 1px solid rgba(245, 247, 250, 0.65);
+}
+
+.life-stats strong {
+  color: #ffd60a;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.life-stats span {
+  color: #f5f7fa;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+.life-certified {
+  align-items: center;
+  display: grid;
+  gap: 64px;
+  grid-template-columns: minmax(0, 778px) 454px;
+  padding: 72px 56px;
+}
+
+.life-certified h2 span {
+  display: inline;
+}
+
+.life-certified h2 {
+  max-width: none;
+}
+
+.life-certified-copy > p {
+  color: #383a40;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 24px 0 0;
+  max-width: 714px;
+}
+
+.life-rating {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.life-rating > span {
+  display: flex;
+  gap: 12px;
+}
+
+.life-rating img {
+  flex: none;
+  height: 20px;
+  object-fit: contain;
+  width: 20px;
+}
+
+.life-rating strong {
+  color: #0e2f6f;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.life-certificate {
+  height: 387px;
+  position: relative;
+}
+
+.life-certificate-card {
+  align-items: center;
+  border: 1px solid rgba(234, 108, 10, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(234, 108, 10, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 359px;
+  justify-content: center;
+  margin: auto;
+  width: 334px;
+}
+
+.life-certificate-card img {
+  height: 205px;
+  object-fit: cover;
+  object-position: center 15%;
+  width: 124px;
+}
+
+.life-certificate-card strong {
+  color: #0e2f6f;
+  font-size: 36px;
+  line-height: 1.1;
+}
+
+.life-certificate-card b {
+  color: #ea6c0a;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.life-certificate-card span {
+  color: #737373;
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.life-certificate > i {
+  background: #ea6c0a;
+  border-radius: 50%;
+  height: 24px;
+  position: absolute;
+  right: 33px;
+  top: 11px;
+  width: 24px;
+}
+
+.life-certificate > i + i {
+  background: transparent;
+  border: 2px solid #ea6c0a;
+  bottom: 51px;
+  height: 16px;
+  left: 33px;
+  top: auto;
+  width: 16px;
+}
+
+.life-join {
+  background: #0e2f6f;
+  padding: 57px 56px;
+}
+
+.life-join h2 {
+  color: #f5f7fa;
+  text-align: center;
+}
+
+.life-join h2 span {
+  color: #ffd60a;
+}
+
+.life-benefits {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 48px;
+}
+
+.life-benefits article {
+  align-items: center;
+  background: #18408c;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  color: #f5f7fa;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 81px;
+  padding: 25px;
+}
+
+.life-benefits article::before {
+  background: url("/images/life-at-eastman/check.svg") center / contain no-repeat;
+  content: "";
+  flex: 0 0 30px;
+  height: 30px;
+  margin-right: 12px;
+}
+
+.life-join-mobile-subtitle,
+.life-openings {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .life-hero {
+    align-items: flex-start;
+    background:
+      linear-gradient(90deg, #051531 13%, rgba(10, 39, 87, 0.85) 62%, rgba(15, 54, 119, 0.3) 103%),
+      url("/images/life-at-eastman/hero-mobile.png") center / cover no-repeat;
+    height: 187px;
+    margin-top: 80px;
+    padding: 42px 16px 0;
+  }
+
+  .life-hero-copy h1 {
+    font-size: 20px;
+    line-height: 1.1;
+    margin: 0;
+    max-width: 165px;
+  }
+
+  .life-hero-copy p {
+    display: none;
+  }
+
+  .life-breadcrumb {
+    height: 47px;
+    padding: 0 16px;
+  }
+
+  .life-workplace {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+    padding: 24px 16px 0;
+    width: 100%;
+  }
+
+  .life-workplace-copy,
+  .life-values {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .life-workplace h2,
+  .life-certified h2,
+  .life-join h2 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .life-workplace-copy > p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 4px 0 0;
+  }
+
+  .life-workplace-copy > p + p {
+    margin-top: 24px;
+  }
+
+  .life-values {
+    width: 100%;
+  }
+
+  .life-values article {
+    gap: 16px;
+    min-height: 0;
+    padding: 17px;
+  }
+
+  .life-values article > div {
+    min-width: 0;
+  }
+
+  .life-values p {
+    overflow-wrap: anywhere;
+  }
+
+  .life-values article > span {
+    flex-basis: 40px;
+    height: 40px;
+  }
+
+  .life-values h3 {
+    font-size: 20px;
+  }
+
+  .life-values p {
+    line-height: 1.5;
+  }
+
+  .life-stats {
+    display: flex;
+    flex-direction: column;
+    margin: 0 14px;
+  }
+
+  .life-stats article {
+    align-items: center;
+    height: 125px;
+    padding: 28px 16px;
+    text-align: center;
+  }
+
+  .life-stats article + article {
+    border-left: 0;
+    border-top: 1px solid rgba(245, 247, 250, 0.65);
+  }
+
+  .life-stats strong {
+    font-size: 36px;
+  }
+
+  .life-stats span {
+    font-size: 14px;
+  }
+
+  .life-certified {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  .life-certified h2 span {
+    display: block;
+  }
+
+  .life-certified-copy > p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 24px;
+  }
+
+  .life-rating {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .life-rating strong {
+    font-size: 16px;
+  }
+
+  .life-certificate {
+    height: 288px;
+    margin-top: 20px;
+    width: 279px;
+  }
+
+  .life-certificate-card {
+    border-radius: 12px;
+    height: 269px;
+    width: 250px;
+  }
+
+  .life-certificate-card img {
+    height: 153px;
+    width: 93px;
+  }
+
+  .life-certificate-card strong {
+    font-size: 27px;
+  }
+
+  .life-certificate-card b {
+    font-size: 15px;
+  }
+
+  .life-certificate-card span {
+    font-size: 12px;
+  }
+
+  .life-certificate > i {
+    height: 18px;
+    right: 6px;
+    top: 8px;
+    width: 18px;
+  }
+
+  .life-certificate > i + i {
+    bottom: 36px;
+    height: 12px;
+    left: 0;
+    width: 12px;
+  }
+
+  .life-join {
+    padding: 57px 12px;
+  }
+
+  .life-join h2 {
+    font-size: 20px;
+  }
+
+  .life-join h2 {
+    font-size: 0;
+  }
+
+  .life-join h2::before {
+    content: "Why you should ";
+    font-size: 20px;
+  }
+
+  .life-join h2 span {
+    font-size: 20px;
+  }
+
+  .life-join h2 span::before {
+    content: "";
+  }
+
+  .life-join-mobile-subtitle {
+    color: #f5f7fa;
+    display: block;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 24px 0 0;
+    text-align: center;
+  }
+
+  .life-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .life-benefits article {
+    font-size: 16px;
+    min-height: 0;
+    padding: 20px 17px;
+  }
+
+  .life-openings {
+    align-items: center;
+    background: #ffd60a;
+    border-radius: 4px;
+    color: #0e2f6f;
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  .life-openings img {
+    height: 16px;
+    margin-left: 8px;
+    width: 16px;
+  }
+}

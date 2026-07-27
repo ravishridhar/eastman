@@ -27,6 +27,7 @@ module.exports = defineConfig({
         advancedElectronicsManufacturing: resolve(__dirname, 'advanced-electronics-manufacturing.html'),
         partnerWithUs: resolve(__dirname, 'partner-with-us.html'),
         contactUs: resolve(__dirname, 'contact-us.html'),
+        lifeAtEastman: resolve(__dirname, 'life-at-eastman.html'),
         manufacturingInfrastructure: resolve(__dirname, 'manufacturing-infrastructure.html'),
         lithiumBatteries: resolve(__dirname, 'lithium-batteries.html'),
         powerElectronics: resolve(__dirname, 'power-electronics.html'),
