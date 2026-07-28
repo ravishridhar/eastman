@@ -82,11 +82,11 @@ const headerMarkup = `
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="resources" aria-label="Resources submenu">
         <!-- <h2>Resources</h2> -->
-        <a href="${pagePath('#resources')}">Overview</a>
-        <a href="${pagePath('#resources')}">Blogs</a>
+        <a href="${pagePath('resources.html')}">Overview</a>
+        <a href="${pagePath('blog.html')}">Blogs</a>
         <a href="${pagePath('#resources')}">Whitepaper</a>
-        <a href="${pagePath('#resources')}">Media</a>
-        <a href="${pagePath('#resources')}">Social Feed</a>
+        <a href="${pagePath('media-news.html')}">Media</a>
+        <a href="${pagePath('social-feed.html')}">Social Feed</a>
         <a href="${pagePath('#resources')}">Videos</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="life" aria-label="Life at Eastman submenu">
@@ -146,12 +146,12 @@ const headerMarkup = `
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Resources<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
-          <a href="${pagePath('#resources')}">Overview</a>
-          <a href="${pagePath('#resources')}">Blogs</a>
+          <a href="${pagePath('resources.html')}">Overview</a>
+          <a href="${pagePath('blog.html')}">Blogs</a>
           <a href="${pagePath('#resources')}">White Paper</a>
-          <a href="${pagePath('#resources')}">Media</a>
+          <a href="${pagePath('media-news.html')}">Media</a>
           <a href="${pagePath('#resources')}">Videos</a>
-          <a href="${pagePath('#resources')}">Social Feed</a>
+          <a href="${pagePath('social-feed.html')}">Social Feed</a>
         </div>
       </div>
       <div class="mobile-nav-item">
