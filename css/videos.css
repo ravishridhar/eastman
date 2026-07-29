@@ -1,0 +1,83 @@
+.videos-page { color:#0f0f0f; }
+.videos-hero { background:url("/images/videos/hero.png") center/cover no-repeat;color:#fff;height:550px;padding:162px 56px 0; }
+.videos-hero h1 { font-size:48px;font-weight:700;line-height:1.2;margin:0 0 15px; }
+.videos-hero p { font-size:16px;line-height:1.5;margin:0;max-width:610px; }
+.videos-breadcrumb { align-items:center;display:flex;gap:8px;height:47px;padding:0 56px; }
+.videos-breadcrumb a,.videos-breadcrumb span { color:#737373;font-size:12px;text-decoration:none; }
+.videos-breadcrumb span { color:#18408c;font-weight:600; }
+.videos-breadcrumb img { height:10px;width:10px; }
+.videos-content { height:1436px;padding:0 56px; }
+.videos-content>h2 { color:#ea6c0a;font-size:36px;font-weight:700;height:69px;line-height:1.2;margin:0 0 58px; }
+.featured-video { border-radius:16px;height:460px;overflow:hidden;position:relative;transition:box-shadow .35s ease,transform .35s cubic-bezier(.2,.7,.2,1); }
+.featured-video>img { height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.2,1);width:100%; }
+.featured-video::after { background:linear-gradient(0deg,rgba(3,13,27,.94),transparent 70%);content:"";inset:0;position:absolute;transition:background .35s ease; }
+.featured-video>i,.video-card>div>i { left:50%;position:absolute;top:50%;transform:translate(-50%,-50%);z-index:2; }
+.featured-video>i { transition:filter .35s ease,transform .35s cubic-bezier(.2,.7,.2,1); }
+.featured-video>i img { height:96px;width:96px; }
+.featured-video>div { bottom:40px;color:#fff;left:40px;position:absolute;z-index:2; }
+.featured-video h3 { font-size:24px;line-height:1.2;margin:0 0 16px;max-width:650px; }
+.featured-video p { color:#d1d8e2;font-size:16px;line-height:1.5;margin:0;max-width:690px; }
+.videos-grid { display:grid;gap:24px 32px;grid-template-columns:repeat(3,1fr);margin-top:24px; }
+.video-card { background:#fff;border:1px solid #eee;border-radius:16px;height:395.25px;overflow:hidden;transition:border-color .35s ease,box-shadow .35s ease,transform .35s cubic-bezier(.2,.7,.2,1); }
+.video-card>div { height:208px;position:relative; }
+.video-card>div>img:first-child { height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1);width:100%; }
+.video-card>div::after { background:rgba(0,0,0,.15);content:"";inset:0;position:absolute;transition:background-color .35s ease; }
+.video-card>div>i { transition:filter .35s ease,transform .35s cubic-bezier(.2,.7,.2,1); }
+.video-card>div>i img { height:56px;width:56px; }
+.video-meta { bottom:10px;display:flex;gap:8px;position:absolute;right:10px;z-index:2; }
+.video-meta span { align-items:center;background:rgba(0,0,0,.75);border-radius:10px;color:#fff;display:flex;font-size:10px;gap:4px;height:19px;padding:0 8px; }
+.video-meta span img { height:9px;width:9px; }
+.video-card>section { padding:20px; }
+.video-card h3 { font-size:14px;font-weight:600;line-height:1.35;margin:0 0 16px; }
+.video-card p { color:#737373;font-size:16px;line-height:1.5;margin:0; }
+.youtube-callout { align-items:center;background:#f5f5f5;border:1px solid #ddd;border-radius:16px;display:flex;height:122px;justify-content:space-between;margin:103px 0 146px;padding:0 56px; }
+.youtube-callout>div { align-items:center;display:flex;gap:20px; }
+.youtube-callout>div>img { height:56px;width:56px; }
+.youtube-callout p { margin:0; }
+.youtube-callout strong { display:block;font-size:20px;margin-bottom:8px; }
+.youtube-callout p span { color:#737373;font-size:16px; }
+.youtube-callout>a { align-items:center;background:#e60012;border-radius:12px;color:#fff;display:inline-flex;font-size:18px;font-weight:700;gap:8px;justify-content:center;padding:16px 28px;text-decoration:none; }
+.youtube-callout>a img { height:14px;width:14px; }
+
+@media(hover:hover) and (pointer:fine){
+  .featured-video,.video-card { cursor:pointer; }
+  .featured-video:hover { box-shadow:0 22px 48px rgba(10,36,82,.18);transform:translateY(-5px); }
+  .featured-video:hover>img { transform:scale(1.035); }
+  .featured-video:hover::after { background:linear-gradient(0deg,rgba(3,13,27,.97),rgba(9,31,68,.18) 75%); }
+  .featured-video:hover>i { filter:drop-shadow(0 10px 18px rgba(0,0,0,.32));transform:translate(-50%,-50%) scale(1.1); }
+  .video-card:hover { border-color:rgba(234,108,10,.28);box-shadow:0 18px 40px rgba(10,36,82,.14);transform:translateY(-8px); }
+  .video-card:hover>div>img:first-child { transform:scale(1.06); }
+  .video-card:hover>div::after { background:rgba(9,31,68,.32); }
+  .video-card:hover>div>i { filter:drop-shadow(0 8px 14px rgba(0,0,0,.28));transform:translate(-50%,-50%) scale(1.12); }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .featured-video,.featured-video>img,.featured-video>i,.video-card,.video-card>div>img:first-child,.video-card>div>i { transition:none; }
+}
+
+@media(max-width:767px){
+  .videos-hero { height:187px;margin-top:80px;padding:42px 16px 0; }
+  .videos-hero h1 { font-size:20px;line-height:1.1;margin-bottom:15px; }
+  .videos-hero p { font-size:14px;line-height:1.2;max-width:320px; }
+  .videos-breadcrumb { height:47px;padding:0 16px; }
+  .videos-content { height:auto;padding:16px; }
+  .videos-content>h2 { font-size:24px;height:20px;margin:0 0 16px; }
+  .featured-video { height:460px; }
+  .featured-video>i img { height:64px;width:64px; }
+  .featured-video>div { bottom:24px;left:20px;right:20px; }
+  .featured-video h3 { font-size:20px; }
+  .featured-video p { font-size:14px; }
+  .videos-grid { display:flex;flex-direction:column;gap:16px;margin-top:16px; }
+  .video-card { height:391px; }
+  .video-card:nth-child(1),.video-card:nth-child(4) { height:411.25px; }
+  .video-card>div { height:208px; }
+  .video-card>section { padding:16px; }
+  .video-card h3 { font-size:14px;margin-bottom:12px; }
+  .video-card p { font-size:14px;line-height:1.5; }
+  .video-card:nth-child(4) { margin-top:16px; }
+  .youtube-callout { align-items:stretch;border-radius:0;display:flex;flex-direction:column;height:284px;justify-content:flex-start;margin:0;padding:32px 17px; }
+  .youtube-callout>div { align-items:flex-start; }
+  .youtube-callout strong { font-size:18px; }
+  .youtube-callout p span { display:block;font-size:14px;line-height:1.5; }
+  .youtube-callout>a { font-size:16px;margin-top:24px;padding:15px;text-align:center; }
+}

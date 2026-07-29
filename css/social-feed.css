@@ -20,16 +20,25 @@
 .social-account i img { height:24px;width:24px; }
 .social-account strong { font-size:16px; }
 .social-account small { color:#737373;display:block;font-size:12px;font-weight:400;margin-top:4px; }
-.social-account button { align-items:center;background:#fff;border:1px solid #eee;border-radius:10px;display:flex;gap:8px;padding:10px 20px; }
-.social-account button img { height:12px;width:12px; }
+.social-account>a { align-items:center;background:#fff;border:1px solid #eee;border-radius:10px;color:inherit;display:flex;gap:8px;padding:10px 20px;text-decoration:none; }
+.social-account>a img { height:12px;width:12px; }
 .social-posts { display:grid;gap:16px 24px;grid-template-columns:2fr 1fr;margin-top:64px; }
 .social-featured { border-radius:16px;height:303px;overflow:hidden;position:relative; }
 .social-featured>img { height:100%;object-fit:cover;width:100%; }
 .social-featured>div { background:linear-gradient(0deg,rgba(4,27,67,.95),transparent);bottom:0;color:#fff;left:0;padding:18px 24px;position:absolute;width:100%; }
-.social-featured b,.social-side b,.social-card-row b { background:#ea6c0a;border-radius:12px;color:#fff;font-size:11px;padding:4px 10px; }
+.social-featured b,.social-side b,.social-card-row b { align-items:center;background:#ef7b23;border-radius:12px;color:#fff;display:inline-flex;font-size:11px;line-height:1;height:19px;padding:0 8px; }
+.social-featured b { height:25px;padding:0 10px; }
+.social-platform--facebook .social-card-row b { background:#2382ef; }
+.social-platform--instagram .social-card-row b { background:#e1306c; }
+.social-platform--linkedin .social-card-row b { background:#0a66c2; }
 .social-featured p { font-size:14px;font-weight:600;line-height:1.25;margin:10px 0; }
 .social-featured small,.social-side small,.social-card-row small { color:#737373;font-size:10px; }
 .social-featured small { color:#dbe5f5; }
+.social-metrics { align-items:center;display:flex;gap:16px; }
+.social-metrics span,.social-view { align-items:center;display:inline-flex;gap:4px; }
+.social-metrics img { height:11px;width:11px; }
+.social-metrics--light img { height:12px;width:12px; }
+.social-view { color:#ea6c0a;margin-left:auto;text-decoration:none; }
 .social-side { display:flex;flex-direction:column;gap:16px; }
 .social-side article { align-items:center;border:1px solid #eee;border-radius:16px;display:flex;height:143.5px;overflow:hidden;padding:16px; }
 .social-side article>img { border-radius:12px;height:101px;object-fit:cover;width:111px; }
@@ -37,9 +46,9 @@
 .social-side p { color:#555;font-size:13px;line-height:1.4;margin:8px 0; }
 .social-card-row { display:grid;gap:16px;grid-column:1/-1;grid-template-columns:repeat(3,1fr);margin:32px 48px 0; }
 .social-card-row article { border:1px solid #eee;border-radius:16px;height:330px;overflow:hidden;padding:20px; }
-.social-card-row article>img { border-radius:12px;height:144px;object-fit:cover;width:100%; }
+.social-card-row article>img { border-radius:12px;display:block;height:144px;object-fit:cover;width:100%; }
+.social-card-row article>b { margin-top:5px; }
 .social-card-row p { color:#555;font-size:14px;line-height:1.45;margin:10px 0; }
-.social-card-row em { color:#ea6c0a;float:right;font-style:normal; }
 
 @media(max-width:767px){
   .social-feed-page main { padding-bottom:0; }
@@ -52,7 +61,7 @@
   .social-account { height:117px; }
   .social-account i { height:44px;width:44px; }
   .social-account strong { font-size:14px; }
-  .social-account button { padding:8px 12px; }
+  .social-account>a { padding:8px 12px; }
   .social-posts { display:flex;flex-direction:column;gap:16px;margin-top:16px; }
   .social-featured { height:277px; }
   .social-side { gap:16px; }

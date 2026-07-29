@@ -32,6 +32,8 @@ module.exports = defineConfig({
         mediaNews: resolve(__dirname, 'media-news.html'),
         blog: resolve(__dirname, 'blog.html'),
         socialFeed: resolve(__dirname, 'social-feed.html'),
+        whitePapers: resolve(__dirname, 'white-papers.html'),
+        videos: resolve(__dirname, 'videos.html'),
         manufacturingInfrastructure: resolve(__dirname, 'manufacturing-infrastructure.html'),
         lithiumBatteries: resolve(__dirname, 'lithium-batteries.html'),
         powerElectronics: resolve(__dirname, 'power-electronics.html'),

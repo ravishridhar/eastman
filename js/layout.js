@@ -84,10 +84,10 @@ const headerMarkup = `
         <!-- <h2>Resources</h2> -->
         <a href="${pagePath('resources.html')}">Overview</a>
         <a href="${pagePath('blog.html')}">Blogs</a>
-        <a href="${pagePath('#resources')}">Whitepaper</a>
+        <a href="${pagePath('white-papers.html')}">White Papers</a>
         <a href="${pagePath('media-news.html')}">Media</a>
         <a href="${pagePath('social-feed.html')}">Social Feed</a>
-        <a href="${pagePath('#resources')}">Videos</a>
+        <a href="${pagePath('videos.html')}">Videos</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="life" aria-label="Life at Eastman submenu">
         <!-- <h2>Life @ Eastman</h2> -->
@@ -148,9 +148,9 @@ const headerMarkup = `
         <div class="mobile-submenu">
           <a href="${pagePath('resources.html')}">Overview</a>
           <a href="${pagePath('blog.html')}">Blogs</a>
-          <a href="${pagePath('#resources')}">White Paper</a>
+          <a href="${pagePath('white-papers.html')}">White Paper</a>
           <a href="${pagePath('media-news.html')}">Media</a>
-          <a href="${pagePath('#resources')}">Videos</a>
+          <a href="${pagePath('videos.html')}">Videos</a>
           <a href="${pagePath('social-feed.html')}">Social Feed</a>
         </div>
       </div>
@@ -241,10 +241,10 @@ const footerMarkup = `
         <section class="footer-group social-group">
           <h4>Social</h4>
           <div class="socials">
-            <a href="#" aria-label="Facebook"><img src="${socialIcons.facebook}" alt="" /></a>
-            <a href="#" aria-label="LinkedIn"><img src="${socialIcons.linkedin}" alt="" /></a>
-            <a href="#" aria-label="Instagram"><img src="${socialIcons.instagram}" alt="" /></a>
-            <a href="#" aria-label="YouTube"><img src="${socialIcons.youtube}" alt="" /></a>
+            <a href="https://www.facebook.com/EastmanIndia/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="${socialIcons.facebook}" alt="" /></a>
+            <a href="https://www.linkedin.com/company/eastman-auto-power-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="${socialIcons.linkedin}" alt="" /></a>
+            <a href="https://www.instagram.com/eastman_india/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="${socialIcons.instagram}" alt="" /></a>
+            <a href="https://www.youtube.com/@eastmanindia/videos" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="${socialIcons.youtube}" alt="" /></a>
             <!--<a href="#" aria-label="X"><img src="${socialIcons.twitter}" alt="" /></a>-->
           </div>
         </section>
