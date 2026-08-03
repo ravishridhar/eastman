@@ -25,7 +25,7 @@ const headerMarkup = `
 
       <nav class="desktop-nav" aria-label="Primary navigation">
         <button type="button" data-desktop-trigger="about" aria-expanded="false">About Us<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
-        <button type="button" data-desktop-trigger="research" aria-expanded="false">Research &amp; Development<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
+        <button type="button" data-desktop-trigger="research" data-nav-href="${pagePath('research-conventional-tubular-batteries.html')}" aria-expanded="false">Research &amp; Development<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="manufacturing" aria-expanded="false">Manufacturing Infrastructure<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="businesses" aria-expanded="false">Our Businesses<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="resources" aria-expanded="false">Resources<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
@@ -54,8 +54,10 @@ const headerMarkup = `
         <a href="${pagePath('eapl-in-numbers.html')}">Eastman Auto &amp; Power in Nos.</a>
         <a href="${pagePath('corporate-history.html')}">Corporate History</a>
         <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
+        <!--<a href="${pagePath('board-committees.html')}">Leadership Team</a>
+        <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
         <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
-        <a href="${pagePath('board-committees.html')}">CSR</a>
+        <a href="https://jrseastman.com/csr" target="_blank" rel="noopener noreferrer">CSR</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="research" aria-label="Research and Development submenu">
         <a href="${pagePath('research-conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
@@ -110,12 +112,15 @@ const headerMarkup = `
           <h3>Governance</h3>
           <a href="${pagePath('corporate-history.html')}">Corporate History</a>
           <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
+          <!--<a href="${pagePath('board-committees.html')}">Leadership Team</a>
+          <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
           <a href="${pagePath('disclosures.html')}">Shareholders Information</a>
         </div>
       </div>
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Research &amp; Development<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
+          <a href="${pagePath('research-conventional-tubular-batteries.html')}">Explore Research &amp; Development</a>
           <a href="${pagePath('research-conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
           <a href="${pagePath('research-power-electronics.html')}">Power Electronics</a>
           <a href="${pagePath('research-lithium-batteries.html')}">Lithium-Ion Batteries</a>
@@ -140,7 +145,7 @@ const headerMarkup = `
           <a href="${pagePath('residential-solar-with-storage.html')}">Solar Solutions</a>
           <a href="${pagePath('continued-energy-solutions.html')}">Continued Energy Solutions</a>
           <a href="${pagePath('advanced-electronics-manufacturing.html')}">Advanced Electronics Manufacturing</a>
-          <a href="${pagePath('business.html#businesses')}">Global Businesses</a>
+          <!--<a href="${pagePath('business.html#businesses')}">Global Businesses</a>-->
         </div>
       </div>
       <div class="mobile-nav-item">
@@ -184,18 +189,20 @@ const footerMarkup = `
           <a href="${pagePath('eapl-in-numbers.html')}">Eastman Auto &amp; Power in Nos.</a>
           <a href="${pagePath('corporate-history.html')}">Corporate History</a>
           <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
+          <!--<a href="${pagePath('board-committees.html')}">Leadership Team</a>
+          <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
           <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
-          <a href="${pagePath('board-committees.html')}">CSR</a>
+          <a href="https://jrseastman.com/csr" target="_blank" rel="noopener noreferrer">CSR</a>
         </section>
       </div>
       <div class="footer-column">
         <section class="footer-group">
           <h3>Research &amp; Development</h3>
-          <a href="${pagePath('#research')}">Overview</a>
-          <a href="${pagePath('#research')}">Conventional Tubular Batteries</a>
-          <a href="${pagePath('#research')}">Power Electronics</a>
-          <a href="${pagePath('#research')}">Lithium-ion Batteries</a>
-          <a href="${pagePath('#research')}">Solar Panels</a>
+          <!--<a href="${pagePath('#research')}">Overview</a>-->
+          <a href="${pagePath('research-conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
+          <a href="${pagePath('research-power-electronics.html')}">Power Electronics</a>
+          <a href="${pagePath('research-lithium-batteries.html')}">Lithium-ion Batteries</a>
+          <a href="${pagePath('research-solar-panels.html')}">Solar Panels</a>
         </section>
         <section class="footer-group">
           <h3>Manufacturing Infrastructure</h3>
@@ -234,7 +241,7 @@ const footerMarkup = `
         <section class="footer-group">
           <h3>Contact Us</h3>
           <h4>INDIA - Corporate</h4>
-          <p class="contact-row"><img src="${assetPath('images/footer-location.svg')}" alt="" />4th Floor, Plot No. 7, Sector 44, Institutional Area, Gurugram, Haryana - 122003, Haryana India</p>
+          <p class="contact-row"><img src="${assetPath('images/footer-location.svg')}" alt="" />4th Floor, Quattro Tower A, Plot No. 249-E, Udyog Vihar Phase IV, Industrial Complex Dundahera, Gurgaon - 122016, Haryana, India</p>
           <a class="contact-row" href="tel:+911244682650"><img src="${assetPath('images/footer-phone.svg')}" alt="" />(0124) 4682650</a>
           <a class="contact-row" href="mailto:corporate@eaplworld.com"><img src="${assetPath('images/footer-email.svg')}" alt="" />corporate@eaplworld.com</a>
         </section>

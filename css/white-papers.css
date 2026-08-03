@@ -40,6 +40,14 @@
 .paper-card footer span img { height:11px;width:11px; }
 .paper-card footer a { border-radius:8px;font-size:12px;padding:10px 14px; }
 .paper-card footer a img { height:11px;width:11px; }
+.white-papers-breadcrumb a,.featured-paper a,.paper-card footer a,.featured-paper a img,.paper-card footer a img { transition:background-color .25s ease,box-shadow .25s ease,color .25s ease,transform .25s ease; }
+@media(hover:hover) and (pointer:fine){
+  .white-papers-breadcrumb a:hover { color:#18408c;text-decoration:underline;text-underline-offset:3px; }
+  .featured-paper a:hover,.paper-card footer a:hover { background:#c95400;box-shadow:0 9px 20px rgba(234,108,10,.22);transform:translateY(-2px); }
+  .featured-paper a:hover img,.paper-card footer a:hover img { transform:translateY(2px); }
+}
+.white-papers-breadcrumb a:focus-visible,.featured-paper a:focus-visible,.paper-card footer a:focus-visible { outline:2px solid #18408c;outline-offset:4px; }
+@media(prefers-reduced-motion:reduce){ .white-papers-breadcrumb a,.featured-paper a,.paper-card footer a,.featured-paper a img,.paper-card footer a img { transition:none; } }
 
 @media(max-width:767px){
   .white-papers-page main { padding-bottom:0; }

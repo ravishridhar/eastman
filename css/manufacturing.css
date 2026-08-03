@@ -934,6 +934,35 @@
 
 /* Keep each division's introduction visible in the first desktop viewport. */
 @media (min-width: 821px) {
+  .manufacturing-overview-page .manufacturing-overview-card > img {
+    aspect-ratio: auto;
+    display: block;
+    height: max(300px, min(650px, calc(100vh - 300px)));
+    object-fit: cover;
+  }
+
+  .manufacturing-overview-page .manufacturing-divisions {
+    padding-bottom: 42px;
+    padding-top: 42px;
+  }
+
+  .manufacturing-overview-page .manufacturing-divisions h2 {
+    margin-bottom: 14px;
+  }
+
+  .manufacturing-overview-page .manufacturing-divisions > p {
+    margin-bottom: 20px;
+  }
+
+  .manufacturing-overview-page .manufacturing-divisions .division-grid {
+    gap: 16px 24px;
+  }
+
+  .manufacturing-overview-page .manufacturing-divisions .division-card__media {
+    aspect-ratio: auto;
+    height: clamp(140px, calc((100vh - 340px) / 2), 250px);
+  }
+
   .manufacturing-page:not(.manufacturing-overview-page) .manufacturing-hero {
     min-height: 518px;
     padding-bottom: 48px;

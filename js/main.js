@@ -159,6 +159,10 @@ function setupDesktopMenu() {
     trigger.addEventListener('mouseenter', () => openDesktopMenu(key));
     trigger.addEventListener('focus', () => openDesktopMenu(key));
     trigger.addEventListener('click', () => {
+      if (trigger.dataset.navHref) {
+        window.location.href = trigger.dataset.navHref;
+        return;
+      }
       if (trigger.getAttribute('aria-expanded') === 'true') closeDesktopMenu();
       else openDesktopMenu(key);
     });

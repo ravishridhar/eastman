@@ -50,6 +50,16 @@
 .social-card-row article>b { margin-top:5px; }
 .social-card-row p { color:#555;font-size:14px;line-height:1.45;margin:10px 0; }
 
+.social-feed-breadcrumb a,.social-account>a,.social-account>a img,.social-view { transition:background-color .25s ease,border-color .25s ease,box-shadow .25s ease,color .25s ease,transform .25s ease; }
+@media(hover:hover) and (pointer:fine){
+  .social-feed-breadcrumb a:hover { color:#18408c;text-decoration:underline;text-underline-offset:3px; }
+  .social-account>a:hover { border-color:#ea6c0a;box-shadow:0 8px 18px rgba(14,47,111,.12);color:#ea6c0a;transform:translateY(-2px); }
+  .social-account>a:hover img { transform:translate(2px,-2px); }
+  .social-view:hover { color:#18408c;text-decoration:underline;text-underline-offset:3px; }
+}
+.social-feed-breadcrumb a:focus-visible,.social-account>a:focus-visible,.social-view:focus-visible { outline:2px solid #ea6c0a;outline-offset:4px; }
+@media(prefers-reduced-motion:reduce){ .social-feed-breadcrumb a,.social-account>a,.social-account>a img,.social-view { transition:none; } }
+
 @media(max-width:767px){
   .social-feed-page main { padding-bottom:0; }
   .social-feed-hero { height:187px;margin-top:80px;padding:42px 16px 0; }

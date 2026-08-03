@@ -30,6 +30,25 @@
 .blog-card a { align-items: center; color: #ea6c0a; display: flex; font-size: 14px; font-weight: 600; gap: 4px; text-decoration: none; }
 .blog-card a img { height: 11px; width: 11px; }
 
+.blog-breadcrumb a,
+.blog-card a,
+.blog-card a img { transition: color .25s ease, transform .25s ease; }
+
+@media (hover: hover) and (pointer: fine) {
+  .blog-breadcrumb a:hover { color: #18408c; text-decoration: underline; text-underline-offset: 3px; }
+  .blog-card a:hover { color: #18408c; }
+  .blog-card a:hover img { transform: translateX(4px); }
+}
+
+.blog-breadcrumb a:focus-visible,
+.blog-card a:focus-visible { outline: 2px solid #ea6c0a; outline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-breadcrumb a,
+  .blog-card a,
+  .blog-card a img { transition: none; }
+}
+
 @media (max-width: 767px) {
   .blog-page main { padding-bottom: 0; }
   .blog-hero { height: 187px; margin-top: 80px; padding: 42px 16px 0; }

@@ -9,26 +9,26 @@ const researchImages = {
 
 const streams = {
   lithium: {
-    title: 'End-to-end pack assembly, not import-and-brand.',
+    title: 'End-to-end Lithium Battery Manufacturing',
     metrics: [
-      ['In-house', 'Pack assembly, not import-and-brand'],
-      ['3', 'Formats — wall-mounted, floor-mount, rack-type'],
+      ['In-house', 'Manufacturing'],
+      ['3', 'Categories — Wall-mounted, floor-mount, rack-type'],
     ],
     paragraphs: [
-      "Our lithium-ion capability is anchored by an in-house battery pack assembly unit located in North India's automobile manufacturing hub — one of a small number of Indian facilities able to assemble lithium-ion battery packs end-to-end rather than import finished packs.",
-      'R&D work spans wall-mounted, floor-mount, and rack-type architectures for residential, solar, and Last Mile E-Mobility applications, with technology-enabled battery management systems designed to improve efficiency, safety, and cycle life as electrified last-mile mobility scales across India.',
+      "Our lithium-ion battery manufacturing capability is anchored by in-house unit located in North India's automobile manufacturing hub — one of a small number of Indian facilities able to manufacture lithium-ion battery packs end-to-end rather than import finished packs.",
+      'R&D work spans wall-mounted, floor-mount, and rack-type architectures for Solar, Last Mile E-Mobility & Power Back-up applications, with technology-enabled battery management systems designed to improve efficiency, safety, and cycle life.',
     ],
   },
   power: {
-    title: 'Grid & mobility challenges, indigenised in hardware',
+    title: 'Power Electronics Manufacturing with Backward Integration',
     metrics: [
       ['2M', 'Units annual production capacity'],
       ['Surface Mount Technology', '+ manual insertion + SKD, under one roof'],
-      ['Auto', 'Fully automated PCB production line'],
+      ['Fully automated ', 'PCB production line'],
     ],
     paragraphs: [
-      'Our power electronics R&D translates grid and mobility challenges into indigenised hardware: home UPS and inverter systems, grid-tie inverters, hybrid inverters, solar power conditioning units, and EV chargers, engineered to substitute imported sub-assemblies with technology developed and manufactured in-house.',
-      'Development is backed by a centralised infrastructure that integrates surface-mount technology, manual insertion, and semi-knocked-down assembly alongside a fully automated PCB production line — reducing dependence on imported components while maintaining a strong focus on backward integration.',
+      'Our Power Electronics R&D translates Solar, Power Backup, and Last-Mile Mobility challenges into indigenised products, including Solar Inverters, Home UPS Systems, and E-Rickshaw Chargers, engineered to substitute imported sub-assemblies with technology developed and manufactured in-house.Development is supported by a centralized infrastructure integrating Surface Mount Technology (SMT), manual insertion, and semi-knocked-down (SKD) assembly, along with a fully automated PCB production line—reducing dependence on imported components while maintaining a strong focus on backward integration.',
+      ,
     ],
   },
   tubular: {
@@ -44,13 +44,13 @@ const streams = {
     ],
   },
   solar: {
-    title: 'Solar panels technology engineered for Indian condition',
+    title: 'Solar panels technology engineered for Indian conditions',
     metrics: [
-      ['50+', 'Countries served by our solar business'],
-      ['High-T', 'Systems tuned for Middle East & Africa climates'],
+      ['DCR', 'Solar Panel Technology for Subsidy Support'],
+      ['Advanced Robotics', 'Technology for Manufacturing'],
     ],
     paragraphs: [
-      'Eastman combines advanced research with large-scale manufacturing to deliver high-performance solar solutions for residential, commercial, and industrial applications. Our 800 MW Solar Panel Manufacturing Plant is equipped with modern production technologies to ensure consistent quality, high efficiency, and long-term reliability.',
+      'Eastman combines advanced research with large-scale manufacturing to deliver high-performance solar panels for residential, and commercial applications. Our 800 MW Solar Panel Manufacturing Plant is equipped with modern production technologies to ensure consistent quality, high efficiency, and long-term reliability.',
       'Our product portfolio includes Monocrystalline, Bifacial, and TOPCon solar panel technologies, designed to maximize energy generation across diverse environmental conditions. We also manufacture both DCR and N-DCR solar panels to support government projects as well as private and commercial installations.',
     ],
   },

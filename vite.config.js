@@ -15,6 +15,7 @@ module.exports = defineConfig({
         numbers: resolve(__dirname, 'eapl-in-numbers.html'),
         history: resolve(__dirname, 'corporate-history.html'),
         leadership: resolve(__dirname, 'leadership.html'),
+        boardCommittee: resolve(__dirname, 'board-committee.html'),
         governance: resolve(__dirname, 'corporate-governance.html'),
         boardCommittees: resolve(__dirname, 'board-committees.html'),
         policies: resolve(__dirname, 'policies.html'),
