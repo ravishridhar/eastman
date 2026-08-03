@@ -1,14 +1,14 @@
 .media-news-page { color: #0f0f0f; }
 .media-news-page main { padding-bottom: 144px; }
 .media-news-hero {
-  align-items: flex-start;
+  align-items: center;
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10,39,87,.8) 53%, rgba(7,21,44,.25) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10,39,87,.8) 53%, rgba(7,21,44,.75) 100%),
     url("/images/media-news/hero.png") center / cover no-repeat;
   color: #fff;
   display: flex;
   height: 550px;
-  padding: 162px 56px 0;
+  padding: 0 56px;
 }
 .media-news-hero h1 { font-size: 48px; font-weight: 700; line-height: 1.2; margin: 0 0 15px; }
 .media-news-hero h1 span { color: #ea6c0a; }
@@ -86,7 +86,7 @@
   .media-news-hero {
     height: 187px;
     margin-top: 80px;
-    padding: 43px 16px 0;
+    padding: 0 16px;
   }
   .media-news-hero h1 { font-size: 20px; line-height: 1.1; margin-bottom: 15px; }
   .media-news-hero p { font-size: 14px; line-height: 1.2; max-width: 323px; }

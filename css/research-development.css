@@ -17,7 +17,7 @@
 
 .research-hero::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.72) 55%, rgba(15, 54, 119, 0.2) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 55%, rgba(15, 54, 119, 0.85) 100%),
     url("/images/research-development/research-hero.webp") center / cover no-repeat;
   content: "";
   inset: 0;
@@ -27,19 +27,19 @@
 
 .research-page[data-research-page="power"] .research-hero::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.72) 55%, rgba(15, 54, 119, 0.2) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.92) 55%, rgba(15, 54, 119, 0.8) 100%),
     url("/images/power-rnd-header-img.webp") center / cover no-repeat;
 }
 
 .research-page[data-research-page="tubular"] .research-hero::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.72) 55%, rgba(15, 54, 119, 0.2) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.72) 55%, rgba(15, 54, 119, 0.82) 100%),
     url("/images/conventional-rnd-header-img.webp") center / cover no-repeat;
 }
 
 .research-page[data-research-page="solar"] .research-hero::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.72) 55%, rgba(15, 54, 119, 0.2) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.92) 55%, rgba(15, 54, 119, 0.85) 100%),
     url("/images/solar-panel-rnd-header-img.webp") center / cover no-repeat;
 }
 
@@ -90,6 +90,10 @@
   margin: 0 auto;
   max-width: 1440px;
   padding: 56px;
+}
+
+.research-streams {
+  scroll-margin-top: 110px;
 }
 
 .research-intro__top {

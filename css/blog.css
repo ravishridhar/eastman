@@ -1,12 +1,14 @@
 .blog-page { color: #0f0f0f; }
 .blog-page main { padding-bottom: 144px; }
 .blog-hero {
+  align-items: center;
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10,39,87,.8) 53%, rgba(7,21,44,.25) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10,39,87,.8) 53%, rgba(7,21,44,.85) 100%),
     url("/images/blog/hero.jpg") center / cover no-repeat;
   color: #fff;
+  display: flex;
   height: 550px;
-  padding: 162px 56px 0;
+  padding: 0 56px;
 }
 .blog-hero h1 { font-size: 48px; font-weight: 700; line-height: 1.2; margin: 0 0 15px; }
 .blog-hero p { font-size: 16px; line-height: 1.5; margin: 0; max-width: 675px; }
@@ -51,7 +53,7 @@
 
 @media (max-width: 767px) {
   .blog-page main { padding-bottom: 0; }
-  .blog-hero { height: 187px; margin-top: 80px; padding: 42px 16px 0; }
+  .blog-hero { height: 187px; margin-top: 80px; padding: 0 16px; }
   .blog-hero h1 { font-size: 20px; line-height: 1.1; margin-bottom: 15px; }
   .blog-hero p { font-size: 14px; line-height: 1.2; max-width: 323px; }
   .blog-breadcrumb { height: 47px; padding: 0 16px; }

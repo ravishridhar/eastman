@@ -1,6 +1,6 @@
 .social-feed-page { color:#0f0f0f; }
 .social-feed-page main { padding-bottom:144px; }
-.social-feed-hero { background:linear-gradient(90deg,#051531 0%,rgba(10,39,87,.8) 53%,rgba(7,21,44,.25) 100%),url("/images/social-feed/hero.jpg") center/cover no-repeat;color:#fff;height:550px;padding:162px 56px 0; }
+.social-feed-hero { align-items:center;background:linear-gradient(90deg,#051531 0%,rgba(10,39,87,.8) 53%,rgba(7,21,44,.85) 100%),url("/images/social-feed/hero.jpg") center/cover no-repeat;color:#fff;display:flex;height:550px;padding:0 56px; }
 .social-feed-hero h1 { font-size:48px;line-height:1.2;margin:0 0 15px; }
 .social-feed-hero h1 span { color:#ea6c0a; }
 .social-feed-hero p { font-size:16px;line-height:1.5;margin:0;max-width:675px; }
@@ -62,7 +62,7 @@
 
 @media(max-width:767px){
   .social-feed-page main { padding-bottom:0; }
-  .social-feed-hero { height:187px;margin-top:80px;padding:42px 16px 0; }
+  .social-feed-hero { height:187px;margin-top:80px;padding:0 16px; }
   .social-feed-hero h1 { font-size:20px;line-height:1.1;margin-bottom:15px; }
   .social-feed-hero p { font-size:14px;line-height:1.2;max-width:310px; }
   .social-feed-breadcrumb { height:47px;padding:0 16px; }

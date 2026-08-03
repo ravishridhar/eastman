@@ -57,10 +57,10 @@ const streams = {
 };
 
 const streamLinks = [
-  ['lithium', 'Lithium Batteries', 'research-lithium-batteries.html'],
-  ['power', 'Power Electronics', 'research-power-electronics.html'],
-  ['tubular', 'Conventional Tubular Batteries', 'research-conventional-tubular-batteries.html'],
-  ['solar', 'Solar Panels', 'research-solar-panels.html'],
+  ['lithium', 'Lithium Batteries', 'research-lithium-batteries.html#focus-areas'],
+  ['power', 'Power Electronics', 'research-power-electronics.html#focus-areas'],
+  ['tubular', 'Conventional Tubular Batteries', 'research-conventional-tubular-batteries.html#focus-areas'],
+  ['solar', 'Solar Panels', 'research-solar-panels.html#focus-areas'],
 ];
 
 const data = streams[pageKey];

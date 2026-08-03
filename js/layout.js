@@ -54,7 +54,7 @@ const headerMarkup = `
         <a href="${pagePath('eapl-in-numbers.html')}">Eastman Auto &amp; Power in Nos.</a>
         <a href="${pagePath('corporate-history.html')}">Corporate History</a>
         <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
-        <!--<a href="${pagePath('board-committees.html')}">Leadership Team</a>
+        <!--<a href="${pagePath('leadership-team.html')}">Leadership Team</a>
         <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
         <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
         <a href="https://jrseastman.com/csr" target="_blank" rel="noopener noreferrer">CSR</a>
@@ -112,7 +112,7 @@ const headerMarkup = `
           <h3>Governance</h3>
           <a href="${pagePath('corporate-history.html')}">Corporate History</a>
           <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
-          <!--<a href="${pagePath('board-committees.html')}">Leadership Team</a>
+          <!--<a href="${pagePath('leadership-team.html')}">Leadership Team</a>
           <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
           <a href="${pagePath('disclosures.html')}">Shareholders Information</a>
         </div>
@@ -189,7 +189,7 @@ const footerMarkup = `
           <a href="${pagePath('eapl-in-numbers.html')}">Eastman Auto &amp; Power in Nos.</a>
           <a href="${pagePath('corporate-history.html')}">Corporate History</a>
           <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
-          <!--<a href="${pagePath('board-committees.html')}">Leadership Team</a>
+          <!--<a href="${pagePath('leadership-team.html')}">Leadership Team</a>
           <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
           <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
           <a href="https://jrseastman.com/csr" target="_blank" rel="noopener noreferrer">CSR</a>
@@ -221,7 +221,7 @@ const footerMarkup = `
           <a href="${pagePath('residential-solar-with-storage.html')}">Residential Solar with Storage</a>
           <a href="${pagePath('continued-energy-solutions.html')}">Continued Energy Solutions</a>
           <a href="${pagePath('advanced-electronics-manufacturing.html')}">Advanced Electronics Manufacturing</a>
-          <a href="${pagePath('business.html#businesses')}">Global Business</a>
+          <!--<a href="${pagePath('business.html#businesses')}">Global Business</a>-->
         </section>
         <section class="footer-group">
           <h3>Resources</h3>

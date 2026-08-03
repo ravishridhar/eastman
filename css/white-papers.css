@@ -1,6 +1,6 @@
 .white-papers-page { color:#0f0f0f; }
 .white-papers-page main { padding-bottom:144px; }
-.white-papers-hero { background:url("/images/white-papers/hero.png") center/cover no-repeat;color:#fff;height:550px;padding:162px 56px 0; }
+.white-papers-hero { align-items:center;background:url("/images/white-papers/hero.png") center/cover no-repeat;color:#fff;display:flex;height:550px;padding:0 56px; }
 .white-papers-hero h1 { font-size:48px;font-weight:700;line-height:1.2;margin:0 0 15px; }
 .white-papers-hero h1 span { color:#ea6c0a; }
 .white-papers-hero p { font-size:16px;line-height:1.5;margin:0;max-width:560px; }
@@ -51,7 +51,7 @@
 
 @media(max-width:767px){
   .white-papers-page main { padding-bottom:0; }
-  .white-papers-hero { height:187px;margin-top:80px;padding:42px 16px 0; }
+  .white-papers-hero { height:187px;margin-top:80px;padding:0 16px; }
   .white-papers-hero h1 { font-size:20px;line-height:1.1;margin-bottom:15px; }
   .white-papers-hero p { font-size:14px;line-height:1.2;max-width:320px; }
   .white-papers-breadcrumb { height:47px;padding:0 16px; }

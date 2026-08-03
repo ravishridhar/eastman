@@ -416,7 +416,7 @@
 }
 
 .last-mile-hero::after {
-  background: linear-gradient(90deg, rgba(5, 18, 45, 0.96) 0%, rgba(5, 18, 45, 0.83) 46%, rgba(8, 31, 72, 0.45) 78%, rgba(8, 31, 72, 0.1) 100%);
+  background: linear-gradient(90deg, rgba(5, 18, 45, 0.96) 0%, rgba(5, 18, 45, 0.83) 46%, rgba(8, 31, 72, 0.75) 78%, rgba(8, 31, 72, 0.9) 100%);
 }
 
 .last-mile-hero h1 {
@@ -1151,7 +1151,7 @@
 }
 
 .solar-business-hero__overlay {
-  background: linear-gradient(90deg, #051531 2%, rgba(10, 39, 87, 0.82) 55%, rgba(15, 54, 119, 0.34) 100%);
+  background: linear-gradient(90deg, #051531 2%, rgba(10, 39, 87, 0.82) 55%, rgba(1, 16, 42, 0.76) 100%);
 }
 
 .solar-business-hero__content {

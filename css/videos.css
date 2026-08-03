@@ -1,5 +1,5 @@
 .videos-page { color:#0f0f0f; }
-.videos-hero { background:url("/images/videos/hero.png") center/cover no-repeat;color:#fff;height:550px;padding:162px 56px 0; }
+.videos-hero { align-items:center;background:url("/images/videos/hero.png") center/cover no-repeat;color:#fff;display:flex;height:550px;padding:0 56px; }
 .videos-hero h1 { font-size:48px;font-weight:700;line-height:1.2;margin:0 0 15px; }
 .videos-hero p { font-size:16px;line-height:1.5;margin:0;max-width:610px; }
 .videos-breadcrumb { align-items:center;display:flex;gap:8px;height:47px;padding:0 56px; }
@@ -62,7 +62,7 @@
 }
 
 @media(max-width:767px){
-  .videos-hero { height:187px;margin-top:80px;padding:42px 16px 0; }
+  .videos-hero { height:187px;margin-top:80px;padding:0 16px; }
   .videos-hero h1 { font-size:20px;line-height:1.1;margin-bottom:15px; }
   .videos-hero p { font-size:14px;line-height:1.2;max-width:320px; }
   .videos-breadcrumb { height:47px;padding:0 16px; }

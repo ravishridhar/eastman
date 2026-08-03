@@ -33,7 +33,7 @@
 }
 
 .manufacturing-hero::before {
-  background: linear-gradient(90deg, rgba(1, 18, 48, 0.92) 0%, rgba(9, 42, 92, 0.72) 46%, rgba(9, 42, 92, 0.34) 100%);
+  background: linear-gradient(90deg, rgba(1, 18, 48, 0.92) 0%, rgba(9, 42, 92, 0.82) 46%, rgba(9, 42, 92, 0.84) 100%);
   content: "";
   inset: 0;
   position: absolute;
@@ -1509,10 +1509,30 @@
   }
 }
 
+/* Keep copy vertically centered in every image-backed manufacturing header. */
+.manufacturing-hero,
+.manufacturing-overview-page .manufacturing-hero,
+.tubular-batteries-page .manufacturing-hero--tubular {
+  align-items: center;
+  padding-bottom: 96px;
+  padding-top: 96px;
+}
+
+@media (max-width: 820px) {
+  .manufacturing-hero,
+  .manufacturing-overview-page .manufacturing-hero,
+  .tubular-batteries-page .manufacturing-hero--tubular {
+    padding-bottom: 72px;
+    padding-top: 72px;
+  }
+}
+
 @media (max-width: 460px) {
   .manufacturing-hero,
   .manufacturing-overview-page .manufacturing-hero,
   .tubular-batteries-page .manufacturing-hero--tubular {
     min-height: 390px;
+    padding-bottom: 64px;
+    padding-top: 64px;
   }
 }
