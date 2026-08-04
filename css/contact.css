@@ -175,7 +175,7 @@
   display: inline-flex;
   gap: 17px;
   margin-bottom: 17px;
-  padding: 4px;
+  padding: 4px 20px 4px 4px;
 }
 
 .contact-office-tag,

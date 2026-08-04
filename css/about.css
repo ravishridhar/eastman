@@ -596,7 +596,7 @@ body.has-open-dialog {
 
 .about-hero::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.82) 53%, rgba(15, 54, 119, 0.18) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.82) 53%, rgba(15, 54, 119, 0.76) 100%),
     url("/images/about-hero.webp") center / cover;
   content: "";
   inset: 0;
@@ -613,46 +613,46 @@ body.has-open-dialog {
 
 .about-hero--numbers::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.86) 48%, rgba(15, 54, 119, 0.2) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.86) 48%, rgba(15, 54, 119, 0.7) 100%),
     url("/images/eapl-in-numbers.webp") center / cover;
 }
 
 .about-hero--history::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.88) 50%, rgba(15, 54, 119, 0.28) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.88) 50%, rgba(15, 54, 119, 0.78) 100%),
     url("/images/corporate-history.webp") center / cover;
 }
 
 .about-hero--leadership::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 46%, rgba(10, 39, 87, 0.26) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 46%, rgba(10, 39, 87, 0.76) 100%),
     url("../images/about/leadership.webp") right center / auto 100% no-repeat,
     #051531;
 }
 
 .about-hero--governance::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.88) 46%, rgba(10, 39, 87, 0.2) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.88) 46%, rgba(10, 39, 87, 0.87) 100%),
     url("/images/about/corporate-governance.webp") right center / auto 100% no-repeat,
     #051531;
 }
 
 .about-hero--committees::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.78) 50%, rgba(15, 54, 119, 0.14) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.78) 50%, rgba(15, 54, 119, 0.76) 100%),
     url("/images/about/board-committees.webp") center / cover no-repeat;
 }
 
 .about-hero--documents::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 48%, rgba(10, 39, 87, 0.28) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 48%, rgba(10, 39, 87, 0.88) 100%),
     url("/images/about/policies.webp") right center / auto 100% no-repeat,
     #051531;
 }
 
 .about-hero--disclosures::before {
   background:
-    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 48%, rgba(10, 39, 87, 0.24) 100%),
+    linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.9) 48%, rgba(10, 39, 87, 0.84) 100%),
     url("/images/about/disclosure.webp") right center / auto 100% no-repeat,
     #051531;
 }
@@ -729,6 +729,7 @@ body.has-open-dialog {
 
 .about-tabs {
   background: #f8f6f0;
+  scroll-margin-top: 86px;
 }
 
 .about-tabs-inner {
@@ -760,6 +761,10 @@ body.has-open-dialog {
   border-radius: 0.5rem;
   color: var(--blue);
   font-weight: 700;
+}
+
+.about-tabs--governance {
+  scroll-margin-top: 86px;
 }
 
 .about-tabs--governance .about-tabs-inner {

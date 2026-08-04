@@ -27,7 +27,7 @@ const streams = {
       ['Fully automated ', 'PCB production line'],
     ],
     paragraphs: [
-      'Our Power Electronics R&D translates Solar, Power Backup, and Last-Mile Mobility challenges into indigenised products, including Solar Inverters, Home UPS Systems, and E-Rickshaw Chargers, engineered to substitute imported sub-assemblies with technology developed and manufactured in-house.Development is supported by a centralized infrastructure integrating Surface Mount Technology (SMT), manual insertion, and semi-knocked-down (SKD) assembly, along with a fully automated PCB production line—reducing dependence on imported components while maintaining a strong focus on backward integration.',
+      'Our Power Electronics R&D translates Solar, Power Backup, and Last-Mile Mobility challenges into indigenised products, including Solar Inverters, Home UPS Systems, and E-Rickshaw Chargers, engineered to substitute imported sub-assemblies with technology developed and manufactured in-house.<br/><br/>Development is supported by a centralized infrastructure integrating Surface Mount Technology (SMT), manual insertion, and semi-knocked-down (SKD) assembly, along with a fully automated PCB production line—reducing dependence on imported components while maintaining a strong focus on backward integration.',
       ,
     ],
   },
