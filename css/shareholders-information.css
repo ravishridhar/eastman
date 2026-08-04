@@ -1,0 +1,55 @@
+.shareholders-page { background: #fff; color: #131417; }
+.shareholders-hero { align-items: center; background: #0f2d6b url('/images/shareholders/hero.png') center/cover no-repeat; color: #fff; display: flex; height: 550px; overflow: hidden; padding: 119px 56px 0; position: relative; }
+.shareholders-hero::after { background: linear-gradient(90deg, #051531 0%, rgba(10,39,87,.88) 44%, rgba(15,54,119,.2) 100%); content: ''; inset: 0; pointer-events: none; position: absolute; }
+.shareholders-hero__inner { margin: 0 auto; max-width: 1328px; position: relative; width: 100%; z-index: 1; }
+.shareholders-hero h1 { font-size: 45px; font-weight: 800; letter-spacing: -.45px; line-height: 1.25; margin: 0 0 8px; }
+.shareholders-hero h1 span { color: #ffd60a; }
+.shareholders-hero p { color: rgba(255,255,255,.8); font-size: 13.5px; line-height: 21px; margin: 0; }
+.shareholders-breadcrumbs { align-items: center; display: flex; gap: 8px; height: 47px; margin: 0 auto; max-width: 1328px; color: #777983; font-size: 12px; font-weight: 600; }
+.shareholders-content { padding: 0 0 24px; }
+.shareholder-section { padding: 24px 56px; }
+.shareholder-section__heading { align-items: center; display: flex; gap: 10px; margin: 0 auto 10px; max-width: 1328px; padding-bottom: 12px; }
+.shareholder-section__heading h2 { color: #18408c; flex: 1; font-size: 48px; line-height: 1; margin: 0;  font-weight: 600; }
+.shareholder-section__heading h2 span { color: #ef7b23; }
+.year-select { background: #f5f7fa; border: 1px solid #e3e8ef; border-radius: 4px; height: 37px; position: relative; width: 140px; }
+.year-select::after { background: url('/images/shareholders/chevron-down.svg') center/16px no-repeat; content: ''; height: 16px; pointer-events: none; position: absolute; right: 9px; top: 10px; width: 16px; }
+.year-select select { appearance: none; background: transparent; border: 0; color: #5b5d65; font: inherit; font-size: 14px; height: 100%; outline: 0; padding: 0 30px 0 10px; width: 100%; }
+.shareholder-panel { background: #f5f7fa; border-radius: 8px; margin: 0 auto; max-width: 1328px; padding: 16px; }
+.shareholder-panel > h3 { color: #ef7b23; font-size: 24px; line-height: 1.2; margin: 0 0 10px; text-transform: uppercase; }
+.shareholder-documents { display: grid; gap: 16px; }
+.shareholder-document { align-items: center; background: #fff; border: 1px solid #18408c; border-radius: 8px; box-shadow: 0 11px 15px rgba(140,140,140,.09); display: flex; justify-content: space-between; min-height: 56px; padding: 15px 16px; }
+.shareholder-document > span, .shareholder-document b { align-items: center; display: flex; gap: 16px; }
+.shareholder-document > span { font-size: 16px; line-height: 24px; }
+.shareholder-document > span img { height: 20px; width: 20px; }
+.shareholder-document b { color: #18408c; font-size: 16px; gap: 6px; }
+.shareholder-document b img { height: 24px; width: 24px; }
+.contact-grid { display: grid; gap: 32px; grid-template-columns: repeat(3, minmax(0,1fr)); }
+.contact-card { background: #fff; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,.05); padding: 16px; }
+.contact-card h3 { color: #18408c; font-size: 22px; line-height: 1.2; margin: 0 0 4px; font-weight: 600; }
+.contact-card h4 { color: #2a2a2a; font-size: 14px; font-weight: 600; line-height: 1.2; margin: 0; }
+.contact-card hr { border: 0; border-top: 1px solid #e3e8ef; margin: 17px 0; }
+.contact-card address { display: grid; font-size: 14px; font-style: normal; gap: 15px; line-height: 1.5; }
+.contact-card address p, .contact-card address a { align-items: center; display: flex; gap: 17px; margin: 0; }
+.contact-card address p { align-items: flex-start; }
+.contact-card address img { flex: 0 0 24px; height: 24px; width: 24px; }
+.sr-only { height: 1px; margin: -1px; overflow: hidden; position: absolute; width: 1px; clip: rect(0,0,0,0); }
+@media (max-width: 900px) {
+  .shareholders-hero { height: 500px; padding: 110px 24px 40px; }
+  .shareholders-hero p br { display: none; }
+  .shareholders-breadcrumbs { height: auto; min-height: 47px; padding: 10px 24px; }
+  .shareholder-section { padding: 24px; }
+  .shareholder-section__heading h2 { font-size: 36px; }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .shareholders-hero { height: 430px; }
+  .shareholders-hero h1 { font-size: 38px; }
+  .shareholder-section__heading { align-items: flex-start; flex-direction: column; }
+  .shareholder-section__heading h2 { font-size: 32px; }
+  .year-select { width: 100%; }
+  .shareholder-document { gap: 14px; }
+  .shareholder-document > span { font-size: 14px; gap: 10px; }
+  .shareholder-document b { font-size: 0; }
+  .contact-card h3 { font-size: 21px; }
+  .contact-card address { font-size: 14px; }
+}

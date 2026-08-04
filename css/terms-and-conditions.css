@@ -1,0 +1,38 @@
+.terms-page { background: #fff; color: #131417; }
+.terms-hero { align-items: center; background: #0f2d6b url('/images/terms/hero-desktop.png') center 43%/cover no-repeat; color: #fff; display: flex; height: 550px; overflow: hidden; padding: 119px 56px 0; position: relative; }
+.terms-hero::after { background: linear-gradient(90deg, #051531 0%, rgba(10,39,87,.8) 44.644%, rgba(15,54,119,.2) 100%); content: ''; inset: 0; pointer-events: none; position: absolute; }
+.terms-hero__inner { margin: 0 auto; max-width: 1328px; position: relative; width: 100%; z-index: 1; }
+.terms-hero h1 { font-size: 45px; font-weight: 800; letter-spacing: -.45px; line-height: 1.25; margin: 0 0 15px; }
+.terms-hero h1 span { color: #ffd60a; }
+.terms-hero p { color: rgba(255,255,255,.8); font-size: 13.5px; line-height: 21px; margin: 0; }
+.terms-breadcrumbs { align-items: center; color: #777983; display: flex; font-size: 12px; font-weight: 500; gap: 4px; min-height: 47px; padding: 16px 56px; }
+.terms-breadcrumbs span:last-child { color: #18408c; font-weight: 600; }
+.terms-content { margin: 0 auto; max-width: 1440px; padding: 24px 56px 48px; }
+.terms-content > header { padding-bottom: 12px; }
+.terms-content h2 { color: #18408c; font-size: 48px; font-weight: 600; line-height: 1; margin: 0; }
+.terms-content h2 span { color: #ef7b23; }
+.terms-content p, .terms-content li { font-size: 16px; line-height: 1.5; }
+.terms-intro { margin: 0 0 28px; }
+.terms-intro p { margin: 0 0 24px; }
+.terms-section { margin: 0 0 16px; }
+.terms-section h3 { color: #18408c; font-weight: 600; font-size: 24px; line-height: 1.2; margin: 0 0 16px; }
+.terms-section > p { margin: 0 0 24px; }
+.terms-section ul { display: grid; gap: 0; list-style: none; margin: 0; padding: 0; }
+.terms-section li { padding: 0 0 24px 30px; position: relative; }
+.terms-section li::before { background: url('/images/terms/bullet.svg') center/20px 20px no-repeat; content: ''; height: 20px; left: 0; position: absolute; top: 2px; width: 20px; }
+@media (max-width: 700px) {
+  .terms-hero { background-image: url('/images/terms/hero-mobile.png'); background-position: center; height: 375px; padding: 76px 16px 0; }
+  .terms-hero::after { background: linear-gradient(90deg, #051531 0%, rgba(10,39,87,.82) 55%, rgba(15,54,119,.25) 100%); }
+  .terms-hero h1 { font-size: 34px; line-height: 1.2; margin-bottom: 12px; }
+  .terms-hero p { font-size: 12px; line-height: 18px; max-width: 300px; }
+  .terms-breadcrumbs { min-height: 45px; padding: 14px 16px; }
+  .terms-content { padding: 24px 16px 36px; }
+  .terms-content h2 { font-size: 32px; line-height: 1.08; }
+  .terms-content > header { padding-bottom: 20px; }
+  .terms-content p, .terms-content li { font-size: 14px; line-height: 1.5; }
+  .terms-intro p { margin-bottom: 18px; }
+  .terms-section { margin-bottom: 20px; }
+  .terms-section h3 { font-size: 20px; margin-bottom: 12px; }
+  .terms-section > p, .terms-section li { padding-bottom: 18px; }
+  .terms-section li { padding-left: 28px; }
+}

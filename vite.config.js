@@ -20,6 +20,8 @@ module.exports = defineConfig({
         policies: resolve(__dirname, 'policies.html'),
         listing: resolve(__dirname, 'listing.html'),
         disclosures: resolve(__dirname, 'disclosures.html'),
+        shareholdersInformation: resolve(__dirname, 'shareholders-information.html'),
+        termsAndConditions: resolve(__dirname, 'terms-and-conditions.html'),
         business: resolve(__dirname, 'business.html'),
         lastMileEMobility: resolve(__dirname, 'last-mile-e-mobility-solutions.html'),
         residentialSolarWithStorage: resolve(__dirname, 'residential-solar-with-storage.html'),

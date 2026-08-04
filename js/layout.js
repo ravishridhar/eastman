@@ -56,7 +56,7 @@ const headerMarkup = `
         <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
         <!--<a href="${pagePath('leadership-team.html')}">Leadership Team</a>
         <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
-        <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
+        <a href="${pagePath('shareholders-information.html')}">Shareholder Information</a>
         <a href="https://jrseastman.com/csr" target="_blank" rel="noopener noreferrer">CSR</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="research" aria-label="Research and Development submenu">
@@ -114,7 +114,7 @@ const headerMarkup = `
           <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
           <!--<a href="${pagePath('leadership-team.html')}">Leadership Team</a>
           <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
-          <a href="${pagePath('disclosures.html')}">Shareholders Information</a>
+          <a href="${pagePath('shareholders-information.html')}">Shareholders Information</a>
         </div>
       </div>
       <div class="mobile-nav-item">
@@ -260,7 +260,7 @@ const footerMarkup = `
     <div class="legal">
       <p>&copy; 2026 Eastman Auto &amp; Power Limited. All rights reserved.</p>
       <span>Privacy Policy</span>
-      <span>Terms of Conditions</span>
+      <a href="${pagePath('terms-and-conditions.html')}">Terms of Conditions</a>
     </div>
   </footer>
 `;
