@@ -12,7 +12,7 @@ const socialIcons = {
 const headerMarkup = `
   <header class="site-header" data-header>
     <a class="brand" href="${pagePath()}" aria-label="Eastman home">
-      <img src="${assetPath('images/eastman-logo.svg')}" alt="Eastman" />
+      <img src="${assetPath('images/footer-logo-new.svg')}" alt="Eastman" />
     </a>
 
     <div class="header-nav-stack">
@@ -180,7 +180,7 @@ const footerMarkup = `
     <div class="footer-grid">
       <div class="footer-column footer-brand-column">
         <a class="footer-brand" href="${pagePath()}" aria-label="Eastman home">
-          <img src="${assetPath('images/footer_logo.svg')}" alt="Eastman" />
+          <img src="${assetPath('images/eastman-logo-new.svg')}" alt="Eastman" />
         </a>
         <!-- <p class="footer-about">Eastman Auto &amp; Power Limited (EAPL) is one of India&apos;s leading energy transition companies. For over 3 decades, we have been committed to power, progress and people.</p> -->
         <section class="footer-group">
