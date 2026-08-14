@@ -1,1 +1,0 @@
-import{i as e,r as t,t as n}from"./main-DOWDNiOY.js";var r=e((()=>{}));t((()=>{n(),r(),document.querySelectorAll(`.social-platform[data-social-url]`).forEach(e=>{let t=e.dataset.socialUrl;e.querySelectorAll(`.social-view`).forEach(e=>{e.href=t,e.target=`_blank`,e.rel=`noopener noreferrer`})})}))();
