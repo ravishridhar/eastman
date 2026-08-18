@@ -1,1 +1,0 @@
-import{i as e,r as t,t as n}from"./main-Dz1-4gE0.js";var r=e((()=>{}));t((()=>{n(),r(),document.querySelectorAll(`[data-year-filter]`).forEach(e=>{let t=e.closest(`.shareholder-section`);e.addEventListener(`change`,()=>{t.querySelectorAll(`[data-year]`).forEach(t=>{t.hidden=e.value!==`all`&&t.dataset.year!==e.value})})})}))();
