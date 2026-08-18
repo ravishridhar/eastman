@@ -492,6 +492,194 @@ function setupPartnerVideoSlider() {
   next.addEventListener('click', () => scrollByCard(1));
 }
 
+function setupSnapshotSliders() {
+  document.querySelectorAll('.manufacturing-snapshots .snapshot-grid').forEach((track, sliderIndex) => {
+    if (track.dataset.sliderReady === 'true') return;
+    track.dataset.sliderReady = 'true';
+
+    const slider = document.createElement('div');
+    const headingRow = document.createElement('div');
+    const controls = document.createElement('div');
+    const previous = document.createElement('button');
+    const next = document.createElement('button');
+    const section = track.closest('.manufacturing-snapshots');
+    const heading = section?.querySelector('h2');
+    const title = heading?.textContent.trim() || 'Plant snapshots';
+
+    slider.className = 'snapshot-slider';
+    headingRow.className = 'snapshot-slider__heading';
+    controls.className = 'snapshot-slider__controls';
+    previous.className = 'snapshot-slider__arrow snapshot-slider__arrow--previous';
+    next.className = 'snapshot-slider__arrow snapshot-slider__arrow--next';
+    previous.type = 'button';
+    next.type = 'button';
+    previous.setAttribute('aria-label', `Previous ${title}`);
+    next.setAttribute('aria-label', `Next ${title}`);
+    previous.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.5 5 7.5 12l7 7"/></svg>';
+    next.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></svg>';
+    track.id = track.id || `snapshot-slider-${sliderIndex + 1}`;
+    track.setAttribute('role', 'region');
+    track.setAttribute('aria-label', title);
+    track.setAttribute('tabindex', '0');
+    previous.setAttribute('aria-controls', track.id);
+    next.setAttribute('aria-controls', track.id);
+
+    if (heading) {
+      heading.parentNode.insertBefore(headingRow, heading);
+      headingRow.append(heading, controls);
+    }
+    track.parentNode.insertBefore(slider, track);
+    slider.append(track);
+    controls.append(previous, next);
+
+    const scrollBySlide = (direction) => {
+      const slide = track.querySelector('img');
+      if (!slide) return;
+      const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
+      track.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap), behavior: 'smooth' });
+    };
+
+    const updateArrows = () => {
+      const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+      controls.classList.toggle('is-hidden', maxScroll <= 2);
+      previous.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= maxScroll - 2;
+    };
+
+    previous.addEventListener('click', () => scrollBySlide(-1));
+    next.addEventListener('click', () => scrollBySlide(1));
+    track.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+    let isDragging = false;
+    let didDrag = false;
+
+    track.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'touch') return;
+      dragStartX = event.clientX;
+      dragStartScroll = track.scrollLeft;
+      isDragging = true;
+      didDrag = false;
+      track.classList.add('is-dragging');
+    });
+    track.addEventListener('pointermove', (event) => {
+      if (!isDragging) return;
+      const distance = event.clientX - dragStartX;
+      if (Math.abs(distance) > 5) didDrag = true;
+      track.scrollLeft = dragStartScroll - distance;
+    });
+    const stopDragging = (event) => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('is-dragging');
+    };
+    track.addEventListener('pointerup', stopDragging);
+    track.addEventListener('pointercancel', stopDragging);
+    track.addEventListener('dragstart', (event) => event.preventDefault());
+
+    const images = [...track.querySelectorAll('img')];
+    const dialog = document.createElement('dialog');
+    const dialogImage = document.createElement('img');
+    const close = document.createElement('button');
+    const lightboxPrevious = document.createElement('button');
+    const lightboxNext = document.createElement('button');
+    const zoomControls = document.createElement('div');
+    const zoomOut = document.createElement('button');
+    const zoomReset = document.createElement('button');
+    const zoomIn = document.createElement('button');
+    let activeIndex = 0;
+    let zoomLevel = 1;
+
+    dialog.className = 'snapshot-lightbox';
+    dialog.setAttribute('aria-label', `${title} image viewer`);
+    dialogImage.className = 'snapshot-lightbox__image';
+    close.className = 'snapshot-lightbox__close';
+    lightboxPrevious.className = 'snapshot-lightbox__nav snapshot-lightbox__nav--previous';
+    lightboxNext.className = 'snapshot-lightbox__nav snapshot-lightbox__nav--next';
+    zoomControls.className = 'snapshot-lightbox__zoom';
+    zoomOut.className = zoomReset.className = zoomIn.className = 'snapshot-lightbox__zoom-button';
+    close.type = lightboxPrevious.type = lightboxNext.type = zoomOut.type = zoomReset.type = zoomIn.type = 'button';
+    close.setAttribute('aria-label', 'Close image viewer');
+    lightboxPrevious.setAttribute('aria-label', 'Previous image');
+    lightboxNext.setAttribute('aria-label', 'Next image');
+    zoomOut.setAttribute('aria-label', 'Zoom out');
+    zoomReset.setAttribute('aria-label', 'Reset zoom');
+    zoomIn.setAttribute('aria-label', 'Zoom in');
+    close.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>';
+    lightboxPrevious.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.5 5 7.5 12l7 7"/></svg>';
+    lightboxNext.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></svg>';
+    zoomOut.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M7.5 10.5h6"/></svg>';
+    zoomReset.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 4H4v5M15 4h5v5M20 15v5h-5M4 15v5h5"/></svg>';
+    zoomIn.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M7.5 10.5h6M10.5 7.5v6"/></svg>';
+    zoomControls.append(zoomOut, zoomReset, zoomIn);
+    dialog.append(dialogImage, close, lightboxPrevious, lightboxNext, zoomControls);
+    document.body.append(dialog);
+
+    const showLightboxImage = (index) => {
+      activeIndex = (index + images.length) % images.length;
+      dialogImage.src = images[activeIndex].currentSrc || images[activeIndex].src;
+      dialogImage.alt = images[activeIndex].alt;
+      setZoom(1);
+    };
+
+    const setZoom = (value) => {
+      zoomLevel = Math.min(4, Math.max(1, value));
+      dialogImage.style.transform = `scale(${zoomLevel})`;
+      zoomOut.disabled = zoomLevel <= 1;
+      zoomIn.disabled = zoomLevel >= 4;
+    };
+
+    images.forEach((image, index) => {
+      image.setAttribute('tabindex', '0');
+      image.setAttribute('role', 'button');
+      image.setAttribute('aria-label', `${image.alt}. Open larger image`);
+      const openLightbox = () => {
+        if (didDrag) {
+          didDrag = false;
+          return;
+        }
+        showLightboxImage(index);
+        dialog.showModal();
+        document.body.classList.add('has-open-dialog');
+      };
+      image.addEventListener('click', openLightbox);
+      image.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLightbox();
+        }
+      });
+    });
+
+    const closeLightbox = () => {
+      dialog.close();
+      document.body.classList.remove('has-open-dialog');
+    };
+    close.addEventListener('click', closeLightbox);
+    lightboxPrevious.addEventListener('click', () => showLightboxImage(activeIndex - 1));
+    lightboxNext.addEventListener('click', () => showLightboxImage(activeIndex + 1));
+    zoomOut.addEventListener('click', () => setZoom(zoomLevel - 0.5));
+    zoomReset.addEventListener('click', () => setZoom(1));
+    zoomIn.addEventListener('click', () => setZoom(zoomLevel + 0.5));
+    dialogImage.addEventListener('dblclick', () => setZoom(zoomLevel > 1 ? 1 : 2));
+    dialogImage.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      setZoom(zoomLevel + (event.deltaY < 0 ? 0.25 : -0.25));
+    }, { passive: false });
+    dialog.addEventListener('cancel', () => document.body.classList.remove('has-open-dialog'));
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) closeLightbox();
+    });
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') showLightboxImage(activeIndex - 1);
+      if (event.key === 'ArrowRight') showLightboxImage(activeIndex + 1);
+    });
+  });
+}
+
 function setupDirectorDialog() {
   const dialogs = [...document.querySelectorAll('[data-director-dialog]')];
 
@@ -552,6 +740,7 @@ function setupDirectorCardActions() {
 function setupDynamicContent() {
   setupSolutionLabels();
   setupPartnerVideoSlider();
+  setupSnapshotSliders();
   setupDirectorDialog();
   setupDirectorCardActions();
   setupSectionReveals();

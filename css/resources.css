@@ -10,7 +10,7 @@
   align-items: center;
   background:
     linear-gradient(90deg, #051531 0%, rgba(10, 39, 87, 0.8) 53%, rgba(7, 21, 44, 0.75) 100%),
-    url("/images/resources/hero.png") center / cover no-repeat;
+    url("/images/resources/resources-header.webp") center / cover no-repeat;
   color: #fff;
   display: flex;
   height: 550px;
@@ -405,7 +405,7 @@
     align-items: center;
     background:
       linear-gradient(90deg, #051531 13%, rgba(10,39,87,.85) 62%, rgba(15,54,119,.3) 103%),
-      url("/images/resources/hero.png") center / cover no-repeat;
+      url("/images/resources/resources-header.webp") center / cover no-repeat;
     height: 187px;
     margin-top: 80px;
     padding: 0 16px;

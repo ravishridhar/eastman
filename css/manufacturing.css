@@ -627,6 +627,211 @@
   width: 100%;
 }
 
+.snapshot-slider {
+  position: relative;
+}
+
+.snapshot-slider__heading {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.snapshot-slider__heading h2 {
+  margin-bottom: 20px;
+}
+
+.snapshot-slider .snapshot-grid {
+  cursor: grab;
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  touch-action: pan-x pan-y;
+}
+
+.snapshot-slider .snapshot-grid.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.snapshot-slider .snapshot-grid.is-dragging img {
+  cursor: grabbing;
+}
+
+.snapshot-slider .snapshot-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.snapshot-slider .snapshot-grid img {
+  cursor: zoom-in;
+  flex: 0 0 calc((100% - 56px) / 2.5);
+  max-width: none;
+  min-width: 0;
+  scroll-snap-align: start;
+  width: calc((100% - 56px) / 2.5);
+}
+
+.snapshot-slider__controls {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.snapshot-slider__controls.is-hidden {
+  display: none;
+}
+
+.snapshot-slider__arrow {
+  align-items: center;
+  background: var(--blue);
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 22px;
+  height: 46px;
+  justify-content: center;
+  transition: background-color 180ms ease, opacity 180ms ease, transform 180ms ease;
+  width: 46px;
+}
+
+.snapshot-slider__arrow svg,
+.snapshot-lightbox__close svg,
+.snapshot-lightbox__nav svg {
+  fill: none;
+  height: 22px;
+  pointer-events: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 22px;
+}
+
+.snapshot-slider__arrow:not(:disabled):hover {
+  background: #f37021;
+  transform: translateY(-2px);
+}
+
+.snapshot-slider__arrow:focus-visible {
+  outline: 3px solid rgba(243, 112, 33, 0.35);
+  outline-offset: 3px;
+}
+
+.snapshot-slider__arrow:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.snapshot-lightbox {
+  background: transparent;
+  border: 0;
+  height: 100dvh;
+  margin: 0;
+  max-height: none;
+  max-width: none;
+  padding: 64px 80px;
+  width: 100vw;
+}
+
+.snapshot-lightbox[open] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.snapshot-lightbox::backdrop {
+  background: rgba(2, 13, 32, 0.92);
+}
+
+.snapshot-lightbox__image {
+  cursor: zoom-in;
+  max-height: calc(100dvh - 128px);
+  max-width: calc(100vw - 160px);
+  object-fit: contain;
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.snapshot-lightbox__close,
+.snapshot-lightbox__nav {
+  align-items: center;
+  background: #fff;
+  border: 0;
+  border-radius: 50%;
+  color: var(--blue);
+  cursor: pointer;
+  display: flex;
+  font-size: 24px;
+  height: 48px;
+  justify-content: center;
+  position: fixed;
+  width: 48px;
+  z-index: 1;
+}
+
+.snapshot-lightbox__close {
+  right: 24px;
+  top: 24px;
+}
+
+.snapshot-lightbox__nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.snapshot-lightbox__nav--previous { left: 22px; }
+.snapshot-lightbox__nav--next { right: 22px; }
+
+.snapshot-lightbox__zoom {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 24px;
+  bottom: 22px;
+  display: flex;
+  gap: 2px;
+  left: 50%;
+  padding: 4px;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.snapshot-lightbox__zoom-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: var(--blue);
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
+.snapshot-lightbox__zoom-button:hover { background: #edf2f8; }
+.snapshot-lightbox__zoom-button:disabled { cursor: default; opacity: 0.35; }
+
+.snapshot-lightbox__zoom-button svg {
+  fill: none;
+  height: 20px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 20px;
+}
+
 .solar-panels-page .manufacturing-detail__media {
   padding: 24px 23px 22px;
 }
@@ -1243,6 +1448,48 @@
     height: 154px;
     object-position: top center;
   }
+
+  .snapshot-slider .snapshot-grid {
+    gap: 15px;
+    max-width: none;
+  }
+
+  .snapshot-slider .snapshot-grid img {
+    flex-basis: calc((100% - 15px) / 1.2);
+    width: calc((100% - 15px) / 1.2);
+  }
+
+  .snapshot-slider__controls {
+    margin-bottom: 16px;
+  }
+
+  .snapshot-slider__arrow {
+    height: 42px;
+    width: 42px;
+  }
+
+  .snapshot-slider__heading {
+    gap: 12px;
+  }
+
+  .snapshot-lightbox {
+    padding: 60px 12px;
+  }
+
+  .snapshot-lightbox__image {
+    max-height: calc(100dvh - 120px);
+    max-width: calc(100vw - 24px);
+  }
+
+  .snapshot-lightbox__close,
+  .snapshot-lightbox__nav {
+    height: 40px;
+    width: 40px;
+  }
+
+  .snapshot-lightbox__close { right: 12px; top: 12px; }
+  .snapshot-lightbox__nav--previous { left: 10px; }
+  .snapshot-lightbox__nav--next { right: 10px; }
 
   .power-electronics-page .manufacturing-detail h2,
   .power-electronics-page .manufacturing-section h2,
