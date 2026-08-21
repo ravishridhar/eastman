@@ -3,8 +3,7 @@ const tailwindcss = require('@tailwindcss/vite').default;
 const { resolve } = require('path');
 const { copyFileSync, mkdirSync, readFileSync, readdirSync, writeFileSync } = require('fs');
 
-const deployBase = process.env.VITE_BASE_PATH || '/eastman/';
-const deployBasePath = deployBase === '/' ? '/' : `/${deployBase.replace(/^\/+|\/+$/g, '')}/`;
+let deployBasePath = '/';
 
 const leadershipProfileSlugs = [
   'vishal-puri',
@@ -145,10 +144,14 @@ function cleanUrlPages() {
   };
 }
 
-module.exports = defineConfig({
-  base: deployBasePath,
-  plugins: [tailwindcss(), cleanUrlPages()],
-  build: {
+module.exports = defineConfig(({ command }) => {
+  const configuredBase = process.env.VITE_BASE_PATH || (command === 'build' ? '/eastman/' : '/');
+  deployBasePath = configuredBase === '/' ? '/' : `/${configuredBase.replace(/^\/+|\/+$/g, '')}/`;
+
+  return {
+    base: deployBasePath,
+    plugins: [tailwindcss(), cleanUrlPages()],
+    build: {
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
@@ -191,8 +194,9 @@ module.exports = defineConfig({
         researchSolarPanels: resolve(__dirname, 'research-solar-panels.html'),
       },
     },
-  },
-  server: {
-    port: 5173,
-  },
+    },
+    server: {
+      port: 5173,
+    },
+  };
 });
