@@ -1,0 +1,11 @@
+nav[aria-label='Breadcrumb'] > a,
+nav[aria-label='Breadcrumb'] > span,
+nav[aria-label='Breadcrumb'] > strong {
+  color: #777983;
+  font-weight: 400;
+}
+
+nav[aria-label='Breadcrumb'] > :is(a, span, strong):last-child {
+  color: #18408c;
+  font-weight: 600;
+}

@@ -5,7 +5,10 @@
 .shareholders-hero h1 { font-size: 45px; font-weight: 800; letter-spacing: -.45px; line-height: 1.25; margin: 0 0 8px; }
 .shareholders-hero h1 span { color: #ffd60a; }
 .shareholders-hero p { color: rgba(255,255,255,.8); font-size: 13.5px; line-height: 21px; margin: 0; }
-.shareholders-breadcrumbs { align-items: center; display: flex; gap: 8px; height: 47px; margin: 0 auto; max-width: 1328px; color: #777983; font-size: 12px; font-weight: 600; }
+.shareholders-breadcrumbs { align-items: center; display: flex; gap: 16px; margin: 0 auto; max-width: 1220px; min-height: 46px; padding: 0; width: min(calc(100% - 220px), 1220px); }
+.shareholders-breadcrumbs a,
+.shareholders-breadcrumbs span { color: #777983; font-size: 12px; line-height: 16px; text-decoration: none; }
+.shareholders-breadcrumbs .breadcrumb-separator { display: block; flex: 0 0 4px; height: 8px; width: 4px; }
 .shareholders-content { padding: 0 0 24px; }
 .shareholder-section { padding: 24px 56px; }
 .shareholder-section__heading { align-items: center; display: flex; gap: 10px; margin: 0 auto 10px; max-width: 1328px; padding-bottom: 12px; }
@@ -44,12 +47,15 @@
 @media (max-width: 900px) {
   .shareholders-hero { height: 500px; padding: 110px 24px 40px; }
   .shareholders-hero p br { display: none; }
-  .shareholders-breadcrumbs { height: auto; min-height: 47px; padding: 10px 24px; }
+  .shareholders-breadcrumbs { margin-left: 0; margin-right: 0; max-width: 100%; padding-inline: 16px; width: auto; }
   .shareholder-section { padding: 24px; }
   .shareholder-section__heading h2 { font-size: 36px; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
+  .shareholders-breadcrumbs { gap: 8px; min-height: 34px; }
+  .shareholders-breadcrumbs a,
+  .shareholders-breadcrumbs span { font-size: 9px; }
   .shareholders-hero { height: 430px; }
   .shareholders-hero h1 { font-size: 38px; }
   .shareholder-section__heading { align-items: flex-start; flex-direction: column; }
