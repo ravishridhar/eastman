@@ -95,9 +95,16 @@ function prefixRootUrls(directory) {
       if (!/\.(?:html|css|js)$/.test(entry.name)) continue;
 
       const source = readFileSync(file, 'utf8');
-      const updated = source
-        .replace(/(["'`])\/(?!eastman(?:\/|["'`]))/g, `$1${prefix}/`)
-        .replace(/url\(\/(?!eastman\/)/g, `url(${prefix}/`);
+      let updated = source;
+
+      if (entry.name.endsWith('.html')) {
+        updated = updated.replace(/((?:src|href|poster)=["'])\/(?!eastman(?:\/|["']))/g, `$1${prefix}/`);
+      } else if (entry.name.endsWith('.css')) {
+        updated = updated.replace(/url\((['"]?)\/(?!eastman\/)/g, `url($1${prefix}/`);
+      } else if (entry.name.endsWith('.js')) {
+        updated = updated.replace(/(["'`])\/(?![>%]|eastman(?:\/|["'`]))/g, `$1${prefix}/`);
+      }
+
       if (updated !== source) writeFileSync(file, updated);
     }
   };
@@ -106,20 +113,35 @@ function prefixRootUrls(directory) {
 }
 
 function cleanUrlPages() {
+  const routeRequest = (request, response) => {
+    if (!request.url) return;
+    const [pathname, query = ''] = request.url.split('?');
+    const basePrefix = deployBasePath === '/' ? '' : deployBasePath.slice(0, -1);
+    const routePath = basePrefix && pathname.startsWith(basePrefix) ? pathname.slice(basePrefix.length) || '/' : pathname;
+    const normalizedPath = routePath.replace(/\/$/, '') || '/';
+    const acceptsHtml = !request.headers.accept || request.headers.accept.includes('text/html');
+
+    if (nestedCleanRoutes[normalizedPath]) {
+      request.url = `/${nestedCleanRoutes[normalizedPath]}${query ? `?${query}` : ''}`;
+    } else if (topLevelCleanRoutes.includes(normalizedPath)) {
+      request.url = normalizedPath === '/' ? `/${query ? `?${query}` : ''}` : `${normalizedPath}.html${query ? `?${query}` : ''}`;
+    } else if (acceptsHtml && !/\.[a-z0-9]+$/i.test(routePath)) {
+      request.url = `/404.html${query ? `?${query}` : ''}`;
+      response.statusCode = 404;
+    }
+  };
+
   return {
     name: 'clean-url-pages',
     configureServer(server) {
-      server.middlewares.use((request, _response, next) => {
-        if (!request.url) return next();
-        const [pathname, query = ''] = request.url.split('?');
-        const basePrefix = deployBasePath === '/' ? '' : deployBasePath.slice(0, -1);
-        const routePath = basePrefix && pathname.startsWith(basePrefix) ? pathname.slice(basePrefix.length) || '/' : pathname;
-        const normalizedPath = routePath.replace(/\/$/, '');
-        if (nestedCleanRoutes[normalizedPath]) {
-          request.url = `/${nestedCleanRoutes[normalizedPath]}${query ? `?${query}` : ''}`;
-        } else if (/^\/[a-z0-9-]+\/?$/i.test(routePath) && routePath !== '/') {
-          request.url = `${routePath.replace(/\/$/, '')}.html${query ? `?${query}` : ''}`;
-        }
+      server.middlewares.use((request, response, next) => {
+        routeRequest(request, response);
+        next();
+      });
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use((request, response, next) => {
+        routeRequest(request, response);
         next();
       });
     },
@@ -152,11 +174,13 @@ module.exports = defineConfig(({ command }) => {
     base: deployBasePath,
     plugins: [tailwindcss(), cleanUrlPages()],
     build: {
+    assetsInlineLimit: 0,
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        notFound: resolve(__dirname, '404.html'),
         about: resolve(__dirname, 'about-us.html'),
         numbers: resolve(__dirname, 'eapl-in-numbers.html'),
         history: resolve(__dirname, 'corporate-history.html'),
