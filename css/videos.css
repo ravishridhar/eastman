@@ -5,7 +5,7 @@
 .videos-breadcrumb { align-items:center;display:flex;gap:8px;height:47px;padding:0 56px; }
 .videos-breadcrumb a,.videos-breadcrumb span { color:#737373;font-size:12px;text-decoration:none; }
 .videos-breadcrumb span { color:#18408c;font-weight:600; }
-.videos-breadcrumb img { height:10px;width:10px; }
+.videos-breadcrumb img { height: 8px; width: 4px; }
 .videos-content { height:1436px;padding:0 56px; }
 .videos-content>h2 { color:#ea6c0a;font-size:36px;font-weight:700;height:69px;line-height:1.2;margin:0 0 58px; }
 .featured-video { border-radius:16px;height:460px;overflow:hidden;position:relative;transition:box-shadow .35s ease,transform .35s cubic-bezier(.2,.7,.2,1); }

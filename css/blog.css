@@ -15,7 +15,7 @@
 .blog-breadcrumb { align-items: center; display: flex; gap: 8px; height: 47px; padding: 0 56px; }
 .blog-breadcrumb a, .blog-breadcrumb span { color: #737373; font-size: 12px; text-decoration: none; }
 .blog-breadcrumb span { color: #18408c; font-weight: 600; }
-.blog-breadcrumb img { height: 10px; width: 10px; }
+.blog-breadcrumb img { height: 8px; width: 4px; }
 .blog-content { padding: 40px 56px 0; }
 .blog-content h2 { color: #ea6c0a; font-size: 36px; font-weight: 700; line-height: 1.2; margin: 0 0 32px; }
 .blog-grid { display: grid; gap: 32px; grid-template-columns: repeat(3, 1fr); }

@@ -7,7 +7,7 @@
 .white-papers-breadcrumb { align-items:center;display:flex;gap:8px;height:47px;padding:0 56px; }
 .white-papers-breadcrumb a,.white-papers-breadcrumb span { color:#737373;font-size:12px;text-decoration:none; }
 .white-papers-breadcrumb span { color:#18408c;font-weight:600; }
-.white-papers-breadcrumb img { height:10px;width:10px; }
+.white-papers-breadcrumb img { height: 8px; width: 4px; }
 .white-papers-content { height:1467px;padding:0 56px; }
 .white-papers-content>h2 { color:#ea6c0a;font-size:36px;font-weight:700;height:69px;line-height:1.2;margin:0 0 58px;padding-top:0; }
 .featured-paper { border:1px solid #eee;border-radius:16px;display:grid;grid-template-columns:492px 1fr;height:402.5px;overflow:hidden; }

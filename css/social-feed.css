@@ -7,7 +7,7 @@
 .social-feed-breadcrumb { align-items:center;display:flex;gap:8px;height:47px;padding:0 56px; }
 .social-feed-breadcrumb a,.social-feed-breadcrumb span { color:#737373;font-size:12px;text-decoration:none; }
 .social-feed-breadcrumb span { color:#18408c;font-weight:600; }
-.social-feed-breadcrumb img { height:10px;width:10px; }
+.social-feed-breadcrumb img { height: 8px; width: 4px; }
 .social-platform { height:874.25px;padding:40px 56px 0; }
 .social-platform--facebook { height:953.25px; }
 .social-platform h2 { color:#ea6c0a;font-size:36px;line-height:1.2;margin:0 0 10px; }
