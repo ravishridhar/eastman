@@ -1,7 +1,10 @@
 const { defineConfig } = require('vite');
 const tailwindcss = require('@tailwindcss/vite').default;
 const { resolve } = require('path');
-const { copyFileSync, mkdirSync, readdirSync, writeFileSync } = require('fs');
+const { copyFileSync, mkdirSync, readFileSync, readdirSync, writeFileSync } = require('fs');
+
+const deployBase = process.env.VITE_BASE_PATH || '/eastman/';
+const deployBasePath = deployBase === '/' ? '/' : `/${deployBase.replace(/^\/+|\/+$/g, '')}/`;
 
 const leadershipProfileSlugs = [
   'vishal-puri',
@@ -67,7 +70,8 @@ const topLevelCleanRoutes = [
 ];
 
 function createSitemap() {
-  const siteOrigin = (process.env.SITE_URL || 'https://eaplworld.com').replace(/\/$/, '');
+  const defaultSiteUrl = deployBasePath === '/' ? 'https://eaplworld.com' : `https://ravishridhar.github.io${deployBasePath}`;
+  const siteOrigin = (process.env.SITE_URL || defaultSiteUrl).replace(/\/$/, '');
   const routes = [...topLevelCleanRoutes, ...Object.keys(nestedCleanRoutes)].sort((a, b) => {
     if (a === '/') return -1;
     if (b === '/') return 1;
@@ -78,6 +82,30 @@ function createSitemap() {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
+function prefixRootUrls(directory) {
+  if (deployBasePath === '/') return;
+  const prefix = deployBasePath.slice(0, -1);
+
+  const visit = (currentDirectory) => {
+    for (const entry of readdirSync(currentDirectory, { withFileTypes: true })) {
+      const file = resolve(currentDirectory, entry.name);
+      if (entry.isDirectory()) {
+        visit(file);
+        continue;
+      }
+      if (!/\.(?:html|css|js)$/.test(entry.name)) continue;
+
+      const source = readFileSync(file, 'utf8');
+      const updated = source
+        .replace(/(["'`])\/(?!eastman(?:\/|["'`]))/g, `$1${prefix}/`)
+        .replace(/url\(\/(?!eastman\/)/g, `url(${prefix}/`);
+      if (updated !== source) writeFileSync(file, updated);
+    }
+  };
+
+  visit(directory);
+}
+
 function cleanUrlPages() {
   return {
     name: 'clean-url-pages',
@@ -85,11 +113,13 @@ function cleanUrlPages() {
       server.middlewares.use((request, _response, next) => {
         if (!request.url) return next();
         const [pathname, query = ''] = request.url.split('?');
-        const normalizedPath = pathname.replace(/\/$/, '');
+        const basePrefix = deployBasePath === '/' ? '' : deployBasePath.slice(0, -1);
+        const routePath = basePrefix && pathname.startsWith(basePrefix) ? pathname.slice(basePrefix.length) || '/' : pathname;
+        const normalizedPath = routePath.replace(/\/$/, '');
         if (nestedCleanRoutes[normalizedPath]) {
           request.url = `/${nestedCleanRoutes[normalizedPath]}${query ? `?${query}` : ''}`;
-        } else if (/^\/[a-z0-9-]+\/?$/i.test(pathname) && pathname !== '/') {
-          request.url = `${pathname.replace(/\/$/, '')}.html${query ? `?${query}` : ''}`;
+        } else if (/^\/[a-z0-9-]+\/?$/i.test(routePath) && routePath !== '/') {
+          request.url = `${routePath.replace(/\/$/, '')}.html${query ? `?${query}` : ''}`;
         }
         next();
       });
@@ -110,12 +140,13 @@ function cleanUrlPages() {
       }
 
       writeFileSync(resolve(__dirname, 'dist', 'sitemap.xml'), createSitemap());
+      prefixRootUrls(resolve(__dirname, 'dist'));
     },
   };
 }
 
 module.exports = defineConfig({
-  base: '/',
+  base: deployBasePath,
   plugins: [tailwindcss(), cleanUrlPages()],
   build: {
     outDir: 'dist',
