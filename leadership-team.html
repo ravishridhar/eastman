@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/app.css" />
     <script type="module" src="/js/about.js"></script>
   </head>
-  <body class="about-page board-committees-page">
+  <body class="about-page board-committees-page leadership-team-page" data-profile-base="leadership-team">
     <div id="app">
       <div data-layout-header></div>
 
@@ -30,11 +31,11 @@
 
         <nav class="about-tabs about-tabs--governance" id="governance-tabs" aria-label="Governance sections">
           <div class="about-tabs-inner">
-            <a href="corporate-governance.html#governance-tabs">Board of Directors &amp; KMP</a>
-            <a class="is-active" href="leadership-team.html#governance-tabs">Leadership Team</a>
-            <a href="board-committee.html#governance-tabs">Board Committee</a>
-            <a href="policies.html#governance-tabs">Policies</a>
-            <a href="disclosures.html#governance-tabs">Disclosures</a>
+            <a href="/corporate-governance#governance-tabs">Board of Directors &amp; KMP</a>
+            <a class="is-active" href="/leadership-team#governance-tabs">Leadership Team</a>
+            <a href="/board-committee#governance-tabs">Board Committee</a>
+            <a href="/policies#governance-tabs">Policies</a>
+            <a href="/disclosures#governance-tabs">Disclosures</a>
           </div>
         </nav>
 
@@ -60,7 +61,7 @@
           </div>
         </section>
 
-        <dialog class="director-dialog" data-director-dialog="vishal" data-lenis-prevent aria-labelledby="vishal-dialog-title">
+        <dialog class="director-dialog" data-director-dialog="vishal" data-profile-slug="vishal-puri" data-lenis-prevent aria-labelledby="vishal-dialog-title">
           <button class="director-dialog__close" type="button" data-director-close aria-label="Close profile details">&times;</button>
           <div class="director-dialog__layout">
             <div class="director-dialog__portrait"><img src="/images/about/vishal-puri.webp" alt="Mr. Vishal Puri" /></div>
@@ -73,7 +74,7 @@
           </div>
         </dialog>
 
-        <dialog class="director-dialog" data-director-dialog="sanjay" data-lenis-prevent aria-labelledby="sanjay-dialog-title">
+        <dialog class="director-dialog" data-director-dialog="sanjay" data-profile-slug="sanjay-singh" data-lenis-prevent aria-labelledby="sanjay-dialog-title">
           <button class="director-dialog__close" type="button" data-director-close aria-label="Close profile details">&times;</button>
           <div class="director-dialog__layout">
             <div class="director-dialog__portrait"><img src="/images/about/sanjay-singh.webp" alt="Mr. Sanjay Singh" /></div>
@@ -86,7 +87,7 @@
           </div>
         </dialog>
 
-        <dialog class="director-dialog" data-director-dialog="jitender" data-lenis-prevent aria-labelledby="jitender-dialog-title">
+        <dialog class="director-dialog" data-director-dialog="jitender" data-profile-slug="jitender-manav" data-lenis-prevent aria-labelledby="jitender-dialog-title">
           <button class="director-dialog__close" type="button" data-director-close aria-label="Close profile details">&times;</button>
           <div class="director-dialog__layout">
             <div class="director-dialog__portrait"><img src="/images/about/jitender-manav.webp" alt="Mr. Jitender Manav" /></div>
@@ -99,7 +100,7 @@
           </div>
         </dialog>
 
-        <dialog class="director-dialog" data-director-dialog="hemant" data-lenis-prevent aria-labelledby="hemant-dialog-title">
+        <dialog class="director-dialog" data-director-dialog="hemant" data-profile-slug="hemant-nagpal" data-lenis-prevent aria-labelledby="hemant-dialog-title">
           <button class="director-dialog__close" type="button" data-director-close aria-label="Close profile details">&times;</button>
           <div class="director-dialog__layout">
             <div class="director-dialog__portrait"><img src="/images/about/hemant-nagpal.webp" alt="Mr. Hemant Nagpal" /></div>
@@ -112,7 +113,7 @@
           </div>
         </dialog>
 
-        <dialog class="director-dialog" data-director-dialog="surajit" data-lenis-prevent aria-labelledby="surajit-dialog-title">
+        <dialog class="director-dialog" data-director-dialog="surajit" data-profile-slug="surajit-sur" data-lenis-prevent aria-labelledby="surajit-dialog-title">
           <button class="director-dialog__close" type="button" data-director-close aria-label="Close profile details">&times;</button>
           <div class="director-dialog__layout">
             <div class="director-dialog__portrait"><img src="/images/about/surajit-sur.webp" alt="Mr. Surajit Sur" /></div>
@@ -125,7 +126,7 @@
           </div>
         </dialog>
 
-        <dialog class="director-dialog" data-director-dialog="mantosh" data-lenis-prevent aria-labelledby="mantosh-dialog-title">
+        <dialog class="director-dialog" data-director-dialog="mantosh" data-profile-slug="mantosh-kumar" data-lenis-prevent aria-labelledby="mantosh-dialog-title">
           <button class="director-dialog__close" type="button" data-director-close aria-label="Close profile details">&times;</button>
           <div class="director-dialog__layout">
             <div class="director-dialog__portrait"><img src="/images/about/mantosh-kumar.webp" alt="Mr. Mantosh Kumar" /></div>
@@ -138,7 +139,7 @@
           </div>
         </dialog>
 
-        <dialog class="director-dialog" data-director-dialog="tilak" data-lenis-prevent aria-labelledby="tilak-dialog-title">
+        <dialog class="director-dialog" data-director-dialog="tilak" data-profile-slug="tilak-raj" data-lenis-prevent aria-labelledby="tilak-dialog-title">
           <button class="director-dialog__close" type="button" data-director-close aria-label="Close profile details">&times;</button>
           <div class="director-dialog__layout">
             <div class="director-dialog__portrait"><img src="/images/about/tilak-raj.webp" alt="Mr. Tilak Raj" /></div>
@@ -151,7 +152,7 @@
           </div>
         </dialog>
 
-        <dialog class="director-dialog" data-director-dialog="sunil" data-lenis-prevent aria-labelledby="sunil-dialog-title">
+        <dialog class="director-dialog" data-director-dialog="sunil" data-profile-slug="sunil-tiku" data-lenis-prevent aria-labelledby="sunil-dialog-title">
           <button class="director-dialog__close" type="button" data-director-close aria-label="Close profile details">&times;</button>
           <div class="director-dialog__layout">
             <div class="director-dialog__portrait"><img src="/images/about/sunil-tiku.webp" alt="Mr. Sunil Tiku" /></div>
@@ -164,7 +165,7 @@
           </div>
         </dialog>
 
-        <dialog class="director-dialog" data-director-dialog="sanjay-makkar" data-lenis-prevent aria-labelledby="sanjay-makkar-dialog-title">
+        <dialog class="director-dialog" data-director-dialog="sanjay-makkar" data-profile-slug="sanjay-kumar-makkar" data-lenis-prevent aria-labelledby="sanjay-makkar-dialog-title">
           <button class="director-dialog__close" type="button" data-director-close aria-label="Close profile details">&times;</button>
           <div class="director-dialog__layout">
             <div class="director-dialog__portrait"><img src="/images/about/sanjay-kumar-makkar.webp" alt="Mr. Sanjay Kumar Makkar" /></div>

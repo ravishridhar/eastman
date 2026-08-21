@@ -1,6 +1,6 @@
 const BASE_URL = import.meta.env.BASE_URL || './';
 const assetPath = (path) => `${BASE_URL}${path}`;
-const pagePath = (path = '') => `${BASE_URL}${path}`;
+const pagePath = (path = '') => `${BASE_URL}${path.replace(/\.html(?=($|[?#]))/, '')}`;
 const headerLogo = new URL('../images/footer-logo-new.svg', import.meta.url).href;
 const footerLogo = new URL('../images/eastman-logo-new.svg', import.meta.url).href;
 const socialIcons = {
@@ -21,17 +21,17 @@ const headerMarkup = `
       <nav class="utility-nav" aria-label="Utility navigation">
         <a href="https://www.eastmanassure.com" target="_blank" rel="noopener noreferrer" aria-label="Eastman Assure Service">Eastman Assure Service</a>
         <a href="https://jrseastman.com" target="_blank" rel="noopener noreferrer" aria-label="About JRS Eastman Group">About JRS Eastman Group</a>
-        <a href="${pagePath('partner-with-us.html')}">Partner With Us</a>
-        <a href="${pagePath('contact-us.html')}">Contact us</a>
+        <a href="${pagePath('partner-with-us')}">Partner With Us</a>
+        <a href="${pagePath('contact-us')}">Contact us</a>
       </nav>
 
       <nav class="desktop-nav" aria-label="Primary navigation">
         <button type="button" data-desktop-trigger="about" aria-expanded="false">About Us<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
-        <button type="button" data-desktop-trigger="research" data-nav-href="${pagePath('research-conventional-tubular-batteries.html')}" aria-expanded="false">Research &amp; Development<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
+        <button type="button" data-desktop-trigger="research" data-nav-href="${pagePath('research-development/?tab=tubular#focus-areas')}" aria-expanded="false">Research &amp; Development<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="manufacturing" aria-expanded="false">Manufacturing Infrastructure<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="businesses" aria-expanded="false">Our Businesses<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="resources" aria-expanded="false">Resources<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
-        <a href="${pagePath('life-at-eastman.html')}">Life@Eastman</a>
+        <a href="${pagePath('life-at-eastman')}">Life@Eastman</a>
       </nav>
     </div>
 
@@ -40,7 +40,7 @@ const headerMarkup = `
         <img src="${assetPath('images/phone-icon.svg')}" alt="" class="phone-icon" />
         1800 419 8610
       </a>
-      <a class="trade-chip" href="${pagePath('contact-us.html')}">Trade Enquiry</a>
+      <a class="trade-chip" href="${pagePath('contact-us')}">Trade Enquiry</a>
     </div>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>
@@ -51,47 +51,47 @@ const headerMarkup = `
     <div class="desktop-mega-menu" data-desktop-menu>
       <section class="mega-panel mega-panel--card" data-desktop-panel="about" aria-label="About Us submenu">
         <!-- <h2>Company</h2> -->
-        <!--<a class="is-current" href="${pagePath('about.html')}">Overview &amp; Group Companies</a>-->
-        <a href="${pagePath('about.html')}">Overview &amp; Group Companies</a>
-        <a href="${pagePath('eapl-in-numbers.html')}">Eastman Auto &amp; Power in Nos.</a>
-        <a href="${pagePath('corporate-history.html')}">Corporate History</a>
-        <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
-        <!--<a href="${pagePath('leadership-team.html')}">Leadership Team</a>
-        <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
-        <a href="${pagePath('shareholders-information.html')}">Shareholder Information</a>
+        <!--<a class="is-current" href="${pagePath('about-us')}">Overview &amp; Group Companies</a>-->
+        <a href="${pagePath('about-us')}">Overview &amp; Group Companies</a>
+        <a href="${pagePath('eapl-in-numbers')}">Eastman Auto &amp; Power in Nos.</a>
+        <a href="${pagePath('corporate-history')}">Corporate History</a>
+        <a href="${pagePath('corporate-governance')}">Corporate Governance</a>
+        <!--<a href="${pagePath('leadership-team')}">Leadership Team</a>
+        <a href="${pagePath('board-committee')}">Board Committee</a>-->
+        <a href="${pagePath('shareholders-information')}">Shareholder Information</a>
         <a href="https://jrseastman.com/csr" target="_blank" rel="noopener noreferrer">CSR</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="research" aria-label="Research and Development submenu">
-        <a href="${pagePath('research-conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
-        <a href="${pagePath('research-power-electronics.html')}">Power Electronics</a>
-        <a href="${pagePath('research-lithium-batteries.html')}">Lithium-ion Batteries</a>
-        <a href="${pagePath('research-solar-panels.html')}">Solar Panels</a>
+        <a href="${pagePath('research-development/?tab=tubular#focus-areas')}">Conventional Tubular Batteries</a>
+        <a href="${pagePath('research-development/?tab=power#focus-areas')}">Power Electronics</a>
+        <a href="${pagePath('research-development/?tab=lithium#focus-areas')}">Lithium-ion Batteries</a>
+        <a href="${pagePath('research-development/?tab=solar#focus-areas')}">Solar Panels</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="manufacturing" aria-label="Manufacturing Infrastructure submenu">
         <!-- <h2>Manufacturing &amp; Infrastructure</h2> -->
-        <a href="${pagePath('manufacturing-infrastructure.html')}">Overview</a>
-        <a href="${pagePath('conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
-        <a href="${pagePath('power-electronics.html')}">Power Electronics</a>
-        <a href="${pagePath('lithium-batteries.html')}">Lithium-ion Batteries</a>
-        <a href="${pagePath('solar-panels.html')}">Solar Panels</a>
+        <a href="${pagePath('manufacturing-infrastructure')}">Overview</a>
+        <a href="${pagePath('manufacturing-infrastructure/conventional-tubular-batteries')}">Conventional Tubular Batteries</a>
+        <a href="${pagePath('manufacturing-infrastructure/power-electronics')}">Power Electronics</a>
+        <a href="${pagePath('manufacturing-infrastructure/lithium-batteries')}">Lithium-ion Batteries</a>
+        <a href="${pagePath('manufacturing-infrastructure/solar-panels')}">Solar Panels</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="businesses" aria-label="Our Businesses submenu">
         <!-- <h2>Our Businesses</h2> -->
-          <a href="${pagePath('business.html')}">Overview</a>
-        <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
-        <a href="${pagePath('residential-solar-with-storage.html')}">Residential Solar With Storage</a>
-        <a href="${pagePath('continued-energy-solutions.html')}">Continued Energy Solutions</a>
-        <a href="${pagePath('advanced-electronics-manufacturing.html')}">Advanced Electronics Manufacturing</a>
-        <!--<a href="${pagePath('business.html#businesses')}">Global Business</a>-->
+          <a href="${pagePath('our-businesses')}">Overview</a>
+        <a href="${pagePath('our-businesses/last-mile-e-mobility-solutions')}">Last Mile E-Mobility Solutions</a>
+        <a href="${pagePath('our-businesses/residential-solar-with-storage')}">Residential Solar With Storage</a>
+        <a href="${pagePath('our-businesses/continued-energy-solutions')}">Continued Energy Solutions</a>
+        <a href="${pagePath('our-businesses/advanced-electronics-manufacturing')}">Advanced Electronics Manufacturing</a>
+        <!--<a href="${pagePath('our-businesses#businesses')}">Global Business</a>-->
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="resources" aria-label="Resources submenu">
         <!-- <h2>Resources</h2> -->
-        <a href="${pagePath('resources.html')}">Overview</a>
-        <a href="${pagePath('blog.html')}">Blogs</a>
-        <a href="${pagePath('white-papers.html')}">White Papers</a>
-        <a href="${pagePath('media-news.html')}">Media</a>
-        <a href="${pagePath('social-feed.html')}">Social Feed</a>
-        <a href="${pagePath('videos.html')}">Videos</a>
+        <a href="${pagePath('resources')}">Overview</a>
+        <a href="${pagePath('blog')}">Blogs</a>
+        <a href="${pagePath('white-papers')}">White Papers</a>
+        <a href="${pagePath('media-news')}">Media</a>
+        <a href="${pagePath('social-feed')}">Social Feed</a>
+        <a href="${pagePath('videos')}">Videos</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="life" aria-label="Life at Eastman submenu">
         <!-- <h2>Life @ Eastman</h2> -->
@@ -106,72 +106,72 @@ const headerMarkup = `
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">About Us<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
-          <a href="${pagePath('about.html')}">Explore About Us</a>
+          <a href="${pagePath('about-us')}">Explore About Us</a>
           <h3>Company</h3>
-          <a href="${pagePath('about.html')}">Overview &amp; Group Companies</a>
-          <a href="${pagePath('eapl-in-numbers.html')}">Eastman in Numbers</a>
-          <a href="${pagePath('about.html')}">Our Values</a>
+          <a href="${pagePath('about-us')}">Overview &amp; Group Companies</a>
+          <a href="${pagePath('eapl-in-numbers')}">Eastman in Numbers</a>
+          <a href="${pagePath('about-us')}">Our Values</a>
           <h3>Governance</h3>
-          <a href="${pagePath('corporate-history.html')}">Corporate History</a>
-          <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
-          <!--<a href="${pagePath('leadership-team.html')}">Leadership Team</a>
-          <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
-          <a href="${pagePath('shareholders-information.html')}">Shareholders Information</a>
+          <a href="${pagePath('corporate-history')}">Corporate History</a>
+          <a href="${pagePath('corporate-governance')}">Corporate Governance</a>
+          <!--<a href="${pagePath('leadership-team')}">Leadership Team</a>
+          <a href="${pagePath('board-committee')}">Board Committee</a>-->
+          <a href="${pagePath('shareholders-information')}">Shareholders Information</a>
         </div>
       </div>
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Research &amp; Development<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
-          <a href="${pagePath('research-conventional-tubular-batteries.html')}">Explore Research &amp; Development</a>
-          <a href="${pagePath('research-conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
-          <a href="${pagePath('research-power-electronics.html')}">Power Electronics</a>
-          <a href="${pagePath('research-lithium-batteries.html')}">Lithium-Ion Batteries</a>
-          <a href="${pagePath('research-solar-panels.html')}">Solar Panels</a>
+          <a href="${pagePath('research-development/?tab=tubular#focus-areas')}">Explore Research &amp; Development</a>
+          <a href="${pagePath('research-development/?tab=tubular#focus-areas')}">Conventional Tubular Batteries</a>
+          <a href="${pagePath('research-development/?tab=power#focus-areas')}">Power Electronics</a>
+          <a href="${pagePath('research-development/?tab=lithium#focus-areas')}">Lithium-Ion Batteries</a>
+          <a href="${pagePath('research-development/?tab=solar#focus-areas')}">Solar Panels</a>
         </div>
       </div>
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Manufacturing Infrastructure<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
-          <a href="${pagePath('manufacturing-infrastructure.html')}">Overview</a>
-          <a href="${pagePath('conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
-          <a href="${pagePath('lithium-batteries.html')}">Lithium-ion Batteries</a>
-          <a href="${pagePath('power-electronics.html')}">Power Electronics</a>
-          <a href="${pagePath('solar-panels.html')}">Solar Panels</a>
+          <a href="${pagePath('manufacturing-infrastructure')}">Overview</a>
+          <a href="${pagePath('manufacturing-infrastructure/conventional-tubular-batteries')}">Conventional Tubular Batteries</a>
+          <a href="${pagePath('manufacturing-infrastructure/lithium-batteries')}">Lithium-ion Batteries</a>
+          <a href="${pagePath('manufacturing-infrastructure/power-electronics')}">Power Electronics</a>
+          <a href="${pagePath('manufacturing-infrastructure/solar-panels')}">Solar Panels</a>
         </div>
       </div>
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Our Businesses<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
-          <a href="${pagePath('business.html')}">Overview</a>
-          <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
-          <a href="${pagePath('residential-solar-with-storage.html')}">Solar Solutions</a>
-          <a href="${pagePath('continued-energy-solutions.html')}">Continued Energy Solutions</a>
-          <a href="${pagePath('advanced-electronics-manufacturing.html')}">Advanced Electronics Manufacturing</a>
-          <!--<a href="${pagePath('business.html#businesses')}">Global Businesses</a>-->
+          <a href="${pagePath('our-businesses')}">Overview</a>
+          <a href="${pagePath('our-businesses/last-mile-e-mobility-solutions')}">Last Mile E-Mobility Solutions</a>
+          <a href="${pagePath('our-businesses/residential-solar-with-storage')}">Solar Solutions</a>
+          <a href="${pagePath('our-businesses/continued-energy-solutions')}">Continued Energy Solutions</a>
+          <a href="${pagePath('our-businesses/advanced-electronics-manufacturing')}">Advanced Electronics Manufacturing</a>
+          <!--<a href="${pagePath('our-businesses#businesses')}">Global Businesses</a>-->
         </div>
       </div>
       <div class="mobile-nav-item">
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Resources<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
-          <a href="${pagePath('resources.html')}">Overview</a>
-          <a href="${pagePath('blog.html')}">Blogs</a>
-          <a href="${pagePath('white-papers.html')}">White Paper</a>
-          <a href="${pagePath('media-news.html')}">Media</a>
-          <a href="${pagePath('videos.html')}">Videos</a>
-          <a href="${pagePath('social-feed.html')}">Social Feed</a>
+          <a href="${pagePath('resources')}">Overview</a>
+          <a href="${pagePath('blog')}">Blogs</a>
+          <a href="${pagePath('white-papers')}">White Paper</a>
+          <a href="${pagePath('media-news')}">Media</a>
+          <a href="${pagePath('videos')}">Videos</a>
+          <a href="${pagePath('social-feed')}">Social Feed</a>
         </div>
       </div>
       <div class="mobile-nav-item">
-        <a class="mobile-direct-link mobile-direct-link--no-arrow" href="${pagePath('life-at-eastman.html')}">Life@Eastman</a>
+        <a class="mobile-direct-link mobile-direct-link--no-arrow" href="${pagePath('life-at-eastman')}">Life@Eastman</a>
         <!-- <div class="mobile-submenu">
           <a href="${pagePath('#life')}">Great Place to Work</a>
           <a href="${pagePath('#life')}">Careers</a>
         </div> -->
       </div>
       <div class="mobile-menu-actions">
-        <a class="trade-chip" href="${pagePath('partner-with-us.html')}">Partner With Us</a>
+        <a class="trade-chip" href="${pagePath('partner-with-us')}">Partner With Us</a>
         <a class="phone-link" href="tel:18004198610"><img src="${assetPath('images/phone-icon.svg')}" alt="" />1800 419 8610</a>
-        <a class="trade-chip" href="${pagePath('contact-us.html')}">Trade Enquiry</a>
+        <a class="trade-chip" href="${pagePath('contact-us')}">Trade Enquiry</a>
       </div>
     </div>
   </nav>
@@ -187,13 +187,13 @@ const footerMarkup = `
         <!-- <p class="footer-about">Eastman Auto &amp; Power Limited (EAPL) is one of India&apos;s leading energy transition companies. For over 3 decades, we have been committed to power, progress and people.</p> -->
         <section class="footer-group">
           <h3>About Us</h3>
-          <a href="${pagePath('about.html')}">Overview &amp; Group Companies</a>
-          <a href="${pagePath('eapl-in-numbers.html')}">Eastman Auto &amp; Power in Nos.</a>
-          <a href="${pagePath('corporate-history.html')}">Corporate History</a>
-          <a href="${pagePath('corporate-governance.html')}">Corporate Governance</a>
-          <!--<a href="${pagePath('leadership-team.html')}">Leadership Team</a>
-          <a href="${pagePath('board-committee.html')}">Board Committee</a>-->
-          <a href="${pagePath('disclosures.html')}">Shareholder Information</a>
+          <a href="${pagePath('about-us')}">Overview &amp; Group Companies</a>
+          <a href="${pagePath('eapl-in-numbers')}">Eastman Auto &amp; Power in Nos.</a>
+          <a href="${pagePath('corporate-history')}">Corporate History</a>
+          <a href="${pagePath('corporate-governance')}">Corporate Governance</a>
+          <!--<a href="${pagePath('leadership-team')}">Leadership Team</a>
+          <a href="${pagePath('board-committee')}">Board Committee</a>-->
+          <a href="${pagePath('disclosures')}">Shareholder Information</a>
           <a href="https://jrseastman.com/csr" target="_blank" rel="noopener noreferrer">CSR</a>
         </section>
       </div>
@@ -201,29 +201,29 @@ const footerMarkup = `
         <section class="footer-group">
           <h3>Research &amp; Development</h3>
           <!--<a href="${pagePath('#research')}">Overview</a>-->
-          <a href="${pagePath('research-conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
-          <a href="${pagePath('research-power-electronics.html')}">Power Electronics</a>
-          <a href="${pagePath('research-lithium-batteries.html')}">Lithium-ion Batteries</a>
-          <a href="${pagePath('research-solar-panels.html')}">Solar Panels</a>
+          <a href="${pagePath('research-development/?tab=tubular#focus-areas')}">Conventional Tubular Batteries</a>
+          <a href="${pagePath('research-development/?tab=power#focus-areas')}">Power Electronics</a>
+          <a href="${pagePath('research-development/?tab=lithium#focus-areas')}">Lithium-ion Batteries</a>
+          <a href="${pagePath('research-development/?tab=solar#focus-areas')}">Solar Panels</a>
         </section>
         <section class="footer-group">
           <h3>Manufacturing Infrastructure</h3>
-          <a href="${pagePath('manufacturing-infrastructure.html')}">Overview</a>
-          <a href="${pagePath('conventional-tubular-batteries.html')}">Conventional Tubular Batteries</a>
-          <a href="${pagePath('power-electronics.html')}">Power Electronics</a>
-          <a href="${pagePath('lithium-batteries.html')}">Lithium-ion Batteries</a>
-          <a href="${pagePath('solar-panels.html')}">Solar Panels</a>
+          <a href="${pagePath('manufacturing-infrastructure')}">Overview</a>
+          <a href="${pagePath('manufacturing-infrastructure/conventional-tubular-batteries')}">Conventional Tubular Batteries</a>
+          <a href="${pagePath('manufacturing-infrastructure/power-electronics')}">Power Electronics</a>
+          <a href="${pagePath('manufacturing-infrastructure/lithium-batteries')}">Lithium-ion Batteries</a>
+          <a href="${pagePath('manufacturing-infrastructure/solar-panels')}">Solar Panels</a>
         </section>
       </div>
       <div class="footer-column">
         <section class="footer-group">
           <h3>Our Businesses</h3>
-          <a href="${pagePath('business.html')}">Overview</a>
-          <a href="${pagePath('last-mile-e-mobility-solutions.html')}">Last Mile E-Mobility Solutions</a>
-          <a href="${pagePath('residential-solar-with-storage.html')}">Residential Solar with Storage</a>
-          <a href="${pagePath('continued-energy-solutions.html')}">Continued Energy Solutions</a>
-          <a href="${pagePath('advanced-electronics-manufacturing.html')}">Advanced Electronics Manufacturing</a>
-          <!--<a href="${pagePath('business.html#businesses')}">Global Business</a>-->
+          <a href="${pagePath('our-businesses')}">Overview</a>
+          <a href="${pagePath('our-businesses/last-mile-e-mobility-solutions')}">Last Mile E-Mobility Solutions</a>
+          <a href="${pagePath('our-businesses/residential-solar-with-storage')}">Residential Solar with Storage</a>
+          <a href="${pagePath('our-businesses/continued-energy-solutions')}">Continued Energy Solutions</a>
+          <a href="${pagePath('our-businesses/advanced-electronics-manufacturing')}">Advanced Electronics Manufacturing</a>
+          <!--<a href="${pagePath('our-businesses#businesses')}">Global Business</a>-->
         </section>
         <section class="footer-group">
           <h3>Resources</h3>
@@ -238,7 +238,7 @@ const footerMarkup = `
       <div class="footer-column contact-col">
         <section class="footer-group">
           <h3>Partner With Us</h3>
-          <a href="${pagePath('partner-with-us.html')}">Become a Channel Partner</a>
+          <a href="${pagePath('partner-with-us')}">Become a Channel Partner</a>
         </section>
         <section class="footer-group">
           <h3>Contact Us</h3>
@@ -262,7 +262,7 @@ const footerMarkup = `
     <div class="legal">
       <p>&copy; 2026 Eastman Auto &amp; Power Limited. All rights reserved.</p>
       <span>Privacy Policy</span>
-      <a href="${pagePath('terms-and-conditions.html')}">Terms of Conditions</a>
+      <a href="${pagePath('terms-and-conditions')}">Terms of Conditions</a>
     </div>
   </footer>
 `;

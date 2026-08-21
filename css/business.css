@@ -17,8 +17,8 @@
 }
 
 .business-hero-art {
-  background: url("/images/business/business-hero-bg.webp") center / cover no-repeat;
-  inset: 0 0 0 34%;
+  background: url("/images/business/business-header.png") center / cover no-repeat;
+  inset: 0;
   opacity: 0.9;
   position: absolute;
 }

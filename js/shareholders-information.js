@@ -1,5 +1,4 @@
 import './main.js';
-import '../css/shareholders-information.css';
 
 document.querySelectorAll('[data-year-filter]').forEach((select) => {
   const section = select.closest('.shareholder-section');

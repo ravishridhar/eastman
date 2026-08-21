@@ -1,16 +1,4 @@
 import Lenis from 'lenis';
-import '../css/style.css';
-import '../css/header.css';
-import '../css/footer.css';
-import '../css/home.css';
-import '../css/about.css';
-import '../css/business.css';
-import '../css/manufacturing.css';
-import '../css/partner.css';
-import '../css/contact.css';
-import '../css/research-development.css';
-import '../css/desktop.css';
-import '../css/mobile.css';
 import { setupLayout } from './layout.js';
 
 setupLayout();
@@ -226,28 +214,31 @@ function isRoutableLink(link) {
   if (!link.href || link.protocol !== window.location.protocol || link.origin !== window.location.origin) return false;
   if (link.pathname === window.location.pathname && link.hash) return false;
 
-  const pageName = link.pathname.split('/').pop() || 'index.html';
+  const pageName = link.pathname.replace(/\/$/, '').split('/').pop() || '';
   return [
-    'index.html',
-    'about.html',
-    'eapl-in-numbers.html',
-    'corporate-history.html',
-    'corporate-governance.html',
-    'leadership-team.html',
-    'policies.html',
-    'disclosures.html',
-    'business.html',
-    'last-mile-e-mobility-solutions.html',
-    'residential-solar-with-storage.html',
-    'continued-energy-solutions.html',
-    'advanced-electronics-manufacturing.html',
-    'partner-with-us.html',
-    'contact-us.html',
-    'manufacturing-infrastructure.html',
-    'lithium-batteries.html',
-    'power-electronics.html',
-    'solar-panels.html',
-    'conventional-tubular-batteries.html',
+    '',
+    'about-us',
+    'eapl-in-numbers',
+    'corporate-history',
+    'corporate-governance',
+    'leadership-team',
+    'policies',
+    'disclosures',
+    'our-businesses',
+    'last-mile-e-mobility-solutions',
+    'residential-solar-with-storage',
+    'continued-energy-solutions',
+    'advanced-electronics-manufacturing',
+    'partner-with-us',
+    'contact-us',
+    'manufacturing-infrastructure',
+    'lithium-batteries',
+    'power-electronics',
+    'solar-panels',
+    'conventional-tubular-batteries',
+    'life-at-eastman',
+    'shareholders-information',
+    'terms-and-conditions',
   ].includes(pageName);
 }
 
@@ -682,6 +673,16 @@ function setupSnapshotSliders() {
 
 function setupDirectorDialog() {
   const dialogs = [...document.querySelectorAll('[data-director-dialog]')];
+  const profileDialogs = new Map();
+  const profileBase = document.body.dataset.profileBase;
+
+  const setProfileUrl = (slug = '') => {
+    if (!profileBase) return;
+    const nextPath = slug ? `/${profileBase}/${slug}` : `/${profileBase}`;
+    if (window.location.pathname.replace(/\/$/, '') !== nextPath) {
+      window.history.pushState({ leadershipProfile: slug || null }, '', nextPath);
+    }
+  };
 
   dialogs.forEach((dialog) => {
     if (!(dialog instanceof HTMLDialogElement)) return;
@@ -690,19 +691,35 @@ function setupDirectorDialog() {
     const closeButton = dialog.querySelector('[data-director-close]');
     const positions = dialog.querySelector('.director-positions');
     const positionsSummary = positions?.querySelector('summary');
+    const profileSlug = dialog.dataset.profileSlug;
     if (!openButton || !closeButton) return;
+    if (profileSlug) profileDialogs.set(profileSlug, dialog);
 
-    const closeDialog = () => {
-      dialog.close();
+    const closeDialog = ({ updateUrl = true } = {}) => {
+      if (dialog.open) dialog.close();
       document.body.classList.remove('has-open-dialog');
+      if (updateUrl && profileSlug) {
+        if (window.history.state?.leadershipProfile === profileSlug) {
+          window.history.back();
+        } else {
+          window.history.replaceState({}, '', `/${profileBase}`);
+        }
+      }
     };
 
     openButton.addEventListener('click', () => {
+      dialogs.forEach((otherDialog) => {
+        if (otherDialog !== dialog && otherDialog.open) otherDialog.close();
+      });
       dialog.showModal();
       document.body.classList.add('has-open-dialog');
+      if (profileSlug) setProfileUrl(profileSlug);
     });
     closeButton.addEventListener('click', closeDialog);
-    dialog.addEventListener('cancel', () => document.body.classList.remove('has-open-dialog'));
+    dialog.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      closeDialog();
+    });
     dialog.addEventListener('click', (event) => {
       if (event.target === dialog) closeDialog();
     });
@@ -723,6 +740,24 @@ function setupDirectorDialog() {
       requestAnimationFrame(() => positions.classList.add('is-open'));
     });
   });
+
+  if (profileDialogs.size) {
+    const syncProfileDialog = () => {
+      const pathParts = window.location.pathname.replace(/\/$/, '').split('/');
+      const slug = pathParts[0] === '' && pathParts[1] === profileBase ? pathParts[2] : '';
+      const targetDialog = slug ? profileDialogs.get(slug) : null;
+
+      profileDialogs.forEach((dialog) => {
+        if (dialog !== targetDialog && dialog.open) dialog.close();
+      });
+
+      if (targetDialog && !targetDialog.open) targetDialog.showModal();
+      document.body.classList.toggle('has-open-dialog', Boolean(targetDialog));
+    };
+
+    syncProfileDialog();
+    window.addEventListener('popstate', syncProfileDialog);
+  }
 }
 
 function setupDirectorCardActions() {
@@ -737,12 +772,79 @@ function setupDirectorCardActions() {
   });
 }
 
+let cleanupHistoryTimeline = null;
+
+function setupHistoryTimeline() {
+  cleanupHistoryTimeline?.();
+  cleanupHistoryTimeline = null;
+
+  const timeline = document.querySelector('.timeline');
+  if (!timeline) return;
+
+  const items = [...timeline.querySelectorAll('.timeline-item')];
+  const timelineEnd = timeline.querySelector('.timeline-end');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  timeline.classList.add('timeline--enhanced');
+
+  if (reduceMotion.matches || !('IntersectionObserver' in window)) {
+    items.forEach((item) => item.classList.add('is-visible'));
+    timelineEnd?.classList.add('is-visible');
+    timeline.style.setProperty('--timeline-progress', '1');
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -14% 0px', threshold: 0.16 },
+  );
+
+  items.forEach((item, index) => {
+    item.style.setProperty('--reveal-delay', `${Math.min(index * 35, 140)}ms`);
+    revealObserver.observe(item);
+  });
+  if (timelineEnd) revealObserver.observe(timelineEnd);
+
+  let ticking = false;
+  const updateProgress = () => {
+    const rect = timeline.getBoundingClientRect();
+    const start = window.innerHeight * 0.72;
+    const travel = Math.max(rect.height - window.innerHeight * 0.34, 1);
+    const progress = Math.min(Math.max((start - rect.top) / travel, 0), 1);
+    timeline.style.setProperty('--timeline-progress', progress.toFixed(4));
+    ticking = false;
+  };
+
+  const requestProgressUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateProgress);
+  };
+
+  updateProgress();
+  window.addEventListener('scroll', requestProgressUpdate, { passive: true });
+  window.addEventListener('resize', requestProgressUpdate, { passive: true });
+
+  cleanupHistoryTimeline = () => {
+    revealObserver.disconnect();
+    window.removeEventListener('scroll', requestProgressUpdate);
+    window.removeEventListener('resize', requestProgressUpdate);
+  };
+}
+
 function setupDynamicContent() {
   setupSolutionLabels();
   setupPartnerVideoSlider();
   setupSnapshotSliders();
   setupDirectorDialog();
   setupDirectorCardActions();
+  setupHistoryTimeline();
   setupSectionReveals();
   setupCounters();
   setHeaderState();
@@ -753,7 +855,6 @@ function setupPage() {
   setupMenu();
   setupDesktopMenu();
   setupAnchorScroll();
-  setupPageTransitions();
   setupDynamicContent();
   window.addEventListener('scroll', setHeaderState, { passive: true });
 }

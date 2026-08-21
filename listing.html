@@ -68,8 +68,9 @@ fetch(api)
         const li = document.createElement("li");
 
         const a = document.createElement("a");
-        a.href = file.path;
-        a.textContent = file.path;
+        const slug = file.path === "index.html" ? "/" : `/${file.path.slice(0, -5)}`;
+        a.href = slug;
+        a.textContent = slug;
 
         li.appendChild(a);
         ul.appendChild(li);

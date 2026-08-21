@@ -1,4 +1,5 @@
-const pageKey = document.querySelector('[data-research-page]')?.dataset.researchPage || 'lithium';
+const requestedPageKey = new URLSearchParams(window.location.search).get('tab');
+const pageKey = requestedPageKey || document.querySelector('[data-research-page]')?.dataset.researchPage || 'tubular';
 const researchImages = {
   breadcrumb: new URL('../images/breadcrumb_arrow.svg', import.meta.url).href,
   consumerApplication: new URL('../images/rnd_svg_icn1.svg', import.meta.url).href,
@@ -57,10 +58,10 @@ const streams = {
 };
 
 const streamLinks = [
-  ['lithium', 'Lithium Batteries', 'research-lithium-batteries.html#focus-areas'],
-  ['power', 'Power Electronics', 'research-power-electronics.html#focus-areas'],
-  ['tubular', 'Conventional Tubular Batteries', 'research-conventional-tubular-batteries.html#focus-areas'],
-  ['solar', 'Solar Panels', 'research-solar-panels.html#focus-areas'],
+  ['lithium', 'Lithium Batteries', '/research-development/?tab=lithium#focus-areas'],
+  ['power', 'Power Electronics', '/research-development/?tab=power#focus-areas'],
+  ['tubular', 'Conventional Tubular Batteries', '/research-development/?tab=tubular#focus-areas'],
+  ['solar', 'Solar Panels', '/research-development/?tab=solar#focus-areas'],
 ];
 
 const data = streams[pageKey];
@@ -72,7 +73,7 @@ if (main && data) {
       <div class="research-hero__content"><h1>Research &amp;<br /><span>Development</span></h1></div>
     </section>
     <nav class="research-breadcrumbs" aria-label="Breadcrumb">
-      <a href="${streamLinks[0][2]}">Research &amp; Development</a>
+      <a href="/research-development/">Research &amp; Development</a>
       <img src="${researchImages.breadcrumb}" alt="" />
       <span>${streamLinks.find(([key]) => key === pageKey)[1]}</span>
     </nav>
@@ -114,7 +115,7 @@ if (main && data) {
     <section class="research-cta">
       <div class="research-cta__inner">
         <div><small>Partner with us</small><h2>Build the next generation of energy hardware with Eastman.</h2></div>
-        <a href="contact-us.html">Get in touch &nbsp;→</a>
+        <a href="/contact-us">Get in touch &nbsp;→</a>
       </div>
     </section>
   `;
