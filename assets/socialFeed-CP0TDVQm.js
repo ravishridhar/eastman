@@ -1,0 +1,1 @@
+import{n as e,t}from"./main-WoB4ALOV.js";e((()=>{t(),document.querySelectorAll(`.social-platform[data-social-url]`).forEach(e=>{let t=e.dataset.socialUrl;e.querySelectorAll(`.social-view`).forEach(e=>{e.href=t,e.target=`_blank`,e.rel=`noopener noreferrer`})})}))();
