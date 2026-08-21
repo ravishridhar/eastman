@@ -850,11 +850,66 @@ function setupDynamicContent() {
   setHeaderState();
 }
 
+function setupCookieConsent() {
+  const storageKey = 'eastman-cookie-consent';
+  let savedChoice = null;
+
+  try {
+    savedChoice = window.localStorage.getItem(storageKey);
+  } catch (_error) {
+    // Consent still works for this visit when browser storage is unavailable.
+  }
+
+  if (savedChoice) return;
+
+  const drawer = document.createElement('section');
+  drawer.className = 'cookie-drawer';
+  drawer.setAttribute('aria-label', 'Cookie preferences');
+  drawer.setAttribute('aria-live', 'polite');
+  drawer.innerHTML = `
+    <div class="cookie-drawer__accent" aria-hidden="true"></div>
+    <div class="cookie-drawer__icon" aria-hidden="true">
+      <span></span><i></i><i></i><i></i>
+    </div>
+    <div class="cookie-drawer__copy">
+      <p class="cookie-drawer__eyebrow">Your privacy matters</p>
+      <h2>Choose how we use cookies</h2>
+      <p>We use required cookies to keep the website working. With your permission, optional cookies help us understand site usage and improve your experience. <!-- <a href="/terms-and-conditions">Learn more</a> --></p>
+    </div>
+    <div class="cookie-drawer__actions">
+      <button class="cookie-button cookie-button--quiet" type="button" data-cookie-choice="rejected">Reject optional</button>
+      <button class="cookie-button cookie-button--required" type="button" data-cookie-choice="required">Required only</button>
+      <button class="cookie-button cookie-button--accept" type="button" data-cookie-choice="accepted">Accept all</button>
+    </div>
+  `;
+
+  document.body.appendChild(drawer);
+
+  const saveChoice = (choice) => {
+    try {
+      window.localStorage.setItem(storageKey, choice);
+    } catch (_error) {
+      // The drawer can still close when storage is blocked.
+    }
+
+    window.dispatchEvent(new CustomEvent('eastman:cookie-consent', { detail: { choice } }));
+    drawer.classList.add('is-closing');
+    window.setTimeout(() => drawer.remove(), 480);
+  };
+
+  drawer.querySelectorAll('[data-cookie-choice]').forEach((button) => {
+    button.addEventListener('click', () => saveChoice(button.dataset.cookieChoice));
+  });
+
+  window.requestAnimationFrame(() => window.requestAnimationFrame(() => drawer.classList.add('is-visible')));
+}
+
 function setupPage() {
   setupLenis();
   setupMenu();
   setupDesktopMenu();
   setupAnchorScroll();
+  setupCookieConsent();
   setupDynamicContent();
   window.addEventListener('scroll', setHeaderState, { passive: true });
 }
