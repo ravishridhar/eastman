@@ -193,7 +193,7 @@ const footerMarkup = `
           <a href="${pagePath('corporate-governance')}">Corporate Governance</a>
           <!--<a href="${pagePath('leadership-team')}">Leadership Team</a>
           <a href="${pagePath('board-committee')}">Board Committee</a>-->
-          <a href="${pagePath('disclosures')}">Shareholder Information</a>
+          <a href="${pagePath('shareholders-information')}">Shareholder Information</a>
           <a href="https://jrseastman.com/csr" target="_blank" rel="noopener noreferrer">CSR</a>
         </section>
       </div>
