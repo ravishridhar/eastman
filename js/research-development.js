@@ -81,7 +81,7 @@ if (main && data) {
       <div class="research-intro__top">
         <div class="research-intro__copy">
           <h2 class="research-section-title">Empowering Lives<br /><span>Through Innovation</span></h2>
-          <p>Three in-house R&amp;D centers, a technology center in Hong Kong, and 200+ engineers translating Power Electronics, storage, and Last Mile E-Mobility challenges into indigenized products — built for Indian manufacturability.</p>
+          <p>Three in-house R&amp;D centers, a technology center in Hong Kong, and 250+ engineers translating Power Electronics, storage, and Last Mile E-Mobility challenges into indigenized products — built for Indian manufacturability.</p>
           <a class="research-explore" href="#focus-areas">Explore More</a>
         </div>
         <div class="research-values">
@@ -93,9 +93,10 @@ if (main && data) {
       </div>
       <div class="research-stats">
         <div class="research-stat"><strong>3</strong><span>R&amp;D centres</span></div>
-        <div class="research-stat"><strong>200+</strong><span>Engineers &amp; experts</span></div>
+        <div class="research-stat"><strong>250+</strong><span>Engineers &amp; experts</span></div>
         <div class="research-stat"><strong>2</strong><span>Patents held</span></div>
-        <div class="research-stat"><strong>41</strong><span>Design registrations</span></div>
+        <div class="research-stat"><strong>50</strong><span>Design registrations</span></div>
+        <div class="research-stat"><strong>10</strong><span>Filed but pending for grant</span></div>
       </div>
     </section>
     <section class="research-streams" id="focus-areas">

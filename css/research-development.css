@@ -204,7 +204,7 @@
 .research-stats {
   border-top: 1px solid #e3e8ef;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin-top: 56px;
   padding-top: 40px;
 }
@@ -467,12 +467,9 @@
     border-radius: 0 12px 0 0;
   }
 
-  .research-stat:nth-child(3) {
-    border-radius: 0 0 0 12px;
-  }
-
   .research-stat:last-child {
-    border-radius: 0 0 12px;
+    border-radius: 0 0 12px 12px;
+    grid-column: 1 / -1;
   }
 
   .research-stat strong {

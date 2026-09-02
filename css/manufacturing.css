@@ -1026,7 +1026,7 @@
 }
 
 .cert-icon::before {
-  background: url("/images/check-square.svg") center / contain no-repeat;
+  background: url("/images/tick.svg") center / contain no-repeat;
   content: "";
   height: 24px;
   width: 24px;
