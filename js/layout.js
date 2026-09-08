@@ -261,8 +261,8 @@ const footerMarkup = `
     </div>
     <div class="legal">
       <p>&copy; 2026 Eastman Auto &amp; Power Limited. All rights reserved.</p>
-      <span>Privacy Policy</span>
-      <a href="${pagePath('terms-and-conditions')}">Terms of Conditions</a>
+      <a href="${pagePath('privacy-policy')}">Privacy Policy</a>
+      <a href="${pagePath('terms-of-use')}">Terms of Use</a>
     </div>
   </footer>
 `;

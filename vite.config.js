@@ -53,7 +53,8 @@ const topLevelCleanRoutes = [
   '/policies',
   '/disclosures',
   '/shareholders-information',
-  '/terms-and-conditions',
+  '/terms-of-use',
+  '/privacy-policy',
   '/our-businesses',
   '/partner-with-us',
   '/contact-us',
@@ -68,8 +69,54 @@ const topLevelCleanRoutes = [
   '/research-development',
 ];
 
-function createSitemap() {
-  const defaultSiteUrl = deployBasePath === '/' ? 'https://eaplworld.com' : `https://ravishridhar.github.io${deployBasePath}`;
+const legacyRedirects = {
+  '/dealer-locator': '/',
+  '/white-paper': '/white-papers',
+  '/media-centre': '/media-news',
+  '/about-us/our-values': '/about-us',
+  '/our-businesses/global-businesses': '/our-businesses',
+  '/Sanjay-Singh': '/leadership-team/sanjay-singh',
+  '/Vishal-Puri': '/leadership-team/vishal-puri',
+  '/goutam-kumar': '/corporate-governance/goutam-kumar',
+  '/rajat-diwaker': '/corporate-governance/rajat-diwaker',
+  '/Jitender-Manav': '/leadership-team/jitender-manav',
+  '/jagdish-rai-singal': '/corporate-governance/jagdish-rai-singal',
+  '/Sanjay-Kumar-Makkar': '/leadership-team/sanjay-kumar-makkar',
+  '/sanjeev-gupta': '/corporate-governance/sanjeev-gupta',
+  '/Hemant-Nagpal': '/leadership-team/hemant-nagpal',
+  '/Mantosh-Kumar': '/leadership-team/mantosh-kumar',
+  '/ashok-kumar-jain': '/corporate-governance/ashok-kumar-jain',
+  '/rahul-nitin-sinnarkar': '/corporate-governance/rahul-nitin-sinnarkar',
+  '/Tilak-Raj': '/leadership-team/tilak-raj',
+  '/manjusha-bhatnagar': '/corporate-governance/manjusha-bhatnagar',
+  '/shekhar-singal': '/corporate-governance/shekhar-singal',
+  '/Sunil-Tiku': '/leadership-team/sunil-tiku',
+  '/Surajit-Sur': '/leadership-team/surajit-sur',
+  '/satpal-kumar-arora': '/corporate-governance/satpal-kumar-arora',
+  '/top-10-battery-manufacturers-in-india': '/',
+  '/debunked-6-inverter-battery-myths-you-should-stop-believing': '/',
+  '/harnessing-solar-power-sustainable-energy-solution-your-home': '/',
+  '/home-battery-system-compact-guide': '/',
+  '/Made-in-India-Powering-the-World-Eastman-50-plus-Country-Reach': '/',
+  '/everything-to-know-about-tubular-batteries': '/',
+  '/the-future-of-solar-energy-innovations-driving-the-industry-in-2025': '/',
+  '/why-eastman-lithium-batteries-are-emerging-as-indias-no-1-choice-for-solar-storage': '/',
+  '/report.html': '/resources',
+};
+
+function deployedPath(route, basePath = deployBasePath) {
+  const basePrefix = basePath === '/' ? '' : basePath.slice(0, -1);
+  return `${basePrefix}${route}` || '/';
+}
+
+function createStaticRedirect(target, basePath) {
+  const destination = deployedPath(target, basePath);
+  const escapedDestination = destination.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+  return `<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="robots" content="noindex">\n  <meta http-equiv="refresh" content="0; url=${escapedDestination}">\n  <link rel="canonical" href="${escapedDestination}">\n  <title>Redirecting…</title>\n  <script>window.location.replace(${JSON.stringify(destination)} + window.location.search + window.location.hash);</script>\n</head>\n<body>\n  <p>This page has moved to <a href="${escapedDestination}">${escapedDestination}</a>.</p>\n</body>\n</html>\n`;
+}
+
+function createSitemap(basePath = deployBasePath) {
+  const defaultSiteUrl = basePath === '/' ? 'https://eaplworld.com' : `https://ravishridhar.github.io${basePath}`;
   const siteOrigin = (process.env.SITE_URL || defaultSiteUrl).replace(/\/$/, '');
   const routes = [...topLevelCleanRoutes, ...Object.keys(nestedCleanRoutes)].sort((a, b) => {
     if (a === '/') return -1;
@@ -81,9 +128,9 @@ function createSitemap() {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
-function prefixRootUrls(directory) {
-  if (deployBasePath === '/') return;
-  const prefix = deployBasePath.slice(0, -1);
+function prefixRootUrls(directory, basePath = deployBasePath) {
+  if (basePath === '/') return;
+  const prefix = basePath.slice(0, -1);
 
   const visit = (currentDirectory) => {
     for (const entry of readdirSync(currentDirectory, { withFileTypes: true })) {
@@ -112,16 +159,24 @@ function prefixRootUrls(directory) {
   visit(directory);
 }
 
-function cleanUrlPages() {
+function cleanUrlPages(basePath) {
+  let resolvedBasePath = basePath;
+
   const routeRequest = (request, response) => {
     if (!request.url) return;
     const [pathname, query = ''] = request.url.split('?');
-    const basePrefix = deployBasePath === '/' ? '' : deployBasePath.slice(0, -1);
+    const basePrefix = resolvedBasePath === '/' ? '' : resolvedBasePath.slice(0, -1);
     const routePath = basePrefix && pathname.startsWith(basePrefix) ? pathname.slice(basePrefix.length) || '/' : pathname;
     const normalizedPath = routePath.replace(/\/$/, '') || '/';
     const acceptsHtml = !request.headers.accept || request.headers.accept.includes('text/html');
 
-    if (nestedCleanRoutes[normalizedPath]) {
+    if (legacyRedirects[normalizedPath]) {
+      response.statusCode = 301;
+      const destination = deployedPath(legacyRedirects[normalizedPath], resolvedBasePath);
+      response.setHeader('Location', `${destination}${query ? `?${query}` : ''}`);
+      response.end();
+      return true;
+    } else if (nestedCleanRoutes[normalizedPath]) {
       request.url = `/${nestedCleanRoutes[normalizedPath]}${query ? `?${query}` : ''}`;
     } else if (topLevelCleanRoutes.includes(normalizedPath)) {
       request.url = normalizedPath === '/' ? `/${query ? `?${query}` : ''}` : `${normalizedPath}.html${query ? `?${query}` : ''}`;
@@ -133,16 +188,17 @@ function cleanUrlPages() {
 
   return {
     name: 'clean-url-pages',
+    configResolved(config) {
+      resolvedBasePath = config.base === '/' ? '/' : `/${config.base.replace(/^\/+|\/+$/g, '')}/`;
+    },
     configureServer(server) {
       server.middlewares.use((request, response, next) => {
-        routeRequest(request, response);
-        next();
+        if (!routeRequest(request, response)) next();
       });
     },
     configurePreviewServer(server) {
       server.middlewares.use((request, response, next) => {
-        routeRequest(request, response);
-        next();
+        if (!routeRequest(request, response)) next();
       });
     },
     closeBundle() {
@@ -160,8 +216,16 @@ function cleanUrlPages() {
         copyFileSync(resolve(__dirname, 'dist', file), resolve(directory, 'index.html'));
       }
 
-      writeFileSync(resolve(__dirname, 'dist', 'sitemap.xml'), createSitemap());
-      prefixRootUrls(resolve(__dirname, 'dist'));
+      for (const [route, target] of Object.entries(legacyRedirects)) {
+        const redirectFile = route.endsWith('.html')
+          ? resolve(__dirname, 'dist', route.slice(1))
+          : resolve(__dirname, 'dist', route.slice(1), 'index.html');
+        mkdirSync(resolve(redirectFile, '..'), { recursive: true });
+        writeFileSync(redirectFile, createStaticRedirect(target, resolvedBasePath));
+      }
+
+      writeFileSync(resolve(__dirname, 'dist', 'sitemap.xml'), createSitemap(resolvedBasePath));
+      prefixRootUrls(resolve(__dirname, 'dist'), resolvedBasePath);
     },
   };
 }
@@ -169,10 +233,11 @@ function cleanUrlPages() {
 module.exports = defineConfig(({ command }) => {
   const configuredBase = process.env.VITE_BASE_PATH || (command === 'build' ? '/eastman/' : '/');
   deployBasePath = configuredBase === '/' ? '/' : `/${configuredBase.replace(/^\/+|\/+$/g, '')}/`;
+  const buildBasePath = deployBasePath;
 
   return {
-    base: deployBasePath,
-    plugins: [tailwindcss(), cleanUrlPages()],
+    base: buildBasePath,
+    plugins: [tailwindcss(), cleanUrlPages(buildBasePath)],
     build: {
     assetsInlineLimit: 0,
     outDir: 'dist',
@@ -191,7 +256,8 @@ module.exports = defineConfig(({ command }) => {
         listing: resolve(__dirname, 'listing.html'),
         disclosures: resolve(__dirname, 'disclosures.html'),
         shareholdersInformation: resolve(__dirname, 'shareholders-information.html'),
-        termsAndConditions: resolve(__dirname, 'terms-and-conditions.html'),
+        termsOfUse: resolve(__dirname, 'terms-of-use.html'),
+        privacyPolicy: resolve(__dirname, 'privacy-policy.html'),
         business: resolve(__dirname, 'our-businesses.html'),
         lastMileEMobility: resolve(__dirname, 'last-mile-e-mobility-solutions.html'),
         residentialSolarWithStorage: resolve(__dirname, 'residential-solar-with-storage.html'),

@@ -238,7 +238,8 @@ function isRoutableLink(link) {
     'conventional-tubular-batteries',
     'life-at-eastman',
     'shareholders-information',
-    'terms-and-conditions',
+    'terms-of-use',
+    'privacy-policy',
   ].includes(pageName);
 }
 
@@ -380,7 +381,7 @@ function setupCounters() {
 }
 
 function setupSectionReveals() {
-  const sections = document.querySelectorAll('main > section, .site-footer');
+  const sections = document.querySelectorAll('main > section');
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     sections.forEach((section) => section.classList.add('is-visible'));
@@ -874,7 +875,7 @@ function setupCookieConsent() {
     <div class="cookie-drawer__copy">
       <p class="cookie-drawer__eyebrow">Your privacy matters</p>
       <h2>Choose how we use cookies</h2>
-      <p>We use required cookies to keep the website working. With your permission, optional cookies help us understand site usage and improve your experience. <!-- <a href="/terms-and-conditions">Learn more</a> --></p>
+      <p>We use required cookies to keep the website working. With your permission, optional cookies help us understand site usage and improve your experience. <!-- <a href="/terms-of-use">Learn more</a> --></p>
     </div>
     <div class="cookie-drawer__actions">
       <button class="cookie-button cookie-button--quiet" type="button" data-cookie-choice="rejected">Reject optional</button>

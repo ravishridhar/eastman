@@ -5,6 +5,7 @@
 .terms-hero h1 { font-size: 45px; font-weight: 800; letter-spacing: -.45px; line-height: 1.25; margin: 0 0 15px; }
 .terms-hero h1 span { color: #ffd60a; }
 .terms-hero p { color: rgba(255,255,255,.8); font-size: 13.5px; line-height: 21px; margin: 0; }
+.privacy-page .terms-hero { background-image: url('../images/privacy-policy.jpg'); }
 .terms-breadcrumbs { align-items: center; color: #777983; display: flex; font-size: 12px; font-weight: 500; gap: 4px; min-height: 47px; padding: 16px 56px; }
 .terms-breadcrumbs span:last-child { color: #18408c; font-weight: 600; }
 .terms-content { margin: 0 auto; max-width: 1440px; padding: 24px 56px 48px; }
