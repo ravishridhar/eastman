@@ -18,7 +18,7 @@
 .year-select::after { background: url('/images/shareholders/chevron-down.svg') center/16px no-repeat; content: ''; height: 16px; pointer-events: none; position: absolute; right: 9px; top: 10px; width: 16px; }
 .year-select select { appearance: none; background: transparent; border: 0; color: #5b5d65; font: inherit; font-size: 14px; height: 100%; outline: 0; padding: 0 30px 0 10px; width: 100%; }
 .shareholder-panel { background: #f5f7fa; border-radius: 8px; margin: 0 auto; max-width: 1328px; padding: 16px; }
-.shareholder-panel > h3 { color: #ef7b23; font-size: 24px; line-height: 1.2; margin: 0 0 10px; text-transform: uppercase; }
+.shareholder-panel > h3, .shareholder-panel > h4 { color: #ef7b23; font-size: 24px; line-height: 1.2; margin: 0 0 10px; text-transform: uppercase; }
 .shareholder-documents { display: grid; gap: 16px; }
 .shareholder-document { align-items: center; background: #fff; border: 1px solid #18408c; border-radius: 8px; box-shadow: 0 11px 15px rgba(140,140,140,.09); display: flex; justify-content: space-between; min-height: 56px; padding: 15px 16px; position: relative; transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.22,1,.36,1); }
 .shareholder-document:hover, .shareholder-document:focus-visible { background: #fbfcff; border-color: #ef7b23; box-shadow: 0 14px 28px rgba(24,64,140,.16); transform: translateY(-3px); }
@@ -66,4 +66,17 @@
   .shareholder-document b { font-size: 0; }
   .contact-card h3 { font-size: 21px; }
   .contact-card address { font-size: 14px; }
+}
+
+.shareholder-subsection { margin: 24px auto 0; max-width: 1328px; }
+.shareholder-subsection + .shareholder-subsection { margin-top: 32px; }
+.shareholder-subsection .shareholder-section__heading h3 { color: #18408c; flex: 1; font-size: 30px; font-weight: 600; line-height: 1.2; margin: 0; }
+.shareholder-subsection .shareholder-section__heading h3 span { color: #ef7b23; }
+.shareholder-document[hidden] { display: none; }
+.shareholder-document--pending { border-color: #d5dce7; box-shadow: none; }
+.shareholder-document--pending:hover { background: #fff; border-color: #d5dce7; box-shadow: none; transform: none; }
+.shareholder-document .shareholder-document__status { color: #5b5d65; font-size: 13px; flex-shrink: 0; }
+@media (max-width: 560px) {
+  .shareholder-subsection .shareholder-section__heading h3 { font-size: 25px; }
+  .shareholder-document--pending { align-items: flex-start; flex-direction: column; gap: 6px; }
 }
