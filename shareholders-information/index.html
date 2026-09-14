@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/eastman/assets/shareholdersInformation-d3PGbAVn.js"></script>
+    <script type="module" crossorigin src="/eastman/assets/shareholdersInformation-BLUC-2WK.js"></script>
     <link rel="modulepreload" crossorigin href="/eastman/assets/main-DZnorYqS.js">
-    <link rel="stylesheet" crossorigin href="/eastman/assets/app-B-ZvH4gr.css">
+    <link rel="stylesheet" crossorigin href="/eastman/assets/app-3KQM-tPc.css">
   </head>
   <body class="shareholders-page">
     <div id="app">
@@ -32,15 +32,29 @@
           <span>Shareholders Information</span>
         </nav>
 
+        <div class="shareholders-tabs" role="tablist" aria-label="Shareholder information">
+          <button type="button" id="tab-agm" role="tab" aria-selected="true" aria-controls="panel-agm" data-main-tab>Annual General Meeting</button>
+          <button type="button" id="tab-returns" role="tab" aria-selected="false" aria-controls="panel-returns" tabindex="-1" data-main-tab>Annual Returns</button>
+          <button type="button" id="tab-contacts" role="tab" aria-selected="false" aria-controls="panel-contacts" tabindex="-1" data-main-tab>Contact Details</button>
+        </div>
         <div class="shareholders-content">
-          <section class="shareholder-section">
+          <section class="shareholder-section" id="panel-agm" role="tabpanel" aria-labelledby="tab-agm">
             <div class="shareholder-section__heading"><h2>Annual General <span>Meeting</span></h2></div>
-            <section class="shareholder-subsection" data-document-group>
+            <div class="shareholder-subnav">
+              <button type="button" class="shareholder-step" data-tab-step="-1" aria-label="Previous meeting document category">&#8249;</button>
+              <div class="shareholder-subtabs" role="tablist" aria-label="Annual General Meeting documents">
+                <button type="button" id="tab-notices" role="tab" aria-selected="true" aria-controls="panel-notices" data-meeting-tab>Notice of AGM</button>
+                <button type="button" id="tab-reports" role="tab" aria-selected="false" aria-controls="panel-reports" tabindex="-1" data-meeting-tab>Annual Report</button>
+              </div>
+              <button type="button" class="shareholder-step" data-tab-step="1" aria-label="Next meeting document category">&#8250;</button>
+            </div>
+            <section class="shareholder-subsection" id="panel-notices" role="tabpanel" aria-labelledby="tab-notices" data-document-group>
             <div class="shareholder-panel">
             <div class="shareholder-section__heading">
               <h3>Notice of <span>AGM</span></h3>
               <label class="year-select"><span class="sr-only">Filter AGM notices by year</span><select data-year-filter><option value="all">Select Year</option><option value="2026">2026</option><option value="2025">2025</option></select></label>
             </div>
+              <div class="shareholder-table-heading">Title</div>
               <div class="shareholder-documents">
                 <a class="shareholder-document" href="https://eaplworld.com/sites/default/files/2025-11/Notice%20of%2026th%20Annual%20General%20Meeting.pdf" target="_blank" rel="noopener noreferrer" data-year="2026"><span><img src="/eastman/images/shareholders/file-pdf.svg" alt="" />Notice of AGM (FY 2026)</span><b>View<img src="/eastman/images/shareholders/view-arrow.svg" alt="" /></b></a>
                 <a class="shareholder-document" href="https://eaplworld.com/sites/default/files/2025-11/Notice%20of%2026th%20Annual%20General%20Meeting.pdf" target="_blank" rel="noopener noreferrer" data-year="2025"><span><img src="/eastman/images/shareholders/file-pdf.svg" alt="" />Notice of AGM (FY 2025)</span><b>View<img src="/eastman/images/shareholders/view-arrow.svg" alt="" /></b></a>
@@ -48,12 +62,13 @@
             </div>
           </section>
 
-            <section class="shareholder-subsection" data-document-group>
+            <section class="shareholder-subsection" id="panel-reports" role="tabpanel" aria-labelledby="tab-reports" data-document-group hidden>
             <div class="shareholder-panel">
             <div class="shareholder-section__heading">
               <h3>Annual <span>Report</span></h3>
               <label class="year-select"><span class="sr-only">Filter annual reports by year</span><select data-year-filter><option value="all">Select Year</option><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option></select></label>
             </div>
+              <div class="shareholder-table-heading">Title</div>
               <div class="shareholder-documents">
                 <div class="shareholder-document shareholder-document--pending" data-year="2026"><span><img src="/eastman/images/shareholders/file-pdf.svg" alt="" />Board Report FY 2026</span><span class="shareholder-document__status">Awaiting upload</span></div>
                 <a class="shareholder-document" href="https://eaplworld.com/sites/default/files/2025-12/Board%20Report%20FY%202025.pdf" target="_blank" rel="noopener noreferrer" data-year="2025"><span><img src="/eastman/images/shareholders/file-pdf.svg" alt="" />Board Report FY 2025</span><b>View<img src="/eastman/images/shareholders/view-arrow.svg" alt="" /></b></a>
@@ -64,13 +79,14 @@
           </section>
           </section>
 
-          <section class="shareholder-section" data-document-group>
+          <section class="shareholder-section" id="panel-returns" role="tabpanel" aria-labelledby="tab-returns" data-document-group hidden>
             <div class="shareholder-section__heading">
               <h2>Annual <span>Returns</span></h2>
               <label class="year-select"><span class="sr-only">Filter annual returns by year</span><select data-year-filter><option value="all">Select Year</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option></select></label>
             </div>
             <div class="shareholder-panel">
               <!-- <h3>Title</h3> -->
+              <div class="shareholder-table-heading">Title</div>
               <div class="shareholder-documents">
                 <a class="shareholder-document" href="/eastman/images/about/Annual%20Return%20FY%202025.pdf" target="_blank" rel="noopener noreferrer" data-year="2025"><span><img src="/eastman/images/shareholders/file-pdf.svg" alt="" />Annual Return FY 2025</span><b>View<img src="/eastman/images/shareholders/view-arrow.svg" alt="" /></b></a>
                 <a class="shareholder-document" href="/eastman/images/about/Annual%20Return%20FY%2024.pdf" target="_blank" rel="noopener noreferrer" data-year="2024"><span><img src="/eastman/images/shareholders/file-pdf.svg" alt="" />Annual Return FY 2024</span><b>View<img src="/eastman/images/shareholders/view-arrow.svg" alt="" /></b></a>
@@ -79,7 +95,7 @@
             </div>
           </section>
 
-          <section class="shareholder-section shareholder-section--contacts">
+          <section class="shareholder-section shareholder-section--contacts" id="panel-contacts" role="tabpanel" aria-labelledby="tab-contacts" hidden>
             <div class="shareholder-section__heading"><h2>Contact <span>Details</span></h2></div>
             <div class="shareholder-panel contact-grid">
               <article class="contact-card"><h3>Mr. Rahul Nitin Sinnarkar</h3><h4>Company Secretary &amp; Compliance Officer</h4><hr /><address><p><img src="/eastman/images/shareholders/map-pin.svg" alt="" /><span>Eastman Auto &amp; Power Limited<br />Corporate Office: 4th Floor, Quattro Tower- A, Plot No. 249 E, Udyog Vihar Phase- IV, Industrial Complex Dundahera, Gurgaon, Haryana- 122016, India</span></p><a href="tel:+911244682650"><img src="/eastman/images/shareholders/phone.svg" alt="" />+91-124-4682650</a><a href="mailto:secretarial@eaplworld.com"><img src="/eastman/images/shareholders/mail.svg" alt="" />secretarial@eaplworld.com</a></address></article>
