@@ -2,6 +2,7 @@ const { defineConfig } = require('vite');
 const tailwindcss = require('@tailwindcss/vite').default;
 const { resolve } = require('path');
 const { copyFileSync, mkdirSync, readFileSync, readdirSync, writeFileSync } = require('fs');
+const blogArticles = require('./data/blog-articles.json');
 
 let deployBasePath = '/';
 
@@ -12,7 +13,7 @@ const leadershipProfileSlugs = [
   'hemant-nagpal',
   'surajit-sur',
   'mantosh-kumar',
-  'tilak-raj',
+  'rajesh-jindal',
   'sunil-tiku',
   'sanjay-kumar-makkar',
 ];
@@ -30,6 +31,7 @@ const boardProfileSlugs = [
 ];
 
 const nestedCleanRoutes = {
+  ...Object.fromEntries(blogArticles.map(({ path, file }) => [path, file])),
   '/manufacturing-infrastructure/conventional-tubular-batteries': 'conventional-tubular-batteries.html',
   '/manufacturing-infrastructure/power-electronics': 'power-electronics.html',
   '/manufacturing-infrastructure/lithium-batteries': 'lithium-batteries.html',
@@ -38,6 +40,7 @@ const nestedCleanRoutes = {
   '/our-businesses/residential-solar-with-storage': 'residential-solar-with-storage.html',
   '/our-businesses/continued-energy-solutions': 'continued-energy-solutions.html',
   '/our-businesses/advanced-electronics-manufacturing': 'advanced-electronics-manufacturing.html',
+  '/our-businesses/international-business': 'international-business.html',
   ...Object.fromEntries(leadershipProfileSlugs.map((slug) => [`/leadership-team/${slug}`, 'leadership-team.html'])),
   ...Object.fromEntries(boardProfileSlugs.map((slug) => [`/corporate-governance/${slug}`, 'corporate-governance.html'])),
 };
@@ -70,6 +73,10 @@ const topLevelCleanRoutes = [
 ];
 
 const legacyRedirects = {
+  '/our-businesses/conventional-tubular-batteries': '/manufacturing-infrastructure/conventional-tubular-batteries',
+  '/businesses/conventional-tubular-batteries': '/manufacturing-infrastructure/conventional-tubular-batteries',
+  '/our-businesses/lithium-ion-battery-packs': '/manufacturing-infrastructure/lithium-batteries',
+  '/businesses/lithium-ion-battery-packs': '/manufacturing-infrastructure/lithium-batteries',
   '/dealer-locator': '/',
   '/white-paper': '/white-papers',
   '/media-centre': '/media-news',
@@ -87,7 +94,8 @@ const legacyRedirects = {
   '/Mantosh-Kumar': '/leadership-team/mantosh-kumar',
   '/ashok-kumar-jain': '/corporate-governance/ashok-kumar-jain',
   '/rahul-nitin-sinnarkar': '/corporate-governance/rahul-nitin-sinnarkar',
-  '/Tilak-Raj': '/leadership-team/tilak-raj',
+  '/Tilak-Raj': '/leadership-team',
+  '/leadership-team/tilak-raj': '/leadership-team',
   '/manjusha-bhatnagar': '/corporate-governance/manjusha-bhatnagar',
   '/shekhar-singal': '/corporate-governance/shekhar-singal',
   '/Sunil-Tiku': '/leadership-team/sunil-tiku',
@@ -263,12 +271,14 @@ module.exports = defineConfig(({ command }) => {
         residentialSolarWithStorage: resolve(__dirname, 'residential-solar-with-storage.html'),
         continuedEnergySolutions: resolve(__dirname, 'continued-energy-solutions.html'),
         advancedElectronicsManufacturing: resolve(__dirname, 'advanced-electronics-manufacturing.html'),
+        internationalBusiness: resolve(__dirname, 'international-business.html'),
         partnerWithUs: resolve(__dirname, 'partner-with-us.html'),
         contactUs: resolve(__dirname, 'contact-us.html'),
         lifeAtEastman: resolve(__dirname, 'life-at-eastman.html'),
         resources: resolve(__dirname, 'resources.html'),
         mediaNews: resolve(__dirname, 'media-news.html'),
         blog: resolve(__dirname, 'blog.html'),
+        ...Object.fromEntries(blogArticles.map(({ file }, index) => [`blogArticle${index}`, resolve(__dirname, file)])),
         socialFeed: resolve(__dirname, 'social-feed.html'),
         whitePapers: resolve(__dirname, 'white-papers.html'),
         videos: resolve(__dirname, 'videos.html'),

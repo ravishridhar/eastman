@@ -30,6 +30,7 @@ const headerMarkup = `
         <button type="button" data-desktop-trigger="research" data-nav-href="${pagePath('research-development/?tab=tubular#focus-areas')}" aria-expanded="false">Research &amp; Development<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="manufacturing" aria-expanded="false">Manufacturing Infrastructure<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="businesses" aria-expanded="false">Our Businesses<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
+        <button type="button" data-desktop-trigger="brands" aria-expanded="false">Our Brands<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <button type="button" data-desktop-trigger="resources" aria-expanded="false">Resources<img src="${assetPath('images/nav-chevron.svg')}" alt="" class="nav-chevron" /></button>
         <a href="${pagePath('life-at-eastman')}">Life@Eastman</a>
       </nav>
@@ -82,7 +83,12 @@ const headerMarkup = `
         <a href="${pagePath('our-businesses/residential-solar-with-storage')}">Residential Solar With Storage</a>
         <a href="${pagePath('our-businesses/continued-energy-solutions')}">Continued Energy Solutions</a>
         <a href="${pagePath('our-businesses/advanced-electronics-manufacturing')}">Advanced Electronics Manufacturing</a>
-        <!--<a href="${pagePath('our-businesses#businesses')}">Global Business</a>-->
+        <a href="${pagePath('our-businesses/international-business')}">International Business</a>
+      </section>
+      <section class="mega-panel mega-panel--card" data-desktop-panel="brands" aria-label="Our Brands submenu">
+        <a href="${pagePath()}">Eastman</a>
+        <a href="https://www.addotheking.com/home" target="_blank" rel="noopener noreferrer">Addotheking</a>
+        <a href="https://voltsman.in/" target="_blank" rel="noopener noreferrer">Voltsman</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="resources" aria-label="Resources submenu">
         <!-- <h2>Resources</h2> -->
@@ -147,7 +153,15 @@ const headerMarkup = `
           <a href="${pagePath('our-businesses/residential-solar-with-storage')}">Solar Solutions</a>
           <a href="${pagePath('our-businesses/continued-energy-solutions')}">Continued Energy Solutions</a>
           <a href="${pagePath('our-businesses/advanced-electronics-manufacturing')}">Advanced Electronics Manufacturing</a>
-          <!--<a href="${pagePath('our-businesses#businesses')}">Global Businesses</a>-->
+          <a href="${pagePath('our-businesses/international-business')}">International Business</a>
+        </div>
+      </div>
+      <div class="mobile-nav-item">
+        <button type="button" class="mobile-nav-trigger" aria-expanded="false">Our Brands<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
+        <div class="mobile-submenu">
+          <a href="${pagePath()}">Eastman</a>
+          <a href="https://www.addotheking.com/home" target="_blank" rel="noopener noreferrer">Addotheking</a>
+          <a href="https://voltsman.in/" target="_blank" rel="noopener noreferrer">Voltsman</a>
         </div>
       </div>
       <div class="mobile-nav-item">
@@ -223,7 +237,7 @@ const footerMarkup = `
           <a href="${pagePath('our-businesses/residential-solar-with-storage')}">Residential Solar with Storage</a>
           <a href="${pagePath('our-businesses/continued-energy-solutions')}">Continued Energy Solutions</a>
           <a href="${pagePath('our-businesses/advanced-electronics-manufacturing')}">Advanced Electronics Manufacturing</a>
-          <!--<a href="${pagePath('our-businesses#businesses')}">Global Business</a>-->
+          <a href="${pagePath('our-businesses/international-business')}">International Business</a>
         </section>
         <section class="footer-group">
           <h3>Resources</h3>

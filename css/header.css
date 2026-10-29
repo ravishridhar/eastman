@@ -31,6 +31,12 @@
   color: #fff;
 }
 
+/* Keep the expanded navigation within the narrow desktop header. */
+@media (min-width: 821px) and (max-width: 980px) {
+  body .site-header { padding-inline: 24px; gap: 12px; }
+  body .site-header .brand img { width: 112px; }
+}
+
 .brand {
   align-items: center;
   display: inline-flex;

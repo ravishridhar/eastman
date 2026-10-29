@@ -1,5 +1,6 @@
 import Lenis from 'lenis';
 import { setupLayout } from './layout.js';
+import { setupBlogPagination } from './blog-pagination.js';
 
 setupLayout();
 
@@ -840,6 +841,7 @@ function setupHistoryTimeline() {
 }
 
 function setupDynamicContent() {
+  setupBlogPagination();
   setupSolutionLabels();
   setupPartnerVideoSlider();
   setupSnapshotSliders();
