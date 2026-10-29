@@ -3,7 +3,7 @@
     background: transparent;
     box-shadow: none;
     color: #fff;
-    gap: 24px;
+    gap: 40px;
     height: 119px;
     justify-content: space-between;
     padding: 8px max(58px, calc((100vw - 1324px) / 2));
@@ -26,7 +26,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     box-shadow: 0 8px 22px rgba(15, 48, 119, 0.18);
     color: #fff;
-    gap: 24px;
+    gap: 40px;
     height: 86px;
     justify-content: space-between;
     padding-block: 8px;
@@ -45,7 +45,7 @@
       height 260ms ease,
       max-width 260ms ease,
       width 260ms ease;
-    width: 200.656px;
+    width: 176px;
   }
 
   .site-header.is-scrolled .brand img {
@@ -96,9 +96,9 @@
   }
 
   .desktop-nav {
-    font-size: 13.94px;
+    font-size: 13px;
     font-weight: 500;
-    gap: 14.932px;
+    gap: 12px;
     justify-content: flex-end;
     letter-spacing: 0;
     line-height: 1.5;
@@ -109,9 +109,9 @@
   }
 
   .site-header.is-scrolled .desktop-nav {
-    font-size: 13.94px;
+    font-size: 13px;
     font-weight: 500;
-    gap: 14.932px;
+    gap: 12px;
     line-height: 1.5;
   }
 
@@ -235,8 +235,12 @@
 
   @media (max-width: 1240px) {
     .site-header {
-      gap: 16px;
+      gap: 28px;
       padding-inline: 32px;
+    }
+
+    .site-header.is-scrolled {
+      gap: 28px;
     }
 
     .brand img {
