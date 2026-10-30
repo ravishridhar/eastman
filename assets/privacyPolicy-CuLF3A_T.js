@@ -1,0 +1,1 @@
+import"./main-83lkCzO-.js";/* empty css            */import{t as e}from"./terms-and-conditions-u6D7XkFV.js";e();
