@@ -27,7 +27,7 @@
 .featured-paper > div > a, .paper-card footer a { align-items: center; background: #ea6c0a; border-radius: 10px; color: #fff; display: inline-flex; font-size: 14px; font-weight: 600; gap: 8px; min-height: 44px; padding: 12px 18px; text-decoration: none; }
 .featured-paper > div > a img, .paper-card footer a img { filter: brightness(0) invert(1); height: 14px; width: 14px; }
 .paper-count { color: #737373; font-size: 14px; margin: 32px 0 24px; }
-.papers-grid { display: grid; gap: 24px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.papers-grid { display: grid; gap: 40px 24px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .paper-card { border: 1px solid #eee; border-radius: 16px; display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
 .paper-card-media { display: block; position: relative; overflow: hidden; aspect-ratio: 5 / 4; background: #f4f6f9; }
 
@@ -62,7 +62,7 @@
   .featured-paper-cover > img { max-height: none; }
   .featured-paper > div { gap: 16px; padding: 20px; }
   .featured-paper h3 { font-size: 24px; }
-  .papers-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .papers-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .white-papers-content a { transition: none; }
