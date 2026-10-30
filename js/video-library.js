@@ -4,7 +4,8 @@ export function setupVideoLibrary() {
   root.dataset.ready = 'true';
   const tabs = [...root.querySelectorAll('[data-video-tab]')];
   const panels = [...root.querySelectorAll('[data-video-panel]')];
-  root.querySelector('[role="tablist"]').hidden = false;
+  const tablist = root.querySelector('[role="tablist"]');
+  if (tablist) tablist.hidden = false;
 
   function activate(key) {
     const selected = tabs.find((tab) => tab.dataset.videoTab === key) || tabs[0];
@@ -34,7 +35,7 @@ export function setupVideoLibrary() {
       tabs[next].focus();
     });
   });
-  activate(window.location.hash.replace(/^#(?:video-)?/, ''));
+  if (tabs.length) activate(window.location.hash.replace(/^#(?:video-)?/, ''));
 
   const dialog = root.querySelector('[data-video-dialog]');
   const frame = root.querySelector('[data-video-frame]');

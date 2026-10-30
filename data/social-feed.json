@@ -1,0 +1,51 @@
+[
+  {
+    "platform": "facebook",
+    "name": "Facebook",
+    "account": "@EastmanIndia",
+    "post": "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FEastmanIndia%2Fposts%2Fpfbid028NfXRyXfXQeubQniNJ69X2Z8pgVGaNYApeAunhbeojk7DdBPJ4VToeQK2RBX5hYFl&show_text=true&width=500",
+    "profile": "https://www.facebook.com/share/16KHgX6YJ8/?mibextid=wwXIfr",
+    "paragraphs": [
+      "Why settle for average?",
+      "Get up to 98.75% efficiency with our advanced inverters. Smarter power, better savings.",
+      "Give us a call at 78728 78728 or visit your nearest dealer today!"
+    ],
+    "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/social-image-bg.jpg",
+    "image": "/images/social-feed/live/facebook.jpg",
+    "icon": "/images/resources/facebook.svg"
+  },
+  {
+    "platform": "instagram",
+    "name": "Instagram",
+    "account": "@eastman_india",
+    "post": "https://www.instagram.com/p/DIBh7paz-I8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "profile": "https://www.instagram.com/eastman_india/",
+    "paragraphs": [
+      "Power You Can Trust!",
+      "Stay unstoppable with 5+ advanced safety features designed to keep you powered—always.",
+      "Eastman Solar SmartMax Solar Inverters.",
+      "✔️36 Months Warranty \n✔️10 Years Transformer Warranty",
+      "Give us a call at 78728 78728 or visit your nearest dealer today!"
+    ],
+    "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/instagram-bg.jpg",
+    "image": "/images/social-feed/live/instagram.jpg",
+    "icon": "/images/resources/instagram.svg"
+  },
+  {
+    "platform": "linkedin",
+    "name": "LinkedIn",
+    "account": "Eastman Auto & Power",
+    "post": "https://www.linkedin.com/posts/eastman-auto-power-limited_day-3-dubai-expo-activity-7315753372777598976-5geJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB2S3xoBleePEL0vZXAB9uEeM9rgDnyYpEc",
+    "profile": "https://www.linkedin.com/company/eastman-auto-power-limited/posts/?feedView=all",
+    "paragraphs": [
+      "Eastman Sparks a Media Storm at Middle East Energy 2025!",
+      "We are thrilled to share that Eastman created a media buzz at Middle East Energy 2025, catching the spotlight of top-tier global and regional media houses, including CNBC, ET EnergyWorld, and Khaleej Times.",
+      "Our showcase of Made in India, end-to-end solar and energy storage solutions received immense attention, reinforcing our commitment to sustainable innovation and global energy transformation.",
+      "From breakthrough Lithium Batteries to smart Grid-Tie and Off-Grid Inverters, our solutions stole the limelight and sparked powerful conversations across the energy ecosystem.",
+      "Stay tuned as we continue to energize the world, one innovation at a time."
+    ],
+    "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/linkedin-bg.jpg",
+    "image": "/images/social-feed/live/linkedin.jpg",
+    "icon": "/images/resources/linkedin.svg"
+  }
+]

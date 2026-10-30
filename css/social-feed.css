@@ -87,3 +87,37 @@
   .social-platform--instagram .social-posts { height:2316px; }
   .social-platform--linkedin .social-posts { height:1981.547px; }
 }
+
+/* Preserve the original platform/featured/side/lower-card layout without fixed section heights. */
+.social-platform { height: auto; padding-bottom: 56px; }
+.social-platform--facebook { height: auto; }
+.social-featured-image { display: block; height: 100%; }
+.social-featured-image > img { height: 100%; width: 100%; object-fit: cover; }
+.social-featured-post-link { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; font-size: 13px; font-weight: 600; color: #fff; }
+.social-featured-post-link img { width: 14px; height: 14px; filter: brightness(0) invert(1); }
+.social-side article { height: auto; min-height: 143.5px; }
+.social-card-row article { height: auto; min-height: 330px; }
+.social-post-caption { grid-column: 1 / -1; font-size: 14px; line-height: 1.7; color: #52617a; padding: 16px 0; }
+.social-post-caption summary { cursor: pointer; font-weight: 600; color: #18408c; }
+.social-post-caption p { margin: 16px 0 0; }
+.social-featured a:focus-visible, .social-post-caption summary:focus-visible { outline: 3px solid #ea6c0a; outline-offset: -3px; }
+@media (min-width: 768px) and (max-width: 1100px) {
+  .social-posts { grid-template-columns: minmax(0, 1fr); }
+  .social-side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .social-card-row { margin: 16px 0 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 820px) {
+  .social-feed-hero { margin-top: 78px; }
+  .social-platform { padding-inline: 16px; }
+  .social-account { gap: 12px; flex-wrap: wrap; height: auto; min-height: 100px; padding-block: 16px; }
+  .social-posts { margin-top: 24px; }
+}
+@media (max-width: 767px) {
+  .social-platform { padding-bottom: 32px; }
+  .social-card-row article { min-height: 0; }
+  .social-side article { min-height: 0; }
+}
+
+/* Keep unlinked backup cards hidden and collapse their unused grid space. */
+.social-feed-page .social-posts > [hidden] { display: none; }
+.social-feed-page .social-posts { grid-template-columns: minmax(0, 1fr); max-width: 1000px; }
