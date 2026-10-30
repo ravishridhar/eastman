@@ -1,0 +1,104 @@
+{
+  "source": "https://eaplworld.com/videos",
+  "hero": "/images/videos/live/hero.jpg",
+  "groups": [
+    {
+      "key": "corporate",
+      "title": "Corporate Videos",
+      "items": [
+        {
+          "title": "GridXcel: The Next-Gen Solar Grid-Tie Inverter | Made in India, Built for Performance",
+          "embed": "https://www.youtube.com/embed/27WOOifiHZs?si=tBfP4DGyo2A_XpAR",
+          "id": "27WOOifiHZs",
+          "watch": "https://www.youtube.com/watch?v=27WOOifiHZs",
+          "imageUrl": "https://img.youtube.com/vi/27WOOifiHZs/0.jpg",
+          "image": "/images/videos/live/27WOOifiHZs.jpg"
+        }
+      ]
+    },
+    {
+      "key": "product",
+      "title": "Product Videos",
+      "items": [
+        {
+          "title": "Omega & Sigma - Most affordable range of Inverters | Best Inverter for Homes and Offices",
+          "embed": "https://www.youtube.com/embed/OsZPSMcFVAY",
+          "id": "OsZPSMcFVAY",
+          "watch": "https://www.youtube.com/watch?v=OsZPSMcFVAY",
+          "imageUrl": "https://img.youtube.com/vi/OsZPSMcFVAY/0.jpg",
+          "image": "/images/videos/live/OsZPSMcFVAY.jpg"
+        },
+        {
+          "title": "MPPT PCU Starting at 500VA | Eastman Solar ProMax | Solar Inverter for Homes and Offices",
+          "embed": "https://www.youtube.com/embed/v_MSgy2mREc",
+          "id": "v_MSgy2mREc",
+          "watch": "https://www.youtube.com/watch?v=v_MSgy2mREc",
+          "imageUrl": "https://img.youtube.com/vi/v_MSgy2mREc/0.jpg",
+          "image": "/images/videos/live/v_MSgy2mREc.jpg"
+        },
+        {
+          "title": "AmiGO - Lithium Charger | Eastman",
+          "embed": "https://www.youtube.com/embed/PoYYYyxDnuE",
+          "id": "PoYYYyxDnuE",
+          "watch": "https://www.youtube.com/watch?v=PoYYYyxDnuE",
+          "imageUrl": "https://img.youtube.com/vi/PoYYYyxDnuE/0.jpg",
+          "image": "/images/videos/live/PoYYYyxDnuE.jpg"
+        },
+        {
+          "title": "Alpha Series Grid Tie Inverters | Eastman Solar",
+          "embed": "https://www.youtube.com/embed/v_IwdLT0MCA",
+          "id": "v_IwdLT0MCA",
+          "watch": "https://www.youtube.com/watch?v=v_IwdLT0MCA",
+          "imageUrl": "https://img.youtube.com/vi/v_IwdLT0MCA/0.jpg",
+          "image": "/images/videos/live/v_IwdLT0MCA.jpg"
+        }
+      ]
+    },
+    {
+      "key": "watch-believe",
+      "title": "Watch & Believe Videos",
+      "items": [
+        {
+          "title": "Best Grid Tie Inverter With High Efficiency in India 2025 || Eastman Grid Tie Solar Inverter",
+          "embed": "https://www.youtube.com/embed/lrBZSuRP0Ck",
+          "id": "lrBZSuRP0Ck",
+          "watch": "https://www.youtube.com/watch?v=lrBZSuRP0Ck",
+          "imageUrl": "https://img.youtube.com/vi/lrBZSuRP0Ck/0.jpg",
+          "image": "/images/videos/live/lrBZSuRP0Ck.jpg"
+        },
+        {
+          "title": "Best Inverter Battery for Home 2025 | Eastman 400Ah Battery Review | Best Battery for Inverter",
+          "embed": "https://www.youtube.com/embed/dGNoQ92vt4I",
+          "id": "dGNoQ92vt4I",
+          "watch": "https://www.youtube.com/watch?v=dGNoQ92vt4I",
+          "imageUrl": "https://img.youtube.com/vi/dGNoQ92vt4I/0.jpg",
+          "image": "/images/videos/live/dGNoQ92vt4I.jpg"
+        },
+        {
+          "title": "Best Battery for Inverter | Best Battery for Home | Best Inverter Battery for Home 2025",
+          "embed": "https://www.youtube.com/embed/j_GS8IJf30k",
+          "id": "j_GS8IJf30k",
+          "watch": "https://www.youtube.com/watch?v=j_GS8IJf30k",
+          "imageUrl": "https://img.youtube.com/vi/j_GS8IJf30k/0.jpg",
+          "image": "/images/videos/live/j_GS8IJf30k.jpg"
+        },
+        {
+          "title": "Luminous Eco Watt 700 vs Eastman Sigma 700 Inverter - CHEAP and BEST Inverter For Home In 2025",
+          "embed": "https://www.youtube.com/embed/SH5Ku8RxrqE",
+          "id": "SH5Ku8RxrqE",
+          "watch": "https://www.youtube.com/watch?v=SH5Ku8RxrqE",
+          "imageUrl": "https://img.youtube.com/vi/SH5Ku8RxrqE/0.jpg",
+          "image": "/images/videos/live/SH5Ku8RxrqE.jpg"
+        },
+        {
+          "title": "India’s First 400AH Inverter Battery For Home With Highest AH📍Best Inverter Battery For Home In 2025",
+          "embed": "https://www.youtube.com/embed/xgaKI51ZmjY",
+          "id": "xgaKI51ZmjY",
+          "watch": "https://www.youtube.com/watch?v=xgaKI51ZmjY",
+          "imageUrl": "https://img.youtube.com/vi/xgaKI51ZmjY/0.jpg",
+          "image": "/images/videos/live/xgaKI51ZmjY.jpg"
+        }
+      ]
+    }
+  ]
+}
