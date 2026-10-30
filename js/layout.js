@@ -87,7 +87,7 @@ const headerMarkup = `
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="brands" aria-label="Our Brands submenu">
         <a href="${pagePath()}">Eastman</a>
-        <a href="https://www.addotheking.com/home" target="_blank" rel="noopener noreferrer">Addotheking</a>
+        <a href="https://www.addotheking.com/home" target="_blank" rel="noopener noreferrer">Addo The King</a>
         <a href="https://voltsman.in/" target="_blank" rel="noopener noreferrer">Voltsman</a>
       </section>
       <section class="mega-panel mega-panel--card" data-desktop-panel="resources" aria-label="Resources submenu">
@@ -160,7 +160,7 @@ const headerMarkup = `
         <button type="button" class="mobile-nav-trigger" aria-expanded="false">Our Brands<img src="${assetPath('images/nav-chevron.svg')}" alt="" /></button>
         <div class="mobile-submenu">
           <a href="${pagePath()}">Eastman</a>
-          <a href="https://www.addotheking.com/home" target="_blank" rel="noopener noreferrer">Addotheking</a>
+          <a href="https://www.addotheking.com/home" target="_blank" rel="noopener noreferrer">Addo The King</a>
           <a href="https://voltsman.in/" target="_blank" rel="noopener noreferrer">Voltsman</a>
         </div>
       </div>

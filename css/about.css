@@ -2987,3 +2987,10 @@ z-index: 1;
     padding-top: 16px;
   }
 }
+
+.director-dialog__biography { font-size: 15px; line-height: 1.75; }
+.director-dialog__biography > p { margin: 0; }
+.director-dialog__biography > p + p { margin-top: 20px; }
+@media (max-width: 760px) {
+  .director-dialog__biography { font-size: 13px; line-height: 1.6; }
+}

@@ -5,3 +5,6 @@ dist.zip
 .DS_Store
 .vscode/
 current-*.png
+
+# Local backups
+/backups/
