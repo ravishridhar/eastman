@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/Website%20Hero%20Image%201.jpg",
+    "image": "/images/white-papers/live/hero.jpg"
+  },
+  "papers": [
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/Home-Electrification-Moving-Toward-a-Solar-Powered-Lifestyle.jpeg",
+      "image": "/images/white-papers/live/paper-1.jpeg",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/Home-Electrification-Moving-Toward-a-Solar-Powered-Lifestyle.pdf",
+      "title": "Moving Toward a Solar-Powered Lifestyle"
+    },
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/Solar-Policy-%26-Subsidy-Guide-for-Homeowners-in-India.jpeg",
+      "image": "/images/white-papers/live/paper-2.jpeg",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/Solar-Policy-%26-Subsidy-Guide-for-Homeowners-in-India.pdf",
+      "title": "Solar Policy & Subsidy Guide for Homeowners in India"
+    },
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/Solar-Rooftop-Myths-vs-Facts.jpeg",
+      "image": "/images/white-papers/live/paper-3.jpeg",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/Solar-Rooftop-Myths-vs-Facts.pdf",
+      "title": "Solar Rooftop System: Myths vs Facts"
+    },
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/JanWhitePaper2%20%20Safety%20Essentials%20for%20Home%20Solar%20Installation.png",
+      "image": "/images/white-papers/live/paper-4.png",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/Jan2ndWhitePaperSafety%20Essentials%20for%20Home%20Solar%20Installations.pdf",
+      "title": "Safety Essentials for Home Solar Installations"
+    },
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/JanWP_1_HowtoMaximise._.png",
+      "image": "/images/white-papers/live/paper-5.png",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/Jan_WP_1_How%20to%20Maximize%20Power%20Generation%20From%20a%20Rooftop%20System.pdf",
+      "title": "How to Maximize Power Generation From a Solar Rooftop System?"
+    },
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/Thumbnail_White%20Paper%201.jpg",
+      "image": "/images/white-papers/live/paper-6.jpg",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/White%20paper_1%20with%20Front%20and%20Back.pdf",
+      "title": "A Simple Guide to Home Rooftop Solar Installation"
+    },
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/WP_2_Thumbnail_Understanding_Solar_Economics_for_Homeowners.png",
+      "image": "/images/white-papers/live/paper-7.png",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/Understanding_Solar_Economics_for_Homeowners.pdf",
+      "title": "Understanding Solar Economics for Homeowners"
+    },
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/WP_3Thumbnail_Choosing_the_Right_Solar_Battery_for_Home_Backup.png",
+      "image": "/images/white-papers/live/paper-8.png",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/Choosing_the_Right_Solar_Battery_for_Home_Backup.pdf",
+      "title": "Choosing the Right Solar Battery for Home Backup"
+    },
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/WP_4_Thumbnail_Hybrid_Solar_System_The_Future_of_Residential_Energy.png",
+      "image": "/images/white-papers/live/paper-9.png",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/Hybrid_Solar_System_The_Future_of_Residential_Energy.pdf",
+      "title": "Hybrid Solar System: The Future of Residential Energy"
+    },
+    {
+      "imageUrl": "https://eaplworld.com/themes/custom/emgroup/images/WP_5_Thumbnail_The_Truth_About_Solar_Panel_Quality.png",
+      "image": "/images/white-papers/live/paper-10.png",
+      "pdf": "https://eaplworld.com/themes/custom/emgroup/pdfs/The_Truth_About_Solar_Panel_Quality.pdf",
+      "title": "The Truth About Solar Panel Quality"
+    }
+  ]
+}
