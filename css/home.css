@@ -5,3 +5,17 @@
 body:not(.about-page) .hero {
   background: var(--blue-dark);
 }
+
+/* Home previews share the exact latest press releases from Media Centre. */
+.news .news-grid > article { display: flex; flex-direction: column; min-width: 0; }
+.news article > img { aspect-ratio: 16 / 9; height: auto; }
+.news .news-content { display: flex; flex: 1; flex-direction: column; }
+.news .news-content h3 { line-height: 1.45; overflow-wrap: anywhere; }
+.news .news-content > span { margin-bottom: 16px; }
+.news .news-content > a { margin-top: auto; align-self: flex-start; min-height: 44px; }
+.news-view-all { display: flex; width: fit-content; align-items: center; justify-content: center; gap: 8px; margin: 28px auto 0; min-height: 44px; color: #bd5000; font-size: 14px; font-weight: 600; }
+.news-view-all svg { width: 18px; height: 18px; }
+.news-view-all:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (min-width: 821px) and (max-width: 1023px) {
+  .news .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
