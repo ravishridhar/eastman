@@ -139,6 +139,9 @@ function createSitemap(basePath = deployBasePath) {
 function prefixRootUrls(directory, basePath = deployBasePath) {
   if (basePath === '/') return;
   const prefix = basePath.slice(0, -1);
+  const prefixUrl = (url) => url === prefix || url.startsWith(`${prefix}/`) || url.startsWith('//')
+    ? url
+    : `${prefix}${url}`;
 
   const visit = (currentDirectory) => {
     for (const entry of readdirSync(currentDirectory, { withFileTypes: true })) {
@@ -153,11 +156,11 @@ function prefixRootUrls(directory, basePath = deployBasePath) {
       let updated = source;
 
       if (entry.name.endsWith('.html')) {
-        updated = updated.replace(/((?:src|href|poster)=["'])\/(?!eastman(?:\/|["']))/g, `$1${prefix}/`);
+        updated = updated.replace(/((?:src|href|poster|action)=["'])(\/[^"']*)/g, (_match, attribute, url) => `${attribute}${prefixUrl(url)}`);
       } else if (entry.name.endsWith('.css')) {
-        updated = updated.replace(/url\((['"]?)\/(?!eastman\/)/g, `url($1${prefix}/`);
+        updated = updated.replace(/url\((['"]?)(\/[^)'"\s]*)/g, (_match, quote, url) => `url(${quote}${prefixUrl(url)}`);
       } else if (entry.name.endsWith('.js')) {
-        updated = updated.replace(/(["'`])\/(?![>%]|eastman(?:\/|["'`]))/g, `$1${prefix}/`);
+        updated = updated.replace(/(["'`])(\/(?![>%])[^"'`\s]*)/g, (_match, quote, url) => `${quote}${prefixUrl(url)}`);
       }
 
       if (updated !== source) writeFileSync(file, updated);

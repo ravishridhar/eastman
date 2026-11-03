@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
+    "build:test": "VITE_BASE_PATH=/web/new-site-test/ SITE_URL=https://eaplworld.com/web/new-site-test vite build",
+    "build:plesk": "VITE_BASE_PATH=/ SITE_URL=https://eaplworld.com vite build",
     "optimize:images": "node scripts/optimize-images.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "deploy": "gh-pages -d dist"
