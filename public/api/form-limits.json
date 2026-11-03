@@ -1,0 +1,21 @@
+{
+  "contact": {
+    "firstName": 40,
+    "lastName": 80,
+    "email": 80,
+    "phone": 40,
+    "subject": 255,
+    "pinCode": 20,
+    "city": 40
+  },
+  "partner": {
+    "firstName": 40,
+    "lastName": 80,
+    "email": 80,
+    "phone": 40,
+    "city": 40,
+    "pinCode": 20,
+    "company": 40,
+    "industryYears": 200
+  }
+}
