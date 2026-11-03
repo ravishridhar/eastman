@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/eastman/assets/partnerWithUs-CT8wHN1R.js"></script>
-    <link rel="modulepreload" crossorigin href="/eastman/assets/main-DFh834MK.js">
-    <link rel="stylesheet" crossorigin href="/eastman/assets/app-r9Sq566y.css">
+    <script type="module" crossorigin src="/eastman/assets/partnerWithUs-D--UNzzX.js"></script>
+    <link rel="modulepreload" crossorigin href="/eastman/assets/main-V3wLLd3f.js">
+    <link rel="stylesheet" crossorigin href="/eastman/assets/app-L1gHMMQZ.css">
   </head>
   <body class="partner-page">
     <div id="app">
@@ -62,28 +62,43 @@
               </div>
             </aside>
 
-            <form class="partner-form">
+            <form class="partner-form" action="/api/submit-form.php" method="post" data-email-form>
+              <input type="hidden" name="formType" value="partner" />
+              <div class="form-honeypot" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
               <div class="partner-form__heading"><span>Distributor application</span><h2>Tell us about your business</h2><p>Fields marked with * are required.</p></div>
               <div class="partner-form__grid">
-                <label>First name *<input type="text" name="firstName" autocomplete="given-name" required /></label>
-                <label>Last name *<input type="text" name="lastName" autocomplete="family-name" required /></label>
-                <label>Email *<input type="email" name="email" autocomplete="email" required /></label>
-                <label>Phone *<input type="tel" name="phone" autocomplete="tel" required /></label>
-                <label>City *<input type="text" name="city" autocomplete="address-level2" required /></label>
-                <label>State *<select name="state" required><option value="">Select state</option><option>Delhi</option><option>Haryana</option><option>Punjab</option><option>Rajasthan</option><option>Uttar Pradesh</option><option>Other</option></select></label>
-                <label>Company *<input type="text" name="company" autocomplete="organization" required /></label>
-                <label>PIN code *<input type="text" name="pinCode" inputmode="numeric" autocomplete="postal-code" required /></label>
-                <label>Are you already a battery distributor?<select name="existingDistributor"><option value="">Select an option</option><option>Yes</option><option>No</option></select></label>
-                <label>Years in battery industry<select name="industryYears"><option value="">Select years</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4+</option></select></label>
-                <label>Firm / company type<select name="companyType"><option value="">Select type</option><option>Proprietary</option><option>Partnership / LLP</option><option>Company</option></select></label>
-                <label>Applying distributorship for? *<select name="portfolio" required><option value="">Select product</option><option>Inverter Battery</option><option>Solar Battery</option><option>E-Rickshaw Battery</option></select></label>
-                <label>Annual turnover<select name="turnover"><option value="">Select range</option><option>₹10 lakh – ₹30 lakh</option><option>₹30 lakh – ₹50 lakh</option><option>₹50 lakh – ₹1 crore</option><option>₹1 crore – ₹3 crore</option><option>Above ₹3 crore</option></select></label>
-                <label>Number of dealers<select name="dealers"><option value="">Select range</option><option>5–20 dealers</option><option>20–50 dealers</option><option>Above 50 dealers</option></select></label>
-                <label class="partner-form__wide">Do you have sales team / service manpower?<select name="salesTeam"><option value="">Select an option</option><option>Sales Team</option><option>Service Team</option><option>Both</option></select></label>
-                <label class="partner-form__wide">Area of warehouse<select name="warehouse"><option value="">Select an option</option><option>More than 1,000 sq. ft.</option><option>More than 1,500 sq. ft. with service centre</option></select></label>
+                <label>First name *<input type="text" name="firstName" autocomplete="given-name"  required maxlength="40" /></label>
+                <label>Last name *<input type="text" name="lastName" autocomplete="family-name"  required maxlength="80" /></label>
+                <label>Email<input type="email" name="email" autocomplete="email"  maxlength="80" /></label>
+                <label>Phone *<input type="tel" name="phone" autocomplete="tel"  required maxlength="40" /></label>
+                <label>City *<input type="text" name="city" autocomplete="address-level2"  required maxlength="40" /></label>
+                <label>State *<select name="state" required><option value="">--None--</option><option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option><option value="Andhra Pradesh">Andhra Pradesh</option><option value="Arunachal Pradesh">Arunachal Pradesh</option><option value="Assam">Assam</option><option value="Bihar">Bihar</option><option value="Chandigarh">Chandigarh</option><option value="Chhattisgarh">Chhattisgarh</option><option value="Daman and Diu">Daman and Diu</option><option value="Delhi">Delhi</option><option value="Goa">Goa</option><option value="Gujarat">Gujarat</option><option value="Haryana">Haryana</option><option value="Himachal Pradesh">Himachal Pradesh</option><option value="Jammu and Kashmir">Jammu and Kashmir</option><option value="Jharkhand">Jharkhand</option><option value="Karnataka">Karnataka</option><option value="Kerala">Kerala</option><option value="Lakshadweep">Lakshadweep</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Maharashtra">Maharashtra</option><option value="Manipur">Manipur</option><option value="Meghalaya">Meghalaya</option><option value="Mizoram">Mizoram</option><option value="Nagaland">Nagaland</option><option value="Odisha">Odisha</option><option value="Puducherry">Puducherry</option><option value="Punjab">Punjab</option><option value="Rajasthan">Rajasthan</option><option value="Sikkim">Sikkim</option><option value="Tamil Nadu">Tamil Nadu</option><option value="Tripura">Tripura</option><option value="Uttarakhand">Uttarakhand</option><option value="Uttar Pradesh">Uttar Pradesh</option><option value="West Bengal">West Bengal</option></select></label>
+                <label>Company *<input type="text" name="company" autocomplete="organization"  required maxlength="40" /></label>
+                <label>PIN code *<input type="text" name="pinCode" inputmode="numeric" autocomplete="postal-code"  required maxlength="20" /></label>
+                <label>Are you already a battery distributor?<select name="existingDistributor"><option value="">--None--</option><option value="Yes">Yes</option><option value="No">No</option></select></label>
+                <label>Years in battery industry<input type="text" name="industryYears"  maxlength="200" /></label>
+                <label>Firm / company type<select name="companyType"><option value="">--None--</option><option value="Proprietary">Proprietary</option><option value="Partnership/LLP">Partnership/LLP</option><option value="Company">Company</option></select></label>
+                <label>Applying distributorship for?<select name="portfolio"><option value="">--None--</option><option value="E-Rickshaw Battery &amp; Chargers">E-Rickshaw Battery &amp; Chargers</option><option value="Solar Solutions">Solar Solutions</option><option value="Inverter &amp; Battery Solutions">Inverter &amp; Battery Solutions</option></select></label>
+                <label>Annual turnover<select name="turnover"><option value="">--None--</option><option value="2 Lakh - 10 Lakh">2 Lakh - 10 Lakh</option><option value="10 Lakh - 30 Lakh">10 Lakh - 30 Lakh</option><option value="30 Lakh - 50 Lakh">30 Lakh - 50 Lakh</option><option value="50 Lakh - 01 Crore">50 Lakh - 01 Crore</option><option value="01 Crore - 03 Crore">01 Crore - 03 Crore</option><option value="Above 3 Crore">Above 3 Crore</option></select></label>
+                <label>Number of dealers<select name="dealers"><option value="">--None--</option><option value="0-5 Dealers">0-5 Dealers</option><option value="05-20 Dealers">05-20 Dealers</option><option value="20-50 Dealers">20-50 Dealers</option><option value="Above 50 Dealers">Above 50 Dealers</option></select></label>
+                <label class="partner-form__wide">Do you have sales team / service manpower?<select name="salesTeam"><option value="">--None--</option><option value="Sales Team">Sales Team</option><option value="Service Team">Service Team</option><option value="Both">Both</option><option value="NA">NA</option></select></label>
+                <label class="partner-form__wide">Area of warehouse<select name="warehouse"><option value="">--None--</option><option value="More then 1000 square feet (minimum requirement)">More than 1000 sq ft</option><option value="More then 1500 square feet (minimum requirement if want service center)">More than 1500 sq ft (if service center)</option></select></label>
               </div>
-              <label class="partner-consent"><input type="checkbox" required /> <span>I agree to be contacted by Eastman regarding this partnership application.</span></label>
+              <label class="partner-consent"><input type="checkbox" name="consent" value="yes" required /> <span>I agree to be contacted by Eastman regarding this partnership application.</span></label>
+              <div class="form-captcha">
+                <div class="form-captcha__row">
+                <label for="partner-captcha">Security code <span aria-hidden="true">*</span></label>
+                <input id="partner-captcha" name="captcha" type="text" required minlength="6" maxlength="6" pattern="[A-Za-z2-9]{6}" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="partner-captcha-help" />
+                <div class="form-captcha__challenge">
+                  <img src="/eastman/api/captcha.php?form=partner" width="240" height="80" alt="Security code: enter the six characters shown" data-captcha-image />
+                  <button type="button" data-captcha-refresh aria-label="Refresh security code" title="Refresh security code"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.34 6.66" /><path d="M20 4v7h-7" /></svg></button>
+                </div>
+                </div>
+                <p id="partner-captcha-help">Enter the 6 characters above. Codes expire after 5 minutes. Letters are not case-sensitive.</p>
+                <p class="form-captcha__error" data-captcha-error role="status" aria-live="polite"></p>
+              </div>
               <button class="partner-button partner-button--blue" type="submit">Submit application <span>→</span></button>
+              <p class="form-status" data-form-status role="status" aria-live="polite" aria-atomic="true"></p>
             </form>
           </div>
         </section>
