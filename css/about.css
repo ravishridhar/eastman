@@ -2965,27 +2965,21 @@ z-index: 1;
   }
 }
 
-/* The supplied Rajesh Jindal portrait has tighter headroom and a taller crop. */
+/* Match the replacement portrait's light backdrop and keep the face in frame. */
 .leadership-team-page .profile-card--rajesh > img {
-  background: #000;
+  background: #c4c4cc;
   object-position: center top;
-  padding-top: 28px;
+  padding-top: 16px;
 }
 
 .director-dialog[data-director-dialog="rajesh"] .director-dialog__portrait {
-  background: #000;
+  background: #c4c4cc;
 }
 
 .director-dialog[data-director-dialog="rajesh"] .director-dialog__portrait img {
   object-fit: cover;
   object-position: center top;
-  padding-top: 28px;
-}
-
-@media (max-width: 760px) {
-  .director-dialog[data-director-dialog="rajesh"] .director-dialog__portrait img {
-    padding-top: 16px;
-  }
+  padding-top: 16px;
 }
 
 .director-dialog__biography { font-size: 15px; line-height: 1.75; }
