@@ -86,11 +86,12 @@
               </div>
               <label class="partner-consent"><input type="checkbox" name="consent" value="yes" required /> <span>I agree to be contacted by Eastman regarding this partnership application.</span></label>
               <div class="form-captcha">
+                <input type="hidden" name="captchaId" value="" />
                 <div class="form-captcha__row">
                 <label for="partner-captcha">Security code <span aria-hidden="true">*</span></label>
                 <input id="partner-captcha" name="captcha" type="text" required minlength="6" maxlength="6" pattern="[A-Za-z2-9]{6}" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="partner-captcha-help" />
                 <div class="form-captcha__challenge">
-                  <img src="/api/captcha.php?form=partner" width="240" height="80" alt="Security code: enter the six characters shown" data-captcha-image />
+                  <img data-captcha-src="/api/captcha.php?form=partner" width="240" height="80" alt="Security code: enter the six characters shown" data-captcha-image />
                   <button type="button" data-captcha-refresh aria-label="Refresh security code" title="Refresh security code"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.34 6.66" /><path d="M20 4v7h-7" /></svg></button>
                 </div>
                 </div>

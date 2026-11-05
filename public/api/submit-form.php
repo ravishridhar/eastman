@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-// Uses the hosting server's mail transport; no external service is required.
+// Validate locally, then hand off to the original Salesforce Web-to-Lead form.
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 header('X-Content-Type-Options: nosniff');
 
-function respond(int $status, bool $ok, string $message): void
+function respond(int $status, bool $ok, string $message, array $extra = []): void
 {
     http_response_code($status);
-    echo json_encode(['ok' => $ok, 'message' => $message]);
+    echo json_encode(array_merge(['ok' => $ok, 'message' => $message], $extra));
     exit;
 }
 
@@ -109,46 +109,43 @@ if (!start_form_session()) {
     respond(503, false, 'Unable to submit right now. Please try again later.');
 }
 $captchaAnswer = strtoupper(field('captcha', 6));
-$challenge = $_SESSION['form_captcha'][$type] ?? null;
-// Consume the challenge on every validation attempt to prevent replay.
-unset($_SESSION['form_captcha'][$type]);
-if (!is_array($challenge) || (int) $challenge['expires'] < time()
-    || !preg_match('/^[A-Z2-9]{6}$/', $captchaAnswer)
+$captchaId = field('captchaId', 32);
+$challenge = $_SESSION['form_captcha_v2'][$captchaId] ?? null;
+// Only the submitted challenge is consumed; other tabs keep their own codes.
+unset($_SESSION['form_captcha_v2'][$captchaId]);
+if (!preg_match('/^[a-f0-9]{32}$/', $captchaId) || !is_array($challenge)) {
+    session_write_close();
+    respond(422, false, 'Your security code session is missing. Allow cookies, refresh the code and try again.');
+}
+if ($challenge['type'] !== $type || (int) $challenge['expires'] < time()) {
+    session_write_close();
+    respond(422, false, 'Your security code has expired. Please enter the new code and try again.');
+}
+if (!preg_match('/^[A-Z2-9]{6}$/', $captchaAnswer)
     || !hash_equals($challenge['hash'], hash('sha256', $captchaAnswer))) {
     session_write_close();
-    respond(422, false, 'The security code is incorrect or expired. Please enter the new code and try again.');
+    respond(422, false, 'The security code does not match. Please enter the new code and try again.');
 }
 if (time() - (int) ($_SESSION['last_form_submission'] ?? 0) < 60) {
     header('Retry-After: 60');
     respond(429, false, 'Please wait a minute before sending another enquiry.');
 }
 
-$title = $type === 'contact' ? 'Website enquiry' : 'Distributor application';
-$body = $title . "\nSubmitted at: " . gmdate('Y-m-d H:i:s') . " UTC\n\n";
-foreach ($labels as $key => $label) {
-    $value = $values[$key] !== '' ? $values[$key] : 'Not provided';
-    $body .= $label . ":\n" . $value . "\n\n";
-}
-$headers = [
-    'From: Eastman Website <support@eaplworld.com>',
-    'Bcc: ravishridhar1@gmail.com',
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: base64',
-];
-if ($email !== '') {
-    $headers[] = 'Reply-To: ' . $email;
-}
-$sent = function_exists('mail') && @mail(
-    'marketing@eaplworld.com',
-    '[EAPL Website] ' . $title,
-    chunk_split(base64_encode($body)),
-    implode("\r\n", $headers)
-);
-if (!$sent) {
+require_once __DIR__ . '/salesforce.php';
+$config = json_decode(file_get_contents(__DIR__ . '/salesforce-config.json'), true);
+if (!is_array($config) || empty($config['endpoint']) || empty($config['orgId'])) {
     session_write_close();
-    respond(503, false, 'We could not send your enquiry. Please try again later or email marketing@eaplworld.com.');
+    respond(503, false, 'Unable to submit your enquiry right now. Please try again later.');
 }
+try {
+    $submission = salesforce_submission($type, $values, $config);
+} catch (InvalidArgumentException $error) {
+    session_write_close();
+    respond(422, false, 'Please select a valid state and try again.');
+}
+// This records a validated handoff, not confirmation of lead creation or email delivery.
 $_SESSION['last_form_submission'] = time();
 session_write_close();
-respond(200, true, 'Thank you. Your enquiry has been submitted successfully.');
+respond(200, true, 'Your details have been validated. Connecting to submit your enquiry…', [
+    'next' => 'salesforce', 'submission' => $submission,
+]);

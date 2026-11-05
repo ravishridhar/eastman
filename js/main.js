@@ -1,4 +1,4 @@
-import { setupForms } from './forms.js';
+import { setupForms, setupCaptchas } from './forms.js';
 import Lenis from 'lenis';
 import { setupLayout } from './layout.js';
 import { setupBlogPagination } from './blog-pagination.js';
@@ -845,6 +845,7 @@ function setupHistoryTimeline() {
 }
 
 function setupDynamicContent() {
+  setupCaptchas();
   setupVideoLibrary();
   setupMediaCentre();
   setupBlogPagination();

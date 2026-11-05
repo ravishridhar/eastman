@@ -5,7 +5,12 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 header('X-Content-Type-Options: nosniff');
 
 $type = $_GET['form'] ?? '';
+$id = $_GET['id'] ?? '';
 if ($_SERVER['REQUEST_METHOD'] !== 'GET' || !is_string($type) || !in_array($type, ['contact', 'partner'], true)) {
+    http_response_code(400);
+    exit;
+}
+if (!is_string($id) || !preg_match('/^[a-f0-9]{32}$/', $id)) {
     http_response_code(400);
     exit;
 }
@@ -14,6 +19,19 @@ if (!extension_loaded('gd') || !start_form_session()) {
     exit;
 }
 
+// Keep independent challenges for different tabs and reuse an image on duplicate requests.
+$challenges = $_SESSION['form_captcha_v2'] ?? [];
+foreach ($challenges as $key => $challenge) {
+    if ($challenge['expires'] < time()) unset($challenges[$key]);
+}
+if (isset($challenges[$id]) && $challenges[$id]['type'] === $type) {
+    $png = $challenges[$id]['image'];
+    session_write_close();
+    header('Content-Type: image/png');
+    echo $png;
+    exit;
+}
+while (count($challenges) >= 10) array_shift($challenges);
 $alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 $answer = '';
 for ($i = 0; $i < 6; $i++) {
@@ -42,8 +60,12 @@ for ($i = 0; $i < 3; $i++) {
     $line = imagecolorallocate($image, 140, 160, 180);
     imageline($image, 0, random_int(10, 70), 239, random_int(10, 70), $line);
 }
-$_SESSION['form_captcha'][$type] = ['hash' => hash('sha256', $answer), 'expires' => time() + 300];
+ob_start();
+imagepng($image);
+$png = ob_get_clean();
+imagedestroy($image);
+$challenges[$id] = ['type' => $type, 'hash' => hash('sha256', $answer), 'expires' => time() + 300, 'image' => $png];
+$_SESSION['form_captcha_v2'] = $challenges;
 session_write_close();
 header('Content-Type: image/png');
-imagepng($image);
-imagedestroy($image);
+echo $png;

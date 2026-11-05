@@ -101,42 +101,50 @@ Feel free to fork and explore.
 
 If you like this project, don't forget to give it a **⭐ Star** on GitHub!
 
-## PHP enquiry forms
+## Enquiry forms and Salesforce
 
-The contact and distributor forms POST to `public/api/submit-form.php`. Both send
-plain-text email containing every form field from `support@eaplworld.com` to
-`marketing@eaplworld.com`. A valid visitor email is used as Reply-To.
-No external form or email service is used.
+Both forms use the original site's Salesforce Web-to-Lead organisation and field
+IDs, stored in `public/api/salesforce-config.json`. The contact form uses B2C and
+the distributor form uses B2B, with lead source Website and country IN. State
+names are translated to the original Salesforce state codes. All original form
+fields are mapped; the added partnership consent is saved in Lead Description.
 
-Deploy with PHP 7.3+ (PHP 8.x recommended), writable PHP session storage, and a
-working server mail transport configured to send for `support@eaplworld.com`.
-The domain's mail authentication must allow the hosting server to send mail.
-After `npm run build`, upload the contents of `dist` to the PHP-capable host;
-Vite copies the handler to `dist/api/submit-form.php`. For a domain-root deploy,
-use `VITE_BASE_PATH=/ npm run build`. GitHub Pages cannot execute PHP.
+Submission flow:
+1. The browser POSTs to `api/submit-form.php` for field and CAPTCHA validation.
+2. PHP returns the mapped Salesforce fields after validation and a 60-second
+   session cooldown. This response does not confirm lead creation.
+3. JavaScript submits a normal browser POST to Salesforce, matching the original
+   site. Salesforce redirects to `https://eaplworld.com/` after processing.
 
-For local development, install PHP, then run `php -S 127.0.0.1:8000 -t public`
-in a separate terminal alongside `npm run dev`. Vite proxies `/api` to PHP.
-Vite alone cannot process submissions. Local email delivery also requires a
-configured mail transport.
+The website no longer calls PHP mail(). Email recipients, sender addresses and
+notifications must be configured within Salesforce. The earlier website-level
+BCC to ravishridhar1@gmail.com is not a Salesforce Web-to-Lead setting; ask the
+Salesforce administrator to add this recipient to an appropriate notification.
+A redirect is not proof of lead creation or email delivery. Validate one contact
+and one partner submission by checking the new leads and notification rules in
+Salesforce. Check whether any Salesforce validation or reCAPTCHA requirements
+have changed since the original forms were generated.
 
-Verify both forms on the PHP host with test details and confirm receipt in the
-marketing inbox. A successful response means the server accepted the message
-for sending; inbox delivery must be checked separately. Failed submissions keep
-entered details. The handler validates required fields, email, phone and partner
-consent, rejects a honeypot field, and applies a 60-second session-based cooldown
-after successful submissions. No enquiry details are saved in the session.
+Deploy using PHP 7.3+ (PHP 8.x recommended), writable PHP session storage, and GD
+with PNG support. Run `npm run build:plesk` for the live domain root, or
+`npm run build:test` for `/web/new-site-test/`, and upload the contents of `dist`.
+The build includes `api`, `favicon.ico`, and `.htaccess` with a custom 404 rule.
+Merge `.htaccess` rules if the host already has required configuration.
 
-Both forms require a self-hosted image CAPTCHA. Enable PHP's **GD extension**
-(with PNG support) as well as sessions. `api/captcha.php` generates a random
-six-character PNG; only its hash and a five-minute expiry are stored in the
-session, separately for each form. Each verification attempt consumes its code.
-The frontend loads a fresh code after submission and provides a New code button.
-Opening the same form in another tab replaces its previous code; refresh if needed.
-CAPTCHA answers are never included in enquiry emails. Image CAPTCHA has no audio
-alternative; the marketing email address is provided when the image cannot load.
+For local development, install PHP with GD and run
+`php -S 127.0.0.1:8000 -t public` alongside `npm run dev`. Vite proxies `/api` to
+PHP. GitHub Pages cannot execute the local validation or CAPTCHA handlers.
 
-On the PHP host, check correct, incorrect, empty, expired, refreshed and reused
-codes on both forms. Only a valid current code may reach the mail function.
-Verify that a code from one form cannot validate the other form, and that mail
-failures retain the visitor's entered enquiry details while refreshing the code.
+CAPTCHA challenges are six-character PNGs with unique IDs and five-minute
+expiry. The EAPL_FORMS_SESSION session stores a hash and the PNG for up to ten
+current challenges, so different tabs do not replace one another's codes. Each
+verification attempt consumes its challenge. Refresh generates a new ID, and
+submission is blocked until the image loads. CAPTCHA and honeypot values are
+never forwarded to Salesforce. No enquiry details are stored in the session.
+The image CAPTCHA has no audio alternative.
+
+Before deployment, verify field validation, invalid/expired/reused CAPTCHA,
+separate browser tabs, and the Salesforce field mappings. On the live host,
+confirm both actual lead records with the Salesforce administrator, including
+state, products and distributor fields; confirm the desired email recipients
+separately. Tests must not create real leads without explicit authorization.

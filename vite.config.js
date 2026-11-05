@@ -236,6 +236,8 @@ function cleanUrlPages(basePath) {
       }
 
       writeFileSync(resolve(__dirname, 'dist', 'sitemap.xml'), createSitemap(resolvedBasePath));
+      writeFileSync(resolve(__dirname, 'dist', '.htaccess'),
+        `# Show the custom page while preserving the HTTP 404 status.\nErrorDocument 404 ${deployedPath('/404.html', resolvedBasePath)}\n`);
       prefixRootUrls(resolve(__dirname, 'dist'), resolvedBasePath);
     },
   };
