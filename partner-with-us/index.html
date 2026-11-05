@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/eastman/assets/partnerWithUs-DRY4AMuX.js"></script>
-    <link rel="modulepreload" crossorigin href="/eastman/assets/main-V3wLLd3f.js">
-    <link rel="stylesheet" crossorigin href="/eastman/assets/app-CDYZ94hY.css">
+    <script type="module" crossorigin src="/eastman/assets/partnerWithUs-DryJEN_U.js"></script>
+    <link rel="modulepreload" crossorigin href="/eastman/assets/main-DO7Tg6Sl.js">
+    <link rel="stylesheet" crossorigin href="/eastman/assets/app-B0y9iS20.css">
   </head>
   <body class="partner-page">
     <div id="app">
@@ -87,11 +87,12 @@
               </div>
               <label class="partner-consent"><input type="checkbox" name="consent" value="yes" required /> <span>I agree to be contacted by Eastman regarding this partnership application.</span></label>
               <div class="form-captcha">
+                <input type="hidden" name="captchaId" value="" />
                 <div class="form-captcha__row">
                 <label for="partner-captcha">Security code <span aria-hidden="true">*</span></label>
                 <input id="partner-captcha" name="captcha" type="text" required minlength="6" maxlength="6" pattern="[A-Za-z2-9]{6}" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="partner-captcha-help" />
                 <div class="form-captcha__challenge">
-                  <img src="/eastman/api/captcha.php?form=partner" width="240" height="80" alt="Security code: enter the six characters shown" data-captcha-image />
+                  <img data-captcha-src="/eastman/api/captcha.php?form=partner" width="240" height="80" alt="Security code: enter the six characters shown" data-captcha-image />
                   <button type="button" data-captcha-refresh aria-label="Refresh security code" title="Refresh security code"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.34 6.66" /><path d="M20 4v7h-7" /></svg></button>
                 </div>
                 </div>

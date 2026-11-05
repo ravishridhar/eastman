@@ -5,6 +5,7 @@ function start_form_session(): bool
 {
     ini_set('session.use_strict_mode', '1');
     ini_set('session.use_only_cookies', '1');
+    session_name('EAPL_FORMS_SESSION');
     session_set_cookie_params([
         'httponly' => true,
         'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
