@@ -96,7 +96,8 @@
 .shareholder-subtabs { display: flex; gap: 12px; }
 .shareholder-subtabs button { border: 1px solid #e3e8ef; border-radius: 5px; background: #fff; box-shadow: 0 4px 16px #1029550d; color: #18408c; cursor: pointer; font: inherit; font-size: 16px; font-weight: 600; padding: 18px 24px; }
 .shareholder-subtabs button[aria-selected="true"] { background: #ef7b23; border-color: #ef7b23; color: #fff; }
-.shareholder-step { display: grid; place-items: center; width: 38px; height: 38px; flex-shrink: 0; border: 1px solid #e3e8ef; border-radius: 50%; background: #fff; color: #18408c; font-size: 30px; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px #10295515; }
+.shareholder-step { padding: 0; box-sizing: border-box; display: grid; place-items: center; width: 38px; height: 38px; flex-shrink: 0; border: 1px solid #e3e8ef; border-radius: 50%; background: #fff; color: #18408c; font-size: 30px; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px #10295515; }
+.shareholder-step svg { display: block; width: 20px; height: 20px; }
 .shareholder-step:hover { background: #f5f7fa; }
 .shareholders-page [role="tab"]:focus-visible, .shareholder-step:focus-visible, .year-select:focus-within { outline: 3px solid #ef7b23; outline-offset: 4px; }
 .shareholder-subsection, .shareholder-subsection + .shareholder-subsection { margin: 0 auto; }
