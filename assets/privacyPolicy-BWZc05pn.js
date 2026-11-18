@@ -1,0 +1,1 @@
+import"./main-BZFUjZhI.js";/* empty css            */import{t as e}from"./terms-and-conditions-ByGRUuZW.js";e();
