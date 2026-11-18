@@ -19,22 +19,20 @@ const leadershipProfileSlugs = [
 ];
 
 const sharedGovernanceProfileSlugs = [
-  'jagdish-rai-singal',
   'shekhar-singal',
+  'ashok-kumar-jain',
+  'goutam-kumar',
 ];
 
-const independentDirectorSlugs = [
+const boardOnlyProfileSlugs = [
+  'jagdish-rai-singal',
   'satpal-kumar-arora',
   'rajat-diwaker',
   'sanjeev-gupta',
   'manjusha-bhatnagar',
 ];
 
-const otherKmpProfileSlugs = [
-  'ashok-kumar-jain',
-  'goutam-kumar',
-  'rahul-nitin-sinnarkar',
-];
+const companySecretarySlug = 'rahul-nitin-sinnarkar';
 
 const nestedCleanRoutes = {
   ...Object.fromEntries(blogArticles.map(({ path, file }) => [path, file])),
@@ -48,8 +46,8 @@ const nestedCleanRoutes = {
   '/our-businesses/advanced-electronics-manufacturing': 'advanced-electronics-manufacturing.html',
   '/our-businesses/international-business': 'international-business.html',
   ...Object.fromEntries(leadershipProfileSlugs.map((slug) => [`/leadership-team/${slug}`, 'leadership-team.html'])),
-  ...Object.fromEntries([...sharedGovernanceProfileSlugs, ...independentDirectorSlugs].map((slug) => [`/corporate-governance/${slug}`, 'corporate-governance.html'])),
-  ...Object.fromEntries([...sharedGovernanceProfileSlugs, ...otherKmpProfileSlugs].map((slug) => [`/kmp/${slug}`, 'kmp.html'])),
+  ...Object.fromEntries([...sharedGovernanceProfileSlugs, ...boardOnlyProfileSlugs].map((slug) => [`/corporate-governance/${slug}`, 'corporate-governance.html'])),
+  ...Object.fromEntries([...sharedGovernanceProfileSlugs, 'rajesh-jindal', companySecretarySlug].map((slug) => [`/kmp/${slug}`, 'kmp.html'])),
 };
 
 const topLevelCleanRoutes = [
@@ -81,8 +79,8 @@ const topLevelCleanRoutes = [
 ];
 
 const legacyRedirects = {
-  ...Object.fromEntries(otherKmpProfileSlugs.map((slug) => [`/corporate-governance/${slug}`, `/kmp/${slug}`])),
-  ...Object.fromEntries(independentDirectorSlugs.map((slug) => [`/kmp/${slug}`, `/corporate-governance/${slug}`])),
+  [`/corporate-governance/${companySecretarySlug}`]: `/kmp/${companySecretarySlug}`,
+  ...Object.fromEntries(boardOnlyProfileSlugs.map((slug) => [`/kmp/${slug}`, `/corporate-governance/${slug}`])),
   '/our-businesses/conventional-tubular-batteries': '/manufacturing-infrastructure/conventional-tubular-batteries',
   '/businesses/conventional-tubular-batteries': '/manufacturing-infrastructure/conventional-tubular-batteries',
   '/our-businesses/lithium-ion-battery-packs': '/manufacturing-infrastructure/lithium-batteries',
@@ -94,7 +92,7 @@ const legacyRedirects = {
   '/our-businesses/global-businesses': '/our-businesses',
   '/Sanjay-Singh': '/leadership-team/sanjay-singh',
   '/Vishal-Puri': '/leadership-team/vishal-puri',
-  '/goutam-kumar': '/kmp/goutam-kumar',
+  '/goutam-kumar': '/corporate-governance/goutam-kumar',
   '/rajat-diwaker': '/corporate-governance/rajat-diwaker',
   '/Jitender-Manav': '/leadership-team/jitender-manav',
   '/jagdish-rai-singal': '/corporate-governance/jagdish-rai-singal',
@@ -102,7 +100,7 @@ const legacyRedirects = {
   '/sanjeev-gupta': '/corporate-governance/sanjeev-gupta',
   '/Hemant-Nagpal': '/leadership-team/hemant-nagpal',
   '/Mantosh-Kumar': '/leadership-team/mantosh-kumar',
-  '/ashok-kumar-jain': '/kmp/ashok-kumar-jain',
+  '/ashok-kumar-jain': '/corporate-governance/ashok-kumar-jain',
   '/rahul-nitin-sinnarkar': '/kmp/rahul-nitin-sinnarkar',
   '/Tilak-Raj': '/leadership-team',
   '/leadership-team/tilak-raj': '/leadership-team',

@@ -76,6 +76,7 @@
   display: block;
   min-height: 0;
   position: relative;
+  width: 100%;
 }
 
 .profile-grid--board .profile-card--board::after {
@@ -103,7 +104,7 @@
   aspect-ratio: 1.62 / 1;
   background: #071426;
   display: block;
-  min-height: 330px;
+  min-height: 0;
 }
 
 .profile-grid--board .profile-card--board .profile-content,
