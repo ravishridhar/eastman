@@ -13,7 +13,6 @@ const leadershipProfileSlugs = [
   'hemant-nagpal',
   'surajit-sur',
   'mantosh-kumar',
-  'rajesh-jindal',
   'sunil-tiku',
   'sanjay-kumar-makkar',
 ];
@@ -79,6 +78,7 @@ const topLevelCleanRoutes = [
 ];
 
 const legacyRedirects = {
+  '/leadership-team/rajesh-jindal': '/kmp/rajesh-jindal',
   [`/corporate-governance/${companySecretarySlug}`]: `/kmp/${companySecretarySlug}`,
   ...Object.fromEntries(boardOnlyProfileSlugs.map((slug) => [`/kmp/${slug}`, `/corporate-governance/${slug}`])),
   '/our-businesses/conventional-tubular-batteries': '/manufacturing-infrastructure/conventional-tubular-batteries',
