@@ -1,4 +1,8 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../*.html";
+@source "../blog-pages";
+@source "../js";
+@source "../data";
 
 :root {
   color-scheme: light;
