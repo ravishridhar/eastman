@@ -20,7 +20,7 @@
 }
 
 .not-found-brand { left: clamp(22px, 5vw, 76px); position: absolute; top: 30px; z-index: 3; }
-.not-found-brand img { height: 52px; object-fit: contain; width: 150px; }
+.not-found-brand img { display: block; height: auto; width: 150px; }
 
 .not-found-card {
   align-items: center;
@@ -128,7 +128,7 @@
 
 @media (max-width: 480px) {
   .not-found-brand { top: 18px; }
-  .not-found-brand img { height: 42px; width: 124px; }
+  .not-found-brand img { width: 124px; }
   .energy-scene { max-width: 285px; }
   .not-found-code { font-size: 92px; }
   .not-found-zero::after { height: 12px; width: 12px; }

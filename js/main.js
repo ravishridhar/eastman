@@ -295,8 +295,9 @@ function setupPageTransitions() {
   });
 }
 
-function formatCounter(value, decimals, suffix, prefix = '', pad = 0, wrapSuffix = false) {
+function formatCounter(value, decimals, suffix, prefix = '', pad = 0, wrapSuffix = false, useGrouping = true) {
   let formatted = value.toLocaleString('en-IN', {
+    useGrouping,
     maximumFractionDigits: decimals,
     minimumFractionDigits: decimals,
   });
@@ -322,6 +323,7 @@ function animateCounter(counter) {
   const prefix = counter.dataset.prefix || '';
   const pad = Number(counter.dataset.pad || 0);
   const wrapSuffix = counter.hasAttribute('data-wrap-suffix');
+  const useGrouping = !counter.hasAttribute('data-no-grouping');
   const duration = 1400;
   const startTime = performance.now();
 
@@ -331,12 +333,12 @@ function animateCounter(counter) {
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = target * eased;
 
-    counter.innerHTML = formatCounter(current, decimals, suffix, prefix, pad, wrapSuffix);
+    counter.innerHTML = formatCounter(current, decimals, suffix, prefix, pad, wrapSuffix, useGrouping);
 
     if (progress < 1) {
       requestAnimationFrame(tick);
     } else {
-      counter.innerHTML = formatCounter(target, decimals, suffix, prefix, pad, wrapSuffix);
+      counter.innerHTML = formatCounter(target, decimals, suffix, prefix, pad, wrapSuffix, useGrouping);
     }
   }
 
