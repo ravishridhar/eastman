@@ -1,8 +1,9 @@
 const { defineConfig } = require('vite');
 const tailwindcss = require('@tailwindcss/vite').default;
 const { resolve } = require('path');
-const { copyFileSync, mkdirSync, readFileSync, readdirSync, writeFileSync } = require('fs');
+const { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } = require('fs');
 const blogArticles = require('./data/blog-articles.json');
+const auditRedirects = require('./data/audit-redirects.json');
 
 let deployBasePath = '/';
 
@@ -131,17 +132,89 @@ function createStaticRedirect(target, basePath) {
   return `<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="robots" content="noindex">\n  <meta http-equiv="refresh" content="0; url=${escapedDestination}">\n  <link rel="canonical" href="${escapedDestination}">\n  <title>Redirecting…</title>\n  <script>window.location.replace(${JSON.stringify(destination)} + window.location.search + window.location.hash);</script>\n</head>\n<body>\n  <p>This page has moved to <a href="${escapedDestination}">${escapedDestination}</a>.</p>\n</body>\n</html>\n`;
 }
 
-function createSitemap(basePath = deployBasePath) {
+function siteUrl(basePath) {
   const defaultSiteUrl = basePath === '/' ? 'https://eaplworld.com' : `https://ravishridhar.github.io${basePath}`;
-  const siteOrigin = (process.env.SITE_URL || defaultSiteUrl).replace(/\/$/, '');
-  const routes = [...topLevelCleanRoutes, ...Object.keys(nestedCleanRoutes)].sort((a, b) => {
-    if (a === '/') return -1;
-    if (b === '/') return 1;
-    return a.localeCompare(b);
-  });
-  const urls = routes.map((route) => `  <url><loc>${siteOrigin}${route}</loc></url>`).join('\n');
+  return (process.env.SITE_URL || defaultSiteUrl).replace(/\/$/, '');
+}
+
+const indexableRoutes = new Set([...topLevelCleanRoutes, ...Object.keys(nestedCleanRoutes)]);
+const pageUrl = (route) => route === '/' ? route : `${route}/`;
+const escapeRewritePattern = (route) => route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\x20');
+
+function createSitemap(basePath) {
+  const urls = [...indexableRoutes].sort().map((route) => `  <url><loc>${siteUrl(basePath)}${pageUrl(route)}</loc></url>`).join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+}
+
+function createApacheConfig(basePath, directory) {
+  const errorPage = `ErrorDocument 404 ${deployedPath('/404.html', basePath)}\n`;
+  if (basePath !== '/' || siteUrl(basePath) !== 'https://eaplworld.com') return errorPage;
+
+  const rules = [
+    'RewriteEngine On',
+    // The old dealer directory used numeric pagination on both of these paths.
+    'RewriteCond %{QUERY_STRING} (?:^|&)page=[0-9]+(?:&|$)',
+    'RewriteRule ^(?:dealer-locator/?)?$ - [G,L]',
+  ];
+  for (const [source, target] of Object.entries({ ...legacyRedirects, ...auditRedirects })) {
+    const isPage = indexableRoutes.has(target);
+    const isDocument = target.startsWith('/documents/') && existsSync(resolve(directory, target.slice(1)));
+    if (indexableRoutes.has(source) || (!isPage && !isDocument)) {
+      throw new Error(`Invalid legacy redirect: ${source} -> ${target}`);
+    }
+    const pattern = escapeRewritePattern(source.slice(1));
+    // mod_rewrite treats %N as a condition backreference, including in encoded filenames.
+    const documentUrl = () => target.split('/').map((segment) => encodeURIComponent(segment)
+      .replace(/[!'()*]/g, (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`))
+      .join('/').replace(/%/g, '\\%');
+    const destination = isPage ? pageUrl(target) : documentUrl();
+    rules.push(`RewriteRule ^${pattern}/?$ https://eaplworld.com${destination} [R=301,L,NE]`);
+  }
+
+  rules.push(
+    // Normalize known page directories before the hostname rule so these requests redirect once.
+    `RewriteRule ^(${[...indexableRoutes].filter((route) => route !== '/').map((route) => escapeRewritePattern(route.slice(1))).join('|')})$ https://eaplworld.com/$1/ [R=301,L,NE]`,
+    'RewriteCond %{HTTP_HOST} ^www\\.eaplworld\\.com(?::[0-9]+)?$ [NC,OR]',
+    'RewriteCond %{HTTPS} !=on',
+    'RewriteCond %{HTTP_HOST} ^(?:www\\.)?eaplworld\\.com(?::[0-9]+)?$ [NC]',
+    'RewriteRule ^ https://eaplworld.com%{REQUEST_URI} [R=301,L,NE]',
+  );
+  return `${errorPage}\n${rules.join('\n')}\n`;
+}
+
+function updatePageMetadata(directory, basePath) {
+  const canonicalRoutes = new Map([['index.html', '/']]);
+  for (const route of indexableRoutes) {
+    if (route === '/') continue;
+    canonicalRoutes.set(`${route.slice(1)}/index.html`, route);
+    const source = nestedCleanRoutes[route] || `${route.slice(1)}.html`;
+    if (!canonicalRoutes.has(source)) canonicalRoutes.set(source, route);
+    const alias = source.replace(/\.html$/, '/index.html');
+    if (!canonicalRoutes.has(alias) && existsSync(resolve(directory, alias))) canonicalRoutes.set(alias, route);
+  }
+
+  const normalizeLinks = (html) => html.replace(
+    /(\b(?:href|data-nav-href)=["'])(?:https?:\/\/(?:www\.)?eaplworld\.com)?(\/(?!\/)[^"'?#]*)([^"']*)/g,
+    (match, attribute, path, suffix) => {
+      const route = path.replace(/\/$|\.html$/g, '') || '/';
+      return indexableRoutes.has(route) ? `${attribute}${pageUrl(route)}${suffix}` : match;
+    },
+  );
+
+  for (const [file, route] of canonicalRoutes) {
+    const path = resolve(directory, file);
+    const html = normalizeLinks(readFileSync(path, 'utf8'))
+      .replace(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>\s*/gi, '')
+      .replace('</head>', `  <link rel="canonical" href="${siteUrl(basePath)}${pageUrl(route)}" />\n  </head>`);
+    writeFileSync(path, html);
+  }
+
+  for (const file of ['404.html', '404/index.html']) {
+    const path = resolve(directory, file);
+    writeFileSync(path, normalizeLinks(readFileSync(path, 'utf8'))
+      .replace('</head>', '  <meta name="robots" content="noindex" />\n  </head>'));
+  }
 }
 
 function prefixRootUrls(directory, basePath = deployBasePath) {
@@ -180,6 +253,7 @@ function prefixRootUrls(directory, basePath = deployBasePath) {
 
 function cleanUrlPages(basePath) {
   let resolvedBasePath = basePath;
+  let outputDirectory;
 
   const routeRequest = (request, response) => {
     if (!request.url) return;
@@ -191,7 +265,7 @@ function cleanUrlPages(basePath) {
 
     if (legacyRedirects[normalizedPath]) {
       response.statusCode = 301;
-      const destination = deployedPath(legacyRedirects[normalizedPath], resolvedBasePath);
+      const destination = deployedPath(pageUrl(legacyRedirects[normalizedPath]), resolvedBasePath);
       response.setHeader('Location', `${destination}${query ? `?${query}` : ''}`);
       response.end();
       return true;
@@ -209,6 +283,7 @@ function cleanUrlPages(basePath) {
     name: 'clean-url-pages',
     configResolved(config) {
       resolvedBasePath = config.base === '/' ? '/' : `/${config.base.replace(/^\/+|\/+$/g, '')}/`;
+      outputDirectory = resolve(config.root, config.build.outDir);
     },
     configureServer(server) {
       server.middlewares.use((request, response, next) => {
@@ -221,32 +296,36 @@ function cleanUrlPages(basePath) {
       });
     },
     closeBundle() {
-      for (const file of readdirSync(resolve(__dirname, 'dist'))) {
+      for (const file of readdirSync(outputDirectory)) {
         if (!file.endsWith('.html') || file === 'index.html') continue;
         const slug = file.slice(0, -5);
-        const directory = resolve(__dirname, 'dist', slug);
+        const directory = resolve(outputDirectory, slug);
         mkdirSync(directory, { recursive: true });
-        copyFileSync(resolve(__dirname, 'dist', file), resolve(directory, 'index.html'));
+        copyFileSync(resolve(outputDirectory, file), resolve(directory, 'index.html'));
       }
 
       for (const [route, file] of Object.entries(nestedCleanRoutes)) {
-        const directory = resolve(__dirname, 'dist', route.slice(1));
+        const directory = resolve(outputDirectory, route.slice(1));
         mkdirSync(directory, { recursive: true });
-        copyFileSync(resolve(__dirname, 'dist', file), resolve(directory, 'index.html'));
+        copyFileSync(resolve(outputDirectory, file), resolve(directory, 'index.html'));
       }
 
       for (const [route, target] of Object.entries(legacyRedirects)) {
         const redirectFile = route.endsWith('.html')
-          ? resolve(__dirname, 'dist', route.slice(1))
-          : resolve(__dirname, 'dist', route.slice(1), 'index.html');
+          ? resolve(outputDirectory, route.slice(1))
+          : resolve(outputDirectory, route.slice(1), 'index.html');
         mkdirSync(resolve(redirectFile, '..'), { recursive: true });
-        writeFileSync(redirectFile, createStaticRedirect(target, resolvedBasePath));
+        writeFileSync(redirectFile, createStaticRedirect(pageUrl(target), resolvedBasePath));
       }
 
-      writeFileSync(resolve(__dirname, 'dist', 'sitemap.xml'), createSitemap(resolvedBasePath));
-      writeFileSync(resolve(__dirname, 'dist', '.htaccess'),
-        `# Show the custom page while preserving the HTTP 404 status.\nErrorDocument 404 ${deployedPath('/404.html', resolvedBasePath)}\n`);
-      prefixRootUrls(resolve(__dirname, 'dist'), resolvedBasePath);
+      updatePageMetadata(outputDirectory, resolvedBasePath);
+      writeFileSync(resolve(outputDirectory, 'sitemap.xml'), createSitemap(resolvedBasePath));
+      writeFileSync(resolve(outputDirectory, '.htaccess'), createApacheConfig(resolvedBasePath, outputDirectory));
+      if (resolvedBasePath === '/' && siteUrl(resolvedBasePath) === 'https://eaplworld.com') {
+        writeFileSync(resolve(outputDirectory, 'robots.txt'),
+          'User-agent: *\nDisallow: /node/\nDisallow: /taxonomy/\n\nSitemap: https://eaplworld.com/sitemap.xml\n');
+      }
+      prefixRootUrls(outputDirectory, resolvedBasePath);
     },
   };
 }

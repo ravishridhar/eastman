@@ -263,6 +263,9 @@ async function loadPage(url, { push = true } = {}) {
 
   currentMain.replaceWith(nextMain);
   document.title = nextDoc.title || document.title;
+  const nextCanonical = nextDoc.querySelector('link[rel="canonical"]');
+  const currentCanonical = document.querySelector('link[rel="canonical"]');
+  if (nextCanonical && currentCanonical) currentCanonical.replaceWith(nextCanonical);
   document.body.className = nextDoc.body.className;
   closeMenu();
   closeDesktopMenu();
@@ -686,8 +689,9 @@ function setupDirectorDialog() {
 
   const setProfileUrl = (slug = '') => {
     if (!profileBase) return;
-    const nextPath = slug ? `/${profileBase}/${slug}` : `/${profileBase}`;
-    if (window.location.pathname.replace(/\/$/, '') !== nextPath) {
+    const base = import.meta.env.BASE_URL;
+    const nextPath = slug ? `${base}${profileBase}/${slug}/` : `${base}${profileBase}/`;
+    if (window.location.pathname !== nextPath) {
       window.history.pushState({ leadershipProfile: slug || null }, '', nextPath);
     }
   };

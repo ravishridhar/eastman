@@ -1,6 +1,6 @@
 const BASE_URL = import.meta.env.BASE_URL || './';
 const assetPath = (path) => `${BASE_URL}${path}`;
-const pagePath = (path = '') => `${BASE_URL}${path.replace(/\.html(?=($|[?#]))/, '')}`;
+const pagePath = (path = '') => `${BASE_URL}${path.replace(/^([^?#]+)/, (route) => `${route.replace(/\.html$|\/$/, '')}/`)}`;
 const headerLogo = new URL('../images/footer-logo-new.svg', import.meta.url).href;
 const footerLogo = new URL('../images/eastman-logo-new.svg', import.meta.url).href;
 const socialIcons = {

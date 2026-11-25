@@ -116,7 +116,7 @@ if (main && data) {
     <section class="research-cta">
       <div class="research-cta__inner">
         <div><small>Partner with us</small><h2>Build the next generation of energy hardware with Eastman.</h2></div>
-        <a href="/contact-us">Get in touch &nbsp;→</a>
+        <a href="/contact-us/">Get in touch &nbsp;→</a>
       </div>
     </section>
   `;
